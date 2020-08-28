@@ -13,4 +13,12 @@ class Apartment extends Model
     public function messages() {
         return $this->hasMany('App\Message');
     }
+
+    public function sponsors() {
+        return $this->belongToMany('App\Sponsor');
+    }
+
+    public function services() {
+        return $this->belongToMany('App\Service');
+    }
 }
