@@ -7,7 +7,7 @@
                 <h1>Elenco Articoli</h1>
             </div>
             <div class="col-6 text-right">
-                <a class="btn btn-primary" href="{{route('admin.apartments.create')}}">Aggiungi Post</a>
+                <a class="btn btn-primary" href="{{route('admin.apartments.create')}}">Aggiungi appartamento</a>
             </div>
         </div>
         <div class="row">
