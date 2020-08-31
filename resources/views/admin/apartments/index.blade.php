@@ -29,16 +29,16 @@
 
                     <div class="buttons">
                         <a class=" btn btn-outline-primary" value="Dettagli" href="
-                        {{-- {{ route('admin.apartments.show',['appartament'=> $appartamenti->id])}} --}}
+                        {{-- {{ route('admin.apartments.show',['apartment'=> $apartment->id])}} --}}
                         "><i class="fas fa-search"></i></a>
 
                         <a class="btn btn-outline-success" value="Modifica"  href="
-                        {{-- {{ route('admin.apartments.edit',['appartament'=> $appartamenti->id])}} --}}
+                        {{-- {{ route('admin.apartments.edit',['apartment'=> $apartment->id])}} --}}
                         "
                         ><i class="fas fa-pencil-alt"></i></a>
 
                         <form class="d-inline" action="
-                        {{-- {{ route('admin.apartments.destroy', ['appartament' => $appartamenti->id]) }} --}}
+                        {{-- {{ route('admin.apartments.destroy', ['apartment' => $apartment->id]) }} --}}
                         "
                         method="post">
                         @csrf
