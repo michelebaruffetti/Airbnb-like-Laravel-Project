@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Service;
 
 class ApartmentController extends Controller
 {
@@ -24,8 +25,11 @@ class ApartmentController extends Controller
      public function index()
     {
         $id = Auth::id();
-        $appartamenti = Apartment::all()->where('user_id', $id);
-        return view('admin.home', compact('appartamenti'));
+        $apartments = Apartment::all()->where('user_id', $id);
+        $data = [
+            'apartments' => $apartments
+        ];
+        return view('admin.apartments.index', $data);
     }
 
     /**
@@ -35,7 +39,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        return view('admin.apartments.create', $services);
     }
 
     /**
@@ -46,7 +51,22 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255|alpha_num',
+            'description' => 'required|max:2000',
+            'room' => 'required|numeric|max:10',
+            'bath' => 'required|numeric|max:10',
+            'square_meters' => 'required|numeric|max:1000',
+        ]);
+
+        $dati = $request->all();
+        $apartment = new Apartment();
+        $apartment->fill($dati);
+        $apartment->save();
+        if(!empty($dati['services'])) {
+         $apartment->services()->sync($dati['services']);
+        }
+        return redirect()->route('admin.apartments.index');
     }
 
     /**
@@ -57,7 +77,16 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartment = Apartment::find($id);
+        if($apartment){
+            $data = [
+                'apartment' => $apartment
+            ];
+            return view('admin.apartments.show', $data);
+        }else{
+             return abort('404');
+        }
+
     }
 
     /**
@@ -68,7 +97,17 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $apartment = Apartment::find($id);
+        if($apartment) {
+           $services = Service::all();
+           $data = [
+               'apartment' => $apartment,
+               'services' => $services
+           ];
+           return view('admin.apartments.edit', $data);
+        } else {
+           return abort('404');
+        }
     }
 
     /**
@@ -80,7 +119,23 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255|alpha_num',
+            'description' => 'required|max:2000',
+            'room' => 'required|numeric|max:10',
+            'bath' => 'required|numeric|max:10',
+            'square_meters' => 'required|numeric|max:1000',
+        ]);
+
+        $dati = $request->all();
+        $apartment = Apartment::find($id);
+        $apartment->update($dati);
+        if(!empty($dati['services'])) {
+            $apartment->services()->sync($dati['services']);
+        }else{
+            $apartment->services()->detach();
+       }
+       return redirect()->route('admin.apartments.index');
     }
 
     /**
@@ -91,6 +146,12 @@ class ApartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $apartment = Apartment::find($id);
+        if($apartment) {
+            $apartment->delete();
+            return redirect()->route('admin.apartments.index');
+        } else {
+            return abort('404');
+        }
     }
 }
