@@ -22,48 +22,53 @@
 
 </head>
 <body>
-    <div class="sidebar float-left">
-        <ul>
-            <li class="mt-3">
-                <p>
-                    <span class="icon"><i class="far fa-laugh-wink"></i></span>
-                    <span class="title">Ciao {{ Auth::user()->name }}</span>
-                </p>
-            </li>
-            <li>
-                <a href="{{ route('home') }}">
-                    <span class="icon"><i class="fas fa-home"></i></span>
-                    <span class="title">Visita il sito</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.home') }}">
-                    <span class="icon"><i class="fas fa-user"></i></span>
-                    <span class="title">Profilo</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.apartments.index') }}">
-                    <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                    <span class="title">Appartamenti</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                    <span class="title">Logout</span>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </li>
-        </ul>
-    </div>
-    <div class="toggle">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 sidebar">
+                <ul>
+                    <li class="mt-3">
+                        <p>
+                            <span class="icon"><i class="far fa-laugh-wink"></i></span>
+                            <span class="title">Ciao {{ Auth::user()->name }}</span>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="{{ route('home') }}">
+                            <span class="icon"><i class="fas fa-home"></i></span>
+                            <span class="title">Visita il sito</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.home') }}">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="title">Profilo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.apartments.index') }}">
+                            <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                            <span class="title">Appartamenti</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <span class="title">Logout</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            {{-- <div class="toggle">
 
+            </div> --}}
+            <div class=" col-9 text-center">
+                @yield('content')
+            </div>
+        </div>
     </div>
-    <div class="main text-center">
-        @yield('content')
-    </div>
+
 </body>
 </html>

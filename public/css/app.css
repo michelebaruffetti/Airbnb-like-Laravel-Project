@@ -10904,21 +10904,9 @@ a.text-dark:focus {
   }
 }
 
-body {
-  min-height: 100vh;
-}
-
-div.main {
-  margin-left: 300px;
-}
-
 .sidebar {
-  position: fixed;
-  width: 300px;
-  height: 100%;
+  min-height: 100vh;
   background-color: grey;
-  transition: 0.5s;
-  overflow: hidden;
 }
 
 .sidebar ul {
