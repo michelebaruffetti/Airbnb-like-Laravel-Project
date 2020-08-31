@@ -13,16 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
+//rotte pubbliche
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('auth')->group(function () {
+//Rotta che mappa la home page dell'amministratore
+Route::prefix('admin')
+->namespace('Admin')
+->name('admin.')
+->middleware('auth')
+->group(function () {
    Route::get('/', 'HomeController@index')->name('home');
-   Route::resource('apartments', 'ApartmentController');
+   Route::resource('/apartments', 'ApartmentController');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
