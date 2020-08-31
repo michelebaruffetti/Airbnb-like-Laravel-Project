@@ -12,10 +12,18 @@ class ApartmentController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
-    public function index()
+
+    // public function __construct() {
+    //     $this->middleware('auth'); //->except('index') oppure ->only('index')
+    // }
+
+
+     public function index()
     {
-        
+        $apartments = Apartment::all();
+        return view('admin.apartments.index', compact('apartments'));
     }
 
     /**
