@@ -25,7 +25,7 @@ class ApartmentController extends Controller
     {
         $id = Auth::id();
         $appartamenti = Apartment::all()->where('user_id', $id);
-        return view('admin.home', compact('appartamenti'));
+        return view('admin.apartments.index', compact('appartamenti'));
     }
 
     /**
