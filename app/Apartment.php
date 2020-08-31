@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
 {
+    protected $fillable = ['title', 'desription', 'room', 'bath', 'square_meters', 'latitude', 'longitude', 'image_url', 'status'];
+
     public function user() {
         return $this->belongsTo('App\User');
     }
@@ -15,10 +17,10 @@ class Apartment extends Model
     }
 
     public function sponsors() {
-        return $this->belongToMany('App\Sponsor');
+        return $this->belongsToMany('App\Sponsor');
     }
 
     public function services() {
-        return $this->belongToMany('App\Service');
+        return $this->belongsToMany('App\Service');
     }
 }
