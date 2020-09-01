@@ -37,12 +37,6 @@ class CreateApartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('apartments', function (Blueprint $table) {
-            $table->dropForeign('apartments_user_id_foreign');
-            $table->dropForeign('apartments_user_id_foreign');
-            apartment_service_apartment_id_foreign
-        });
-
         Schema::dropIfExists('apartments');
     }
 }

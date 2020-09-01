@@ -16,8 +16,8 @@ class CreateApartmentSponsorTable extends Migration
         Schema::create('apartment_sponsor', function (Blueprint $table) {
             $table->unsignedBigInteger('apartment_id');
             $table->unsignedBigInteger('sponsor_id');
-            $table->foreign('apartment_id')->references('id')->on('apartments');
-            $table->foreign('sponsor_id')->references('id')->on('sponsors');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
+            $table->foreign('sponsor_id')->references('id')->on('sponsors')->onDelete('cascade');
             $table->primary(['apartment_id', 'sponsor_id']);
             $table->timestamps();
             $table->dateTime('end_date');
