@@ -122,7 +122,7 @@ class ApartmentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|max:255|alpha_num',
+            'title' => 'required|max:255',
             'description' => 'required|max:2000',
             'room' => 'required|numeric|max:10',
             'bath' => 'required|numeric|max:10',
