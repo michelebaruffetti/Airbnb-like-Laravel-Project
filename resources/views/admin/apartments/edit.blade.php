@@ -32,12 +32,14 @@
                     <select class="form-control" name="room" id="numero-stanze">
                         {{-- <option value="">Seleziona il numero di stanze</option> --}}
                         @for ($i = 1; $i <= 10; $i++)
-                            <option value="{{$i}}"
+                            {{-- <option value="{{$i}}"
             
-                            >
+                            > --}}
+                            <option value='{{$i}}' {{ old('room',$apartment->room)==$i ? 'selected' : ''  }}>{{$i}}</option>
+
                             {{-- {{ old('category_id'), ($post->category->id ?? '') == $category->id ? 'selected' : ''}}> --}}
-                            {{ $i }}
-                            </option>
+                            {{-- {{ $i }}
+                            </option> --}}
 
                             
                         @endfor
@@ -48,11 +50,8 @@
                     <select class="form-control" name="bath" id="numero-bagni">
                         {{-- <option value="">Seleziona il numero di bagni</option> --}}
                         @for ($i = 1; $i <= 10; $i++)
-                            <option
-                            {{-- {{ old('category_id') == $category->id ? 'selected' : '' }} --}}
-                            value="{{ $i }}">
-                            {{ $i }}
-                            </option>
+                            
+                            <option value='{{$i}}' {{ old('bath',$apartment->bath)==$i ? 'selected' : ''  }}>{{$i}}</option>
                         @endfor
                     </select>
                 </div>
