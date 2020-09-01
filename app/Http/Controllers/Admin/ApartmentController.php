@@ -40,7 +40,7 @@ class ApartmentController extends Controller
     public function create()
     {
         $services = Service::all();
-        return view('admin.apartments.create', $services);
+        return view('admin.apartments.create', compact('services'));
     }
 
     /**
@@ -52,14 +52,16 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255|alpha_num',
+            'title' => 'required|max:255',
             'description' => 'required|max:2000',
-            'room' => 'required|numeric|max:10',
+            'room' => 'numeric|max:10',
             'bath' => 'required|numeric|max:10',
             'square_meters' => 'required|numeric|max:1000',
         ]);
 
+        $id = Auth::id();
         $dati = $request->all();
+        $dati['user_id'] = $id;
         $apartment = new Apartment();
         $apartment->fill($dati);
         $apartment->save();
@@ -134,8 +136,8 @@ class ApartmentController extends Controller
             $apartment->services()->sync($dati['services']);
         }else{
             $apartment->services()->detach();
-       }
-       return redirect()->route('admin.apartments.index');
+        }
+        return redirect()->route('admin.apartments.index');
     }
 
     /**

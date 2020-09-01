@@ -16,13 +16,13 @@ class CreateApartmentsTable extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->smallInteger('room');
             $table->smallInteger('bath');
             $table->smallInteger('square_meters');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('image_url');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('image_url')->nullable();
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -37,6 +37,12 @@ class CreateApartmentsTable extends Migration
      */
     public function down()
     {
+        Schema::table('apartments', function (Blueprint $table) {
+            $table->dropForeign('apartments_user_id_foreign');
+            $table->dropForeign('apartments_user_id_foreign');
+            apartment_service_apartment_id_foreign
+        });
+
         Schema::dropIfExists('apartments');
     }
 }
