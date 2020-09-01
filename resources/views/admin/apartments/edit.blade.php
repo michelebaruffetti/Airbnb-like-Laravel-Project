@@ -75,7 +75,7 @@
                                         {{ $apartment->services->contains($service) ? 'checked' : '' }}
                                     @endif
                                     class="form-check-input"
-                                    name="tags[]"
+                                    name="services[]"
                                     type="checkbox"
                                     value="{{ $service->id }}">
                                 {{ $service->description }}
