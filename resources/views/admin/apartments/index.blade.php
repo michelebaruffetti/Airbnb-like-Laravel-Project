@@ -20,7 +20,7 @@
             @forelse ($apartments as $apartment)
             <div class="col-12 d-flex rounded border border-color-grey py-2">
                 <div class="col-4  immagine">
-                    <img class="rounded img-fluid" src="https://placekitten.com/500/300" alt="foto-appartamento">
+                    <img class="rounded img-fluid" src="{{$apartment->image_url}}" alt="foto-appartamento">
                 </div>
                 <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">
