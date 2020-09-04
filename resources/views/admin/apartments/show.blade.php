@@ -33,10 +33,11 @@
                         <i class="fas fa-ruler "></i><span class="badge">area</span>
                     </div>
                     <span class="badge ">{{$apartment->square_meters}}</span>
+
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="d-flex justify-content-between w-50">
-                    <i class="fas fa-bed"></i> <span class="badge">stanze</span>
+                        <i class="fas fa-bed"></i> <span class="badge">stanze</span>
                     </div>
                     <span class="badge ">{{$apartment->room}}</span>
                 </li>
