@@ -16,14 +16,15 @@
         </div>
     </div>
     <div class="container lista-cards">
-        <div class="row">
+        <div class="row mb-2">
             @forelse ($apartments as $apartment)
-            <div class="col-12 d-flex rounded border border-color-grey py-2">
-                <div class="col-4  immagine">
+            <div class="col-12 d-flex rounded border border-color-grey py-2 mt-1 mb-1">
+                <div class="col-4  immagine d-flex align-items-center">
                     @if ($apartment->image_url)
-                        <img class="rounded img-fluid" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
-                        <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento">
+                        {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
+                        <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
                     @endif
                 </div>
                 <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
