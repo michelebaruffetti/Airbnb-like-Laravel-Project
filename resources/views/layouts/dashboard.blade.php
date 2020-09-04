@@ -29,7 +29,15 @@
                     <li class="mt-3">
                         <p>
                             <span class="icon"><i class="far fa-laugh-wink"></i></span>
-                            <span class="title">Ciao {{ Auth::user()->name }}</span>
+                            <span class="title">
+                                Ciao {{ Auth::user()->name }}
+
+                                {{-- mostra avatar solo se presente --}}
+                                @if (Auth::user()->avatar)
+                                <img src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" width="70">
+                                {{-- altrimenti non mostra nulla --}}
+                                @endif
+                            </span>
                         </p>
                     </li>
                     <li>

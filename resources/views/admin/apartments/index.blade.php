@@ -20,7 +20,11 @@
             @forelse ($apartments as $apartment)
             <div class="col-12 d-flex rounded border border-color-grey py-2">
                 <div class="col-4  immagine">
-                    <img class="rounded img-fluid" src="{{$apartment->image_url}}" alt="foto-appartamento">
+                    @if ($apartment->image_url)
+                        <img class="rounded img-fluid" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                    @else
+                        <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento">
+                    @endif
                 </div>
                 <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">

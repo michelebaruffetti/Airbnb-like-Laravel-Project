@@ -56,10 +56,10 @@
                         <label for="mq">Dimensioni</label>
                         <input type="number" name="square_meters" class="form-control" id="mq" placeholder="Inserisci le dimensioni in mq dell'appartamento..." value="{{ old('square_meters') }}">
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label for="immagine">Immagine</label>
                         <input type="file" name="image" class="form-control-file">
-                    </div> --}}
+                    </div>
                     <div class="form-group">
                         Servizi:
                         @foreach ($services as $service)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Service;
@@ -62,6 +63,13 @@ class ApartmentController extends Controller
         $id = Auth::id();
         $dati = $request->all();
         $dati['user_id'] = $id;
+
+        if($dati['image']) {
+            //carico immagine
+            $img_path = Storage::put('uploads', $dati['image']);
+            $dati['image_url'] = $img_path;
+        }
+
         $apartment = new Apartment();
         $apartment->fill($dati);
         $apartment->save();
@@ -156,4 +164,34 @@ class ApartmentController extends Controller
             return abort('404');
         }
     }
+
+    // public function uploadImage(Request $request) {
+    //     if ($request->hasFile('image')) {
+    //         //upload avatar
+    //         $filename = $request->image->getClientOriginalName();
+    //         //richiamo la funzione che cancella gli avatar precedenti
+    //         //se l'avatar è già presente, cancellalo
+    //         $this->deleteOldImage();
+    //         //carica l'avatar (se è presente lo cancella e carica la nuova foto, se non è presente carica la foto e basta)
+    //         $request->image->storeAs('image/appartamenti', $filename, 'public');
+    //         auth()->user()->update(['image_url' => $filename]);
+    //         //fine upload avatar
+
+    //         //mostro messaggio di ok se l'immagine è caricata con successo
+    //         //metodo 2 stackoverflow
+    //         // return redirect()->back()->with('success', 'Hai caricato la tua immagine'); //messaggio ok
+    //     }
+
+    //     // return redirect()->back()->with('error', 'Qualcosa è andato storto'); // messaggio errore
+
+
+    // }
+
+    // // funzione per sovrascrivere i vecchi avatar
+    // // se avatar già presente, cancellalo
+    // protected function deleteOldImage() {
+    //     if (auth()->user()->avatar){
+    //         Storage::delete('/public/image/' . auth()->user()->avatar);
+    //     }
+    // }
 }

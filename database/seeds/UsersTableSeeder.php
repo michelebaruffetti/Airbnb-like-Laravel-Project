@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 use App\User;
 
 class UsersTableSeeder extends Seeder
@@ -10,7 +11,7 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         $users = config('users');
         foreach ($users as $user) {

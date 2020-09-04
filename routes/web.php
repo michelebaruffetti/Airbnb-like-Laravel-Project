@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//aggiungo per sfruttare la funzione request facade di laravel
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +30,13 @@ Route::prefix('admin')
 ->name('admin.')
 ->middleware('auth')
 ->group(function () {
-   Route::get('/', 'HomeController@index')->name('home');
-   Route::resource('/apartments', 'ApartmentController');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('/apartments', 'ApartmentController');
 });
 
+//avatar
+Route::post('/upload', 'UserController@uploadAvatar');
+
+// //image
+// Route::post('/uploads', 'ApartmentController@uploadImage');
 

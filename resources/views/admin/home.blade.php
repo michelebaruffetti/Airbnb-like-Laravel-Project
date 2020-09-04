@@ -16,6 +16,13 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <div class="card-body">
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="image">
+                        <input type="submit" value="upload">
+                    </form>
+                </div>
             </div>
             <h1>Questa è la home dell'UPR/UPRA</h1>
         </div>
