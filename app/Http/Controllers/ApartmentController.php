@@ -48,7 +48,7 @@ class ApartmentController extends Controller
         $message = new Message();
         $message->fill($dati);
         $message->save();
-        return redirect()->route('show', $id);
+        return redirect()->back()->with('message', 'Messaggio inviato con successo');
     }
 
     /**

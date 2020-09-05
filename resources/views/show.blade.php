@@ -1,11 +1,24 @@
 @extends('layouts.app')
-
 @section('content')
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                {{ session()->get('message') }}
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
+
 
 {{-- DETTAGLI APPARTAMENTO GUEST --}}
 
 {{-- sezione immagine --}}
 <div class="container-fluid immagine mt-3">
+
     <div class="row">
         <div class="col-9 text-center ">
             @if ($apartment->image_url)
