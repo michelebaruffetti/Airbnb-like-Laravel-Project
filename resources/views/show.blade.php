@@ -6,8 +6,8 @@
 
 {{-- sezione immagine --}}
 <div class="container-fluid immagine mt-3">
-    <div class="row justify-content-center ">
-        <div class="col-12 ">
+    <div class="row">
+        <div class="col-9 text-center ">
             @if ($apartment->image_url)
                 <img class="img-fluid rounded img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}"  alt="foto appartamento">
             @else
