@@ -33,6 +33,7 @@ Route::prefix('admin')
 ->middleware('auth')
 ->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/message', 'HomeController@message')->name('message');
     Route::resource('/apartments', 'ApartmentController');
 });
 

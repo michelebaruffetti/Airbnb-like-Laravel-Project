@@ -59,6 +59,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('admin.message') }}">
+                            <span class="icon"><i class="fas fa-envelope"></i></span>
+                            <span class="title">Messaggi</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                             <span class="title">Logout</span>
