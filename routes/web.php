@@ -34,9 +34,9 @@ Route::prefix('admin')
     Route::resource('/apartments', 'ApartmentController');
 });
 
+
 //avatar
 Route::post('/upload', 'UserController@uploadAvatar');
 
 // //image
 // Route::post('/uploads', 'ApartmentController@uploadImage');
-

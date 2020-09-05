@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Service;
+use App\Sponsor;
 
 class ApartmentController extends Controller
 {
@@ -28,7 +29,7 @@ class ApartmentController extends Controller
         $id = Auth::id();
         $apartments = Apartment::all()->where('user_id', $id);
         $data = [
-            'apartments' => $apartments
+            'apartments' => $apartments,
         ];
         return view('admin.apartments.index', $data);
     }
@@ -87,10 +88,12 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+        $sponsors = Sponsor::all();
         $apartment = Apartment::find($id);
         if($apartment){
             $data = [
-                'apartment' => $apartment
+                'apartment' => $apartment,
+                'sponsors' => $sponsors
             ];
             return view('admin.apartments.show', $data);
         }else{
