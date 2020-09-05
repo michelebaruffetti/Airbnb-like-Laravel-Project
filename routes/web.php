@@ -23,6 +23,7 @@ Auth::routes();
 
 //rotte pubbliche
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/show/{apartment}', 'ApartmentController@show')->name('show');
 
 //Rotta che mappa la home page dell'amministratore
 Route::prefix('admin')
@@ -39,4 +40,3 @@ Route::post('/upload', 'UserController@uploadAvatar');
 
 // //image
 // Route::post('/uploads', 'ApartmentController@uploadImage');
-
