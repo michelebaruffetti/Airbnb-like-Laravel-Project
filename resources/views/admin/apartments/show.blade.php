@@ -30,7 +30,7 @@
             </div>
 
             {{-- promozioni --}}
-            <div class="container promozioni mt-5 mb-4">
+            <div class="container promozioni mb-4">
                 <div class="row">
                     <div class="col-10 offset-1">
                         <h3 class="text-center">Sponsorizza il tuo appartamento</h3>
