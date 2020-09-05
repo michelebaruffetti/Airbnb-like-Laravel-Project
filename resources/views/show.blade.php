@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+{{-- messaggio di conferma invio messaggio --}}
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">

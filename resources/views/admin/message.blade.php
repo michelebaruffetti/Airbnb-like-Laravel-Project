@@ -4,6 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <h1>I Tuoi Messaggi</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <table class="table">
                   <thead>
                     <tr>
