@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Apartment;
 
 class ApartmentController extends Controller
 {
@@ -45,7 +46,15 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartment = Apartment::find($id);
+        if($apartment){
+            $data = [
+                'apartment' => $apartment
+            ];
+            return view('show', $data);
+        }else{
+             return abort('404');
+        }
     }
 
     /**

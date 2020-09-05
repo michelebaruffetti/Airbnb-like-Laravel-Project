@@ -27,21 +27,25 @@
                     <label for="testo">Descrizione</label>
                     <textarea type="text" name="description" class="form-control" id="testo" placeholder="Inserisci descrizione dell'appartamento...">{{ old('description', $apartment->description) }}</textarea>
                 </div>
+
+                <!-- form indirizzo -->
+                <div class="form-group">
+                    <label for="form-address">Indirizzo</label>
+                    <input type="search" class="form-control" id="form-address" name="address" value="{{old('address', $apartment->address)}}" placeholder="Inserisci il tuo indirizzo">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
+                    <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude')}}">
+                </div>
+
                 <div class="form-group">
                     <label for="numero-stanze">Numero di stanze:</label>
                     <select class="form-control" name="room" id="numero-stanze">
                         {{-- <option value="">Seleziona il numero di stanze</option> --}}
                         @for ($i = 1; $i <= 10; $i++)
-                            {{-- <option value="{{$i}}"
-            
-                            > --}}
+
                             <option value='{{$i}}' {{ old('room',$apartment->room)==$i ? 'selected' : ''  }}>{{$i}}</option>
 
-                            {{-- {{ old('category_id'), ($post->category->id ?? '') == $category->id ? 'selected' : ''}}> --}}
-                            {{-- {{ $i }}
-                            </option> --}}
-
-                            
                         @endfor
                     </select>
                 </div>
@@ -50,7 +54,7 @@
                     <select class="form-control" name="bath" id="numero-bagni">
                         {{-- <option value="">Seleziona il numero di bagni</option> --}}
                         @for ($i = 1; $i <= 10; $i++)
-                            
+
                             <option value='{{$i}}' {{ old('bath',$apartment->bath)==$i ? 'selected' : ''  }}>{{$i}}</option>
                         @endfor
                     </select>
@@ -59,10 +63,16 @@
                     <label for="mq">Dimensioni</label>
                     <input type="number" name="square_meters" class="form-control" id="mq" placeholder="Inserisci le dimensioni in mq dell'appartamento..." value="{{ old('square_meters', $apartment->square_meters) }}">
                 </div>
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label for="immagine">Immagine</label>
-                    <input type="file" name="image" class="form-control-file">
+                    <input type="file" name="image" id="immagine" class="form-control-file">
+                </div>
+
+                {{-- <div class="">
+                        <img src="{{asset('storage/' . $apartment->image_url)}}" alt="foto appartamento">
                 </div> --}}
+
+
                 <div class="form-group">
                     Servizi:
                     @foreach ($services as $service)
@@ -88,4 +98,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script src="{{ asset('js/search.js') }}" charset="utf-8"></script>
 @endsection

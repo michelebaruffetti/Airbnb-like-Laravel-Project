@@ -26,14 +26,25 @@
                         <label for="testo">Descrizione</label>
                         <textarea type="text" name="description" class="form-control" id="testo" placeholder="Inserisci descrizione dell'appartamento...">{{ old('description') }}</textarea>
                     </div>
+
+                    <!-- form indirizzo -->
+                    <div class="form-group">
+                        <label for="form-address">Indirizzo</label>
+                        <input type="search" class="form-control" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
+                        <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude')}}">
+                    </div>
+
+
                     <div class="form-group">
                         <label for="numero-stanze">Numero di stanze:</label>
                         <select class="form-control" name="room" id="numero-stanze">
                             <option value="">Seleziona il numero di stanze</option>
                             @for ($i = 1; $i <= 10; $i++)
                                 <option
-                                {{-- {{ old('category_id') == $category->id ? 'selected' : '' }} --}}
-                                value="{{ $i }}">
+                                value="{{ $i }}{{ old('room')}}">
                                 {{ $i }}
                                 </option>
                             @endfor
@@ -45,8 +56,7 @@
                             <option value="">Seleziona il numero di bagni</option>
                             @for ($i = 1; $i <= 10; $i++)
                                 <option
-                                {{-- {{ old('category_id') == $category->id ? 'selected' : '' }} --}}
-                                value="{{ $i }}">
+                                value="{{ $i }}{{ old('bath')}}">
                                 {{ $i }}
                                 </option>
                             @endfor
@@ -58,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="immagine">Immagine</label>
-                        <input type="file" name="image" class="form-control-file">
+                        <input type="file" name="image" id="immagine" class="form-control-file">
                     </div>
                     <div class="form-group">
                         Servizi:
@@ -81,4 +91,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="{{ asset('js/search.js') }}" charset="utf-8"></script>
 @endsection

@@ -65,7 +65,7 @@ class ApartmentController extends Controller
         $dati = $request->all();
         $dati['user_id'] = $id;
 
-        if($dati['image']) {
+        if(isset($dati['image'])) {
             //carico immagine
             $img_path = Storage::put('uploads', $dati['image']);
             $dati['image_url'] = $img_path;
@@ -138,9 +138,16 @@ class ApartmentController extends Controller
             'room' => 'required|numeric|max:10',
             'bath' => 'required|numeric|max:10',
             'square_meters' => 'required|numeric|max:1000',
+            'image' => 'image|max:1024'
         ]);
 
         $dati = $request->all();
+        if(isset($dati['image'])) {
+            //carico immagine
+            $img_path = Storage::put('uploads', $dati['image']);
+            $dati['image_url'] = $img_path;
+        }
+
         $apartment = Apartment::find($id);
         $apartment->update($dati);
         if(!empty($dati['services'])) {

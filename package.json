@@ -21,5 +21,10 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "@tomtom-international/web-sdk-maps": "^6.1.2-public-preview.6",
+        "@tomtom-international/web-sdk-services": "^6.1.2-public-preview.6",
+        "places.js": "^1.19.0"
     }
 }
