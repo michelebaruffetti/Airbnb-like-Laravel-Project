@@ -1,8 +1,8 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
 @section('content')
 
-{{-- DETTAGLI APPARTAMENTO ADMIN --}}
+{{-- DETTAGLI APPARTAMENTO GUEST --}}
 
 {{-- sezione immagine --}}
 <div class="container-fluid immagine mt-3">
@@ -29,25 +29,24 @@
                 <p>{{$apartment->description}}</p>
             </div>
 
-            {{-- promozioni --}}
+            {{-- SEZIONE MAPPA APPARTAMENTO --}}
             <div class="container promozioni mt-5 mb-4">
                 <div class="row">
                     <div class="col-10 offset-1">
-                        <h3 class="text-center">Sponsorizza il tuo appartamento</h3>
+                        <h3 class="text-center">Localizzazione appartamento</h3>
                     </div>
                 </div>
 
-                @foreach ($sponsors as $sponsor)
-                    <div class="row  mt-2">
-                        <div class="col-10 offset-1">
-                            <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                                <h5>Prezzo: {{$sponsor->price}}</h5>
-                                <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
 
-                            </div>
+                <div class="row  mt-2">
+                    <div class="col-10 offset-1">
+                        <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                            <h1>MAPPA</h1>
+
                         </div>
                     </div>
-                @endforeach
+                </div>
+
             </div>
         </div>
 
@@ -97,10 +96,9 @@
                     </ul>
             </div>
 
-            <div class="statistiche mt-3 text-center">
-
-                <img class="img-fluid rounded border border-color-grey" src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2018/12/24160114/LOSDOS1-1024x767.png" alt="grafici">
-                <button class="btn btn-success color-white mt-2 w-100" type="button" name="button">Le tue statistiche</button>
+            {{-- spazio invio messaggio --}}
+            <div class="mt-3 text-center">
+                <h1>INVIA MESSAGGIO</h1>
             </div>
 
 

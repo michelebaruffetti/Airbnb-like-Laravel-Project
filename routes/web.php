@@ -34,9 +34,11 @@ Route::prefix('admin')
     Route::resource('/apartments', 'ApartmentController');
 });
 
+//Rotta che mappa la home page del guest
+
+
 //avatar
 Route::post('/upload', 'UserController@uploadAvatar');
 
 // //image
 // Route::post('/uploads', 'ApartmentController@uploadImage');
-
