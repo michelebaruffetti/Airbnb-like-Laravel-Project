@@ -54,8 +54,18 @@
                 <div class="row  mt-2">
                     <div class="col-10 offset-1">
                         <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                            <h1>MAPPA</h1>
+                            <div id="map"></div>
+                            <script>
+                                var map = L.map('map').setView(['{{$apartment->latitude}}', '{{$apartment->longitude}}'], 13);
 
+                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                }).addTo(map);
+
+                                L.marker(['{{$apartment->latitude}}', '{{$apartment->longitude}}']).addTo(map)
+                                    .bindPopup('{{$apartment->address}}')
+                                    .openPopup();
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -162,3 +172,6 @@
 </div>
 
 @endsection
+{{-- @section('script')
+    <script src="{{asset('js/leaflet.js')}}"></script>
+@endsection --}}
