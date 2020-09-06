@@ -62,9 +62,17 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::find($id);
         if($apartment){
-            $data = [
-                'apartment' => $apartment
-            ];
+            if (Auth::check()) {
+                $user = Auth::user();
+                $data = [
+                    'apartment' => $apartment,
+                    'user' => $user
+                ];
+            }else{
+                $data = [
+                    'apartment' => $apartment
+                ];
+            }
             return view('show', $data);
         }else{
              return abort('404');

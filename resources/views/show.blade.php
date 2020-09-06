@@ -130,10 +130,20 @@
                     </div>
                     <div class="form-group">
                         <label for="mail">mail</label>
-                        <input type="email" name="email" class="form-control" id="mail" placeholder="Inserisci la tua email" value="{{ old('email') }}">
-                        @error('email')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                        @auth
+                            <input type="email" name="email" class="form-control" id="mail" readonly placeholder="{{$user->email}}" value="{{$user->email}}">
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        @endauth
+
+                        @guest
+                            <input type="email" name="email" class="form-control" id="mail" placeholder="Inserisci la tua email" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        @endguest
+
                     </div>
                     <div class="form-group">
                         <label for="testo">testo</label>
