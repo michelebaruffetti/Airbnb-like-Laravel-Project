@@ -10815,8 +10815,8 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
 
 (function () {
   var placesAutocomplete = places({
-    appId: 'plQJ0AF39XJK',
-    apiKey: '5c9f0d58aab1f0a7cb9f847a8786b412',
+    appId: "plQJ0AF39XJK",
+    apiKey: "5c9f0d58aab1f0a7cb9f847a8786b412",
     container: document.querySelector('#form-address'),
     templates: {
       value: function value(suggestion) {

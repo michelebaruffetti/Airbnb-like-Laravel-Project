@@ -2,8 +2,8 @@ var places = require('places.js');
 (function() {
 
     var placesAutocomplete = places({
-      appId: 'plQJ0AF39XJK',
-      apiKey: '5c9f0d58aab1f0a7cb9f847a8786b412',
+      appId: process.env.MIX_APP_ID,
+      apiKey: process.env.MIX_API_KEY,
       container: document.querySelector('#form-address'),
       templates: {
         value: function(suggestion) {
