@@ -1,17 +1,30 @@
 @extends('layouts.app')
-
 @section('content')
+{{-- messaggio di conferma invio messaggio --}}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                {{ session()->get('message') }}
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
+
 
 {{-- DETTAGLI APPARTAMENTO GUEST --}}
 
 {{-- sezione immagine --}}
 <div class="container-fluid immagine mt-3">
+
     <div class="row">
         <div class="col-9 text-center ">
             @if ($apartment->image_url)
-                <img class="img-fluid rounded img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}"  alt="foto appartamento">
+                <img class="img-fluid rounded img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto appartamento">
             @else
-                <img class="img-fluid rounded img-appartamento" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                <img class="img-fluid rounded img-appartamento" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg" alt="foto gatto">
             @endif
 
         </div>
@@ -41,8 +54,18 @@
                 <div class="row  mt-2">
                     <div class="col-10 offset-1">
                         <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                            <h1>MAPPA</h1>
+                            <div id="map"></div>
+                            <script>
+                                var map = L.map('map').setView(['{{$apartment->latitude}}', '{{$apartment->longitude}}'], 13);
 
+                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                }).addTo(map);
+
+                                L.marker(['{{$apartment->latitude}}', '{{$apartment->longitude}}']).addTo(map)
+                                    .bindPopup('{{$apartment->address}}')
+                                    .openPopup();
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -96,9 +119,51 @@
                     </ul>
             </div>
 
-            {{-- spazio invio messaggio --}}
+            {{-- form invio messaggio --}}
             <div class="mt-3 text-center">
                 <h1>INVIA MESSAGGIO</h1>
+                <form class="" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="name" class="form-control" id="nome" placeholder="Inserisci il tuo nome" value="{{ old('name') }}">
+                        @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" name="lastname" class="form-control" id="nome" placeholder="Inserisci il tuo Cognome" value="{{ old('lastname') }}">
+                        @error('lastname')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">mail</label>
+                        @auth
+                            <input type="email" name="email" class="form-control" id="mail" readonly placeholder="{{$user->email}}" value="{{$user->email}}">
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        @endauth
+
+                        @guest
+                            <input type="email" name="email" class="form-control" id="mail" placeholder="Inserisci la tua email" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        @endguest
+
+                    </div>
+                    <div class="form-group">
+                        <label for="testo">testo</label>
+                        <textarea name="text" id="testo" rows="8" cols="32"></textarea>
+                        @error('text')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">Invia</button>
+                </form>
             </div>
 
 
@@ -107,3 +172,6 @@
 </div>
 
 @endsection
+{{-- @section('script')
+    <script src="{{asset('js/leaflet.js')}}"></script>
+@endsection --}}

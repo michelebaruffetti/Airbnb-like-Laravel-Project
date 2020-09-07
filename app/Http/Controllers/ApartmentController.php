@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Apartment;
+use App\Message;
 
 class ApartmentController extends Controller
 {
@@ -33,9 +35,21 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+     //salva il messaggio
+    public function store(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+            'lastname' => 'required|max:2000',
+            'email' => 'required|email',
+            'text' => 'required',
+        ]);
+        $dati = $request->all();
+        $dati['apartment_id'] = $id;
+        $message = new Message();
+        $message->fill($dati);
+        $message->save();
+        return redirect()->back()->with('message', 'Messaggio inviato con successo');
     }
 
     /**
@@ -48,46 +62,21 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::find($id);
         if($apartment){
-            $data = [
-                'apartment' => $apartment
-            ];
+            if (Auth::check()) {
+                $user = Auth::user();
+                $data = [
+                    'apartment' => $apartment,
+                    'user' => $user
+                ];
+            }else{
+                $data = [
+                    'apartment' => $apartment
+                ];
+            }
             return view('show', $data);
         }else{
              return abort('404');
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
