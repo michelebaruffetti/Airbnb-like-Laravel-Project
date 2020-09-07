@@ -14,7 +14,7 @@ class HomeController extends Controller
         return view('admin.home');
     }
 
-    public function message(){
+    public function readmessage(){
         $id = Auth::id();
         $messages = DB::table('apartments')
             ->join('messages', 'apartments.id', '=', 'messages.apartment_id')

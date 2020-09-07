@@ -16,9 +16,9 @@ var places = require('places.js');
     placesAutocomplete.on('change', function resultSelected(e) {
       document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';
       document.querySelector('#longitude').value = e.suggestion.latlng.lng || '';
-      var latitude = e.suggestion.latlng.lat || '';
-      var longitude = e.suggestion.latlng.lng || '';
-      console.log(latitude);
-      console.log(longitude);
+      // var latitude = e.suggestion.latlng.lat || '';
+      // var longitude = e.suggestion.latlng.lng || '';
+      // console.log(latitude);
+      // console.log(longitude);
     });
   })();

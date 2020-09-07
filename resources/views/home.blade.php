@@ -7,13 +7,13 @@
                 <h1>Questa è la home generale</h1>
             </div>
         </div>
-        <form class="" action="index.html" method="post" enctype="multipart/form-data">
+        <form class="" action="{{Route('search')}}" method="post" enctype="multipart/form-data">
             @csrf
         <div class="row">
             <div class="col-8">
                 <div class="form-group">
                     <label for="form-address">Indirizzo</label>
-                    <input type="search" class="form-control" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
+                    <input type="text" class="form-control" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
                 </div>
                 <div class="form-group">
                     <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
