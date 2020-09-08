@@ -1,5 +1,6 @@
 $(document).ready(function(){
 //chiamata ajax
+$('#ricerca').click(function(){
 
     $.ajax({
         url: 'api/allapartments',
@@ -8,10 +9,12 @@ $(document).ready(function(){
             var latitude = $('#latitude').val();
             var longitude = $('#longitude').val();
             var raggio = $('#range').val();
+            var servizi = $('#range').val();
+
             console.log(latitude);
             console.log(longitude);
             console.log(raggio);
-            console.log(data);
+
 
 
 
@@ -19,6 +22,12 @@ $(document).ready(function(){
         }
 
     })
+
+
+
+
+})
+
 
 
 })

@@ -37335,18 +37335,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 $(document).ready(function () {
   //chiamata ajax
-  $.ajax({
-    url: 'api/allapartments',
-    method: 'GET',
-    success: function success(data) {
-      var latitude = $('#latitude').val();
-      var longitude = $('#longitude').val();
-      var raggio = $('#range').val();
-      console.log(latitude);
-      console.log(longitude);
-      console.log(raggio);
-      console.log(data);
-    }
+  $('#ricerca').click(function () {
+    $.ajax({
+      url: 'api/allapartments',
+      method: 'GET',
+      success: function success(data) {
+        var latitude = $('#latitude').val();
+        var longitude = $('#longitude').val();
+        var raggio = $('#range').val();
+        var servizi = $('#range').val();
+        console.log(latitude);
+        console.log(longitude);
+        console.log(raggio);
+      }
+    });
   });
 });
 

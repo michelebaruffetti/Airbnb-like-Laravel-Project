@@ -10,15 +10,10 @@ use App\Apartment;
 class ApartmentController extends Controller
 {
 
-    public function all(){
+    public function all(Request $request){
+
         $apartments = Apartment::all()->where('status', '1');
-        // $apartments = DB::table('apartments')
-        // ->leftJoin('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
-        // ->leftJoin('services', 'apartment_service.service_id', '=', 'services.id')->where('status', '1')->get();
-        // $data = [];
-        // foreach ($apartments as $apartment) {
-        //
-        // }
+
         return response()->json($apartments);
     }
 

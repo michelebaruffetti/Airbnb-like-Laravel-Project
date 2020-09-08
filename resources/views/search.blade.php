@@ -41,7 +41,7 @@
                             {{in_array($service->id, $ricerca['services']) ? 'checked' : '' }}
                         @endisset
 
-                                class="form-check-input"
+                                class="form-check-input "
                                 name="services[]"
                                 type="checkbox"
                                 value="{{ $service->id }}">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="col-2">
-            <button type="" class="btn btn-primary">Cerca</button>
+            <button id="ricerca" type="" class="btn btn-primary">Cerca</button>
         </div>
     </div>
 </div>
