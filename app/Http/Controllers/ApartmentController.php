@@ -44,10 +44,6 @@ class ApartmentController extends Controller
             DB::table('apartments')->where('id', $id)->increment('views', 1);
         }
 
-
-
-
-
         if($apartment){
             if (Auth::check()) {
                 $user = Auth::user();
