@@ -11,8 +11,13 @@ $(document).ready(function(){
             console.log(latitude);
             console.log(longitude);
             console.log(raggio);
+            console.log(data);
+
+
+
+
         }
-        
+
     })
 
 

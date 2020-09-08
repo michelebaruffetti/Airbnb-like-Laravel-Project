@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    {{$ricerca['address']}}
+    {{-- {{$ricerca['address']}}
     {{$ricerca['latitude']}}
     {{$ricerca['longitude']}}
-    {{$ricerca['range']}}
+    {{$ricerca['range']}} --}}
 
 
 
@@ -53,6 +53,16 @@
         </div>
         <div class="col-2">
             <button type="" class="btn btn-primary">Cerca</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>appartamenti ricercati</h1>
+            <div id="contenitore-appartamenti">
+
+            </div>
         </div>
     </div>
 </div>

@@ -10828,11 +10828,10 @@ module.exports = g;
   });
   placesAutocomplete.on('change', function resultSelected(e) {
     document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';
-    document.querySelector('#longitude').value = e.suggestion.latlng.lng || '';
-    var latitude = e.suggestion.latlng.lat || '';
-    var longitude = e.suggestion.latlng.lng || '';
-    console.log(latitude);
-    console.log(longitude);
+    document.querySelector('#longitude').value = e.suggestion.latlng.lng || ''; // var latitude = e.suggestion.latlng.lat || '';
+    // var longitude = e.suggestion.latlng.lng || '';
+    // console.log(latitude);
+    // console.log(longitude);
   });
 })();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))

@@ -53,6 +53,42 @@
         </div>
         </form>
     </div>
+
+    <div class="container lista-cards">
+        <div class="row mb-2">
+            <h1>SPONSORIZZATI</h1>
+            @forelse ($apartments as $apartment)
+            <div class="col-12 d-flex rounded border border-color-grey py-2 mt-1 mb-1">
+                <div class="col-4  immagine d-flex align-items-center">
+                    @if ($apartment->image_url)
+                        <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                    @else
+                        {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
+                        <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                    @endif
+                </div>
+                <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
+                    <div class="testo">
+                        <h3>{{$apartment->title}}</h3>
+                        <p>{{$apartment->description}}</p>
+                        @foreach ($apartment_service as $ser)
+                            @if($apartment->id == $ser->apartment_id)
+                             {{$ser->description }}
+                            @endif
+                        @endforeach
+                    </div>
+                        <div class="buttons">
+                            <a class=" btn btn-outline-primary" value="Dettagli" href="
+                            {{ route('show',['apartment'=> $apartment->id])}}
+                            "><i class="fas fa-search"></i></a>
+                        </div>
+                </div>
+            </div>
+         @empty
+            <p>non ci sono Appartamenti sponsorizzati</p>
+         @endforelse
+        </div>
+    </div>
 @endsection
 @section('script')
     <script src="{{ asset('js/autocomplete.js') }}" charset="utf-8"></script>
