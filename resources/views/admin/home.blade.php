@@ -23,10 +23,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10 text-center border border-color-grey rounded">
+        <div class="col-md-8  col-lg-10 text-center border border-color-grey rounded">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-xl-4 d-flex p-5 justify-content-center">
+                    <div class="col-12 col-xl-4 d-flex p-3 justify-content-center">
                         {{-- mostra avatar solo se presente --}}
                         @if (Auth::user()->avatar)
                             <img class="rounded " src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" >
@@ -35,7 +35,7 @@
                             <img class="rounded " src="https://static.catsoncatnip.co/images/KznOtripTBMd_4551_700.jpg" alt="avatar" >
                         @endif
                     </div>
-                    <div class="col-12 col-xl-8">
+                    <div class="col-12 p-3 col-xl-8">
                         <div class="dati-anagrafici p-2 border-bottom border-color-grey">
                             <p>Nome: {{Auth::user()->name}}</p>
                             <p>Nome: {{Auth::user()->lastname}}</p>
