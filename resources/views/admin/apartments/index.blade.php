@@ -1,16 +1,17 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<div id="main-cards" >
     <div class="container">
         <div class="row">
-            <div class=" col-sm-11">
-                <h1>Lista Appartamenti</h1>
+            <div class=" col-10">
+                <h1 class="h4">Lista Appartamenti</h1>
 
             </div>
-            <div class="col-sm-1 d-flex align-items-center justify-content-end">
+            <div class="col-2 d-flex align-items-center justify-content-end">
                 <a class="" href="
                 {{ route('admin.apartments.create')}}
-                "><i class="fas fa-plus fa-2x"></i>
+                "><i class="fas fa-plus"></i>
                 </a>
             </div>
         </div>
@@ -18,8 +19,8 @@
     <div class="container lista-cards">
         <div class="row mb-2">
             @forelse ($apartments as $apartment)
-            <div class="col-12 d-flex rounded border border-color-grey py-2 mt-1 mb-1">
-                <div class="col-4  immagine d-flex align-items-center">
+            <div class="col-12 d-lg-flex rounded border border-color-grey py-2 mt-1 mb-1">
+                <div class="col-lg-4 col-12  immagine d-flex align-items-center">
                     @if ($apartment->image_url)
                         <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
@@ -27,7 +28,7 @@
                         <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
                     @endif
                 </div>
-                <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
+                <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">
                         <h3>{{$apartment->title}}</h3>
                         <p>{{$apartment->description}}</p>
@@ -64,4 +65,6 @@
          @endforelse
         </div>
     </div>
+</div>
+
 @endsection

@@ -10,6 +10,7 @@ $('#panino').click(
         $('.hamburger-menu').show();
         $('.close').show();
         $('#panino').hide();
+        $('#main-cards').hide();
 });
 
 $('#close').click(
@@ -17,4 +18,5 @@ $('#close').click(
         $('.hamburger-menu').hide();
         $('.close').hide();
         $('#panino').show();
+        $('#main-cards').show();
 });

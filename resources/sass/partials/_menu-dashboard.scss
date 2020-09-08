@@ -7,7 +7,7 @@ p{
 	font-size: 1.1em;
 	font-weight: 300;
 	line-height: 1.7em;
-	color: $font_color;
+	color: black;
 }
 a,
 a:hover,
@@ -135,14 +135,14 @@ ul ul a{
 	top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #sidebar {
         margin-left: -250px;
     }
     #sidebar.active {
         margin-left: 0;
     }
-    #sidebarCollapse span {
-        display: none;
-    }
+    // #sidebarCollapse span {
+    //     display: none;
+    // }
 }

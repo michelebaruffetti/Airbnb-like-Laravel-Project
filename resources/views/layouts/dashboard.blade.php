@@ -27,15 +27,10 @@
             <div class="sidebar-header d-flex flex-column align-items-center">
                 {{-- mostra avatar solo se presente --}}
                 @if (Auth::user()->avatar)
-                <img src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" width="70">
+                <img class="rounded" src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" width="70">
                 {{-- altrimenti non mostra nulla --}}
                 @endif
-                <p class="mt-2">
-                    <span class="icon"><i class="far fa-laugh-wink"></i></span>
-                    <span class="title">
-                        Ciao {{ Auth::user()->name }}
-                    </span>
-                </p>
+
             </div>
             <ul class="list-unstyled cambio-active">
             <li class="voce-menu">
