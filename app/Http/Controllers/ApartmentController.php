@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Apartment;
 use App\Message;
 
@@ -36,6 +37,17 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::find($id);
+
+//se l'$utente loggato non è il proprietario dell'appartamento non conto la view
+        $utente = Auth::id();
+        if (!$apartment->user_id == $utente) {
+            DB::table('apartments')->where('id', $id)->increment('views', 1);
+        }
+
+
+
+
+
         if($apartment){
             if (Auth::check()) {
                 $user = Auth::user();

@@ -36,6 +36,7 @@ Route::prefix('admin')
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/message', 'HomeController@readmessage')->name('message');
     Route::resource('/apartments', 'ApartmentController');
+    Route::get('/statistics/{apartment}', 'ApartmentController@statistics')->name('statistics');
 });
 
 

@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Service;
 use App\Sponsor;
+use App\Message;
 
 class ApartmentController extends Controller
 {
@@ -170,6 +172,29 @@ class ApartmentController extends Controller
         if($apartment) {
             $apartment->delete();
             return redirect()->route('admin.apartments.index');
+        } else {
+            return abort('404');
+        }
+    }
+
+
+    public function statistics($id){
+        $apartment = Apartment::find($id);
+        $messaggi_appartamento_corrente = DB::table('messages')->where('apartment_id', $id)->count();
+
+        $messaggi = DB::table('messages')
+             ->select('apartment_id', DB::raw('count(*) as total'))
+             ->groupBy('apartment_id')
+             ->get();
+
+
+        $data = [
+            'apartment' => $apartment,
+            'messaggi' => $messaggi,
+            'messaggi_appartamento_corrente'=> $messaggi_appartamento_corrente
+        ];
+        if($apartment) {
+            return view('admin.apartments.chart', $data );
         } else {
             return abort('404');
         }
