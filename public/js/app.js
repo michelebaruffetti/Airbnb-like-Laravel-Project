@@ -37274,8 +37274,15 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
  // cliccando sull'hamburger menu, mostriamo gli elementi della navbar
 
-$('#toggle').click(function () {
+$('#panino').click(function () {
   $('.hamburger-menu').show();
+  $('.close').show();
+  $('#panino').hide();
+});
+$('#close').click(function () {
+  $('.hamburger-menu').hide();
+  $('.close').hide();
+  $('#panino').show();
 });
 
 /***/ }),
@@ -37343,8 +37350,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
