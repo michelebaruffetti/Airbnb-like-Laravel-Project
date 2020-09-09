@@ -10940,14 +10940,14 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #D54428;
-  color: #F1B940;
+  background: #EADFC9;
+  color: #93ADA4;
   transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #D54428;
+  background: #EADFC9;
 }
 
 #sidebar ul.components {
@@ -10956,7 +10956,7 @@ a:focus {
 }
 
 #sidebar ul p {
-  color: #F1B940;
+  color: #93ADA4;
   padding: 10px;
 }
 
@@ -10967,14 +10967,14 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-  color: #F5DEB3;
-  background: #fff;
+  color: #93ADA4;
+  background: #f2ece1;
 }
 
 #sidebar ul li.active > a,
 a[aria-expanded=true] {
   color: #fff;
-  background: #D9592A;
+  background: #93ADA4;
 }
 
 a[data-toggle=collapse] {
@@ -10992,7 +10992,6 @@ a[data-toggle=collapse] {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #6d7fcc;
 }
 
 #content {
@@ -11016,7 +11015,7 @@ ul ul a {
   height: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  background: #325c8c;
+  background: #D94854;
   z-index: 1;
 }
 
@@ -11030,10 +11029,10 @@ ul ul a {
 }
 
 .hamburger-menu ul li a {
-  color: #F1B940;
+  color: #93ADA4;
   text-decoration: none;
   font-size: 25px;
-  border-bottom: 2px solid #F1B940;
+  border-bottom: 2px solid #93ADA4;
 }
 
 .close {
