@@ -96,19 +96,20 @@
                 </ul>
             </div>
 
+
             <div class="servizi">
                 <h6 class="text-center mt-3">Servizi Aggiuntivi</h6>
 
                     <ul class="list-group servizi">
                         @forelse($apartment->services as $service)
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="w-25">
+                                    <div class="w-25 text-center">
                                         <i class="fas fa-check-circle"></i><span>
                                     </div>
                                     <div class="w-50">
 
                                     </div>
-                                    <div class="w-25">
+                                    <div class="w-25 text-center">
                                         <span class="badge ">{{$service->description}}</span>
                                     </div>
                                 </li>
