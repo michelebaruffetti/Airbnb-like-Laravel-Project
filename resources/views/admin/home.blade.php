@@ -38,25 +38,20 @@
                     <div class="col-12 p-3 col-xl-8">
                         <div class="dati-anagrafici p-2 border-bottom border-color-grey">
                             <p>Nome: {{Auth::user()->name}}</p>
-                            <p>Nome: {{Auth::user()->lastname}}</p>
-                            <p>Nome: {{Auth::user()->birthday}}</p>
-                            <p>Nome: {{Auth::user()->email}}</p>
+                            <p>Cognome: {{Auth::user()->lastname}}</p>
+                            <p>Data di Nascita: {{Auth::user()->birthday}}</p>
+                            <p>E-mail: {{Auth::user()->email}}</p>
                         </div>
-                        <div class="inserimento-immagine">
+                        <div class="inserimento-immagine d-flex justify-content-center">
                             <form class="p-4" action="/upload" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input type="file" name="image">
-                                <input type="submit" value="upload">
+                                <input class="form-control-sm" type="file" name="image">
+                                <input class="form-control-sm" type="submit" value="upload">
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 </div>
