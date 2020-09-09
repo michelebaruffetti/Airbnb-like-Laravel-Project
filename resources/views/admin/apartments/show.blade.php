@@ -100,7 +100,9 @@
             <div class="statistiche mt-3 text-center">
 
                 <img class="img-fluid rounded border border-color-grey" src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2018/12/24160114/LOSDOS1-1024x767.png" alt="grafici">
-                <button class="btn btn-success color-white mt-2 w-100" type="button" name="button">Le tue statistiche</button>
+                <button class="btn btn-success color-white mt-2 w-100" type="button" name="button">
+                    <a href="{{Route('admin.statistics', ['apartment' => $apartment->id])}}">Le tue statistiche</a>
+                </button>
             </div>
 
 

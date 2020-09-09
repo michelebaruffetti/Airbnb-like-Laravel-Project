@@ -24,7 +24,8 @@ Auth::routes();
 //rotte pubbliche
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/show/{apartment}', 'ApartmentController@show')->name('show');
-Route::post('/show/{apartment}', 'ApartmentController@store')->name('storemessage');
+Route::post('/show/{apartment}', 'ApartmentController@sendmessage')->name('storemessage');
+Route::post('/search', 'HomeController@search')->name('search');
 
 //Rotta che mappa la home page dell'amministratore
 Route::prefix('admin')
@@ -33,8 +34,9 @@ Route::prefix('admin')
 ->middleware('auth')
 ->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/message', 'HomeController@message')->name('message');
+    Route::get('/message', 'HomeController@readmessage')->name('message');
     Route::resource('/apartments', 'ApartmentController');
+    Route::get('/statistics/{apartment}', 'ApartmentController@statistics')->name('statistics');
 });
 
 

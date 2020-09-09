@@ -10804,19 +10804,19 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/search.js":
-/*!********************************!*\
-  !*** ./resources/js/search.js ***!
-  \********************************/
+/***/ "./resources/js/autocomplete.js":
+/*!**************************************!*\
+  !*** ./resources/js/autocomplete.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+/* WEBPACK VAR INJECTION */(function(process) {var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
 (function () {
   var placesAutocomplete = places({
-    appId: 'plQJ0AF39XJK',
-    apiKey: '5c9f0d58aab1f0a7cb9f847a8786b412',
+    appId: process.env.$MIX_APP_ID,
+    apiKey: process.env.$MIX_API_KEY,
     container: document.querySelector('#form-address'),
     templates: {
       value: function value(suggestion) {
@@ -10828,20 +10828,24 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
   });
   placesAutocomplete.on('change', function resultSelected(e) {
     document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';
-    document.querySelector('#longitude').value = e.suggestion.latlng.lng || '';
+    document.querySelector('#longitude').value = e.suggestion.latlng.lng || ''; // var latitude = e.suggestion.latlng.lat || '';
+    // var longitude = e.suggestion.latlng.lng || '';
+    // console.log(latitude);
+    // console.log(longitude);
   });
 })();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
 /***/ 1:
-/*!**************************************!*\
-  !*** multi ./resources/js/search.js ***!
-  \**************************************/
+/*!********************************************!*\
+  !*** multi ./resources/js/autocomplete.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo-3/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\progettoairbnb\airbnb-gruppo-3\resources\js\autocomplete.js */"./resources/js/autocomplete.js");
 
 
 /***/ }),
