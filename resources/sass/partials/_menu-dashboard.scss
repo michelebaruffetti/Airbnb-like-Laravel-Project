@@ -60,8 +60,8 @@ a:focus{
 }
 
 #sidebar ul li a:hover{
-	color: $menu_hover;
-	background: #fff;
+	color: $font_hover;
+	background: $bg_hover;
 }
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
@@ -83,7 +83,7 @@ a[data-toggle="collapse"]{
 ul ul a{
 	font-size: 0.9em !important;
 	padding-left: 30px !important;
-	background: #6d7fcc;
+
 }
 
 #content{
@@ -134,6 +134,11 @@ ul ul a{
 	right: 25px;
 	top: 20px;
 }
+
+#immagine-profilo img	{
+	width: 100%;
+}
+
 
 @media (max-width: 767px) {
     #sidebar {

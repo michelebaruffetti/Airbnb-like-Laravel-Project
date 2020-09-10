@@ -26,7 +26,7 @@
         <div class="col-md-8  col-lg-10 text-center border border-color-grey rounded">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-xl-4 d-flex p-3 justify-content-center">
+                    <div id="immagine-profilo" class="col-12 col-xl-4 d-flex p-3 justify-content-center">
                         {{-- mostra avatar solo se presente --}}
                         @if (Auth::user()->avatar)
                             <img class="rounded " src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" >

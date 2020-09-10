@@ -161,26 +161,23 @@
             </div>
 
             {{-- form invio messaggio --}}
-            <div class="mt-3 text-center">
-                <h1>INVIA MESSAGGIO</h1>
-                <form class="" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
+            <div class="mt-3 text-center messaggio pt-5">
+                <h5>Invia messaggio</h5>
+                <form class="pt-2" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="nome">Nome</label>
                         <input type="text" name="name" class="form-control" id="nome" placeholder="Inserisci il tuo nome" value="{{ old('name') }}">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="cognome">Cognome</label>
                         <input type="text" name="lastname" class="form-control" id="nome" placeholder="Inserisci il tuo Cognome" value="{{ old('lastname') }}">
                         @error('lastname')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="mail">mail</label>
                         @auth
                             <input type="email" name="email" class="form-control" id="mail" readonly placeholder="{{$user->email}}" value="{{$user->email}}">
                             @error('email')
@@ -197,8 +194,7 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="testo">testo</label>
-                        <textarea name="text" id="testo" rows="8" cols="32"></textarea>
+                        <textarea class="form-control"  name="text" id="testo" placeholder="Inserisci qui il tuo messaggio..." rows="6" cols="36"></textarea>
                         @error('text')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

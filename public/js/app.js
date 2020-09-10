@@ -74625,17 +74625,12 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-<<<<<<< HEAD
 
 
 __webpack_require__(/*! ./search */ "./resources/js/search.js");
 
-__webpack_require__(/*! ./grafici */ "./resources/js/grafici.js"); // test
-// $(document).ready(function() {
-//     alert('ciao');
-// });
-=======
- // cliccando sull'hamburger menu, mostriamo gli elementi della navbar
+__webpack_require__(/*! ./grafici */ "./resources/js/grafici.js"); // cliccando sull'hamburger menu, mostriamo gli elementi della navbar
+
 
 $('#panino').click(function () {
   $('.hamburger-menu').show();
@@ -74649,7 +74644,6 @@ $('#close').click(function () {
   $('#panino').show();
   $('#main-cards').show();
 });
->>>>>>> sidebar-responsive
 
 /***/ }),
 
@@ -74783,13 +74777,8 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\MAMP\htdocs\progettoairbnb\airbnb-gruppo-3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\progettoairbnb\airbnb-gruppo-3\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> sidebar-responsive
 
 
 /***/ })
