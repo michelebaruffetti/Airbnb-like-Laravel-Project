@@ -1,14 +1,8 @@
-body{
-	font-family: 'Poppins', sans-serif;
-	background: #fafafa;
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 }
-p{
-	font-family: 'Poppins', sans-serif;
-	font-size: 1.1em;
-	font-weight: 300;
-	line-height: 1.7em;
-	color: black;
-}
+
 a,
 a:hover,
 a:focus{
@@ -19,8 +13,6 @@ a:focus{
 
 /* Side Bar*/
 
-
-
 #sidebar.active {
     margin-left: -250px;
 }
@@ -30,43 +22,41 @@ a:focus{
 	transition: all 0.3s;
 }
 
-#sidebar{
+#sidebar {
 	min-width: 250px;
-	max-width: 250px;
-	background: $menu_bg_color;
+    max-width: 250px;
+	background: $bg_sidebar;
 	color: $font_color;
-	transition: all 0.3s;
+    transition: all 0.3s;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    height: 100%;
 }
 
 
 #sidebar .sidebar-header{
-	padding: 20px;
-	background: $menu_bg_color;
-}
-#sidebar ul.components{
-	padding: 20px 0;
-	border-bottom: 1px solid #47748b;
+    background: $bg_sidebar;
+    padding: 20px;
 }
 
-#sidebar ul p{
-	color: $font_color;
-	padding: 10px;
-}
 
 #sidebar ul li a{
-	padding: 10px;
-	font-size: 1.1em;
+    font-size: 15px;
+    padding: 10px 20px;
 	display: block;
 }
 
 #sidebar ul li a:hover{
-	color: $font_hover;
-	background: $bg_hover;
+	background: $bg_active_hover;
 }
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-	color: #fff;
-	background: $bg_active;
+	color: #222;
+	background: $bg_active_hover;
+}
+
+#sidebar > ul > li.active > a > span.icon > i{
+	color: #f9423a;
 }
 
 a[data-toggle="collapse"]{
@@ -135,9 +125,33 @@ ul ul a{
 	top: 20px;
 }
 
-#immagine-profilo img	{
-	width: 100%;
+// #immagine-profilo img	{
+// 	width: 100%;
+// }
+
+//avatar
+.center-cropped {
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 35px;
+    width: 35px;
+    margin-right: 8px;
 }
+
+.nome-admin  {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: $font_color_dark;
+}
+
+i.fas {
+    font-size: 24px;
+    color: $font-color;
+    margin-right: 8px;
+    width: 35px;
+}
+
 
 
 @media (max-width: 767px) {

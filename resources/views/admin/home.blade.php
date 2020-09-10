@@ -29,10 +29,10 @@
                     <div id="immagine-profilo" class="col-12 col-xl-4 d-flex p-3 justify-content-center">
                         {{-- mostra avatar solo se presente --}}
                         @if (Auth::user()->avatar)
-                            <img class="rounded " src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" >
+                            <img class="img-profilo-grande rounded" src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" >
                         {{-- altrimenti non mostra nulla --}}
                         @else
-                            <img class="rounded " src="https://static.catsoncatnip.co/images/KznOtripTBMd_4551_700.jpg" alt="avatar" >
+                            <img class="img-profilo-grande rounded" src="https://static.catsoncatnip.co/images/KznOtripTBMd_4551_700.jpg" alt="avatar" >
                         @endif
                     </div>
                     <div class="col-12 p-3 col-xl-8">
