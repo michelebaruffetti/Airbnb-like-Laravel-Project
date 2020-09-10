@@ -22,10 +22,10 @@
             <div class="col-12 d-lg-flex mt-4 apartment-container">
                 <div id="img-wrap" class="col-lg-4 col-12 img-wrap">
                     @if ($apartment->image_url)
-                        <img class="img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid img-appartamento" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                        <img class="img-fluid img-appartamento" src="https://media-cdn.tripadvisor.com/media/photo-s/09/ab/e9/50/finn-lough.jpg"  alt="foto gatto">
                     @endif
                 </div>
                 <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">

@@ -10940,6 +10940,13 @@ a:focus {
   height: 100%;
 }
 
+#sidebar i.fas {
+  font-size: 24px;
+  color: #757575;
+  margin-right: 8px;
+  width: 35px;
+}
+
 #sidebar .sidebar-header {
   background: white;
   padding: 20px;
@@ -11049,13 +11056,6 @@ ul ul a {
   font-weight: 600;
   font-size: 16px;
   color: #222;
-}
-
-i.fas {
-  font-size: 24px;
-  color: #757575;
-  margin-right: 8px;
-  width: 35px;
 }
 
 @media (max-width: 767px) {
@@ -11462,19 +11462,33 @@ input[type=submit] {
   background-color: white;
   box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
   padding-left: 0;
+  padding-right: 0;
   border-radius: 7px;
 }
 
 img-wrap {
   height: 100%;
   width: 100%;
-  padding-left: 0;
 }
 
 #img-wrap {
   padding-left: 0;
+  padding-right: 0;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
+}
+
+@media (max-width: 1091px) {
+  #img-wrap {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+
+  .img-appartamento {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 0;
+  }
 }
 
 #map {

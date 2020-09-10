@@ -12,6 +12,7 @@
     background-color: white;
     box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
     padding-left: 0;
+    padding-right: 0;
     border-radius: $radious;
 
 }
@@ -19,13 +20,28 @@
 img-wrap {
     height: 100%;
     width: 100%;
-    padding-left: 0;
 }
 
 #img-wrap {
     padding-left: 0;
+    padding-right: 0;
     border-top-left-radius: $radious;
     border-bottom-left-radius: $radious;
+}
+
+
+@media (max-width: 1091px) {
+    #img-wrap {
+        border-top-left-radius: $radious;
+        border-top-right-radius: $radious;
+    }
+
+    .img-appartamento {
+        border-top-left-radius: $radious;
+        border-top-right-radius: $radious;
+        border-bottom-left-radius: 0;
+    }
+
 }
 
 
