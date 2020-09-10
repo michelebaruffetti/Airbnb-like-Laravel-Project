@@ -19,13 +19,13 @@
     <div class="container lista-cards">
         <div class="row mb-2">
             @forelse ($apartments as $apartment)
-            <div class="col-12 d-lg-flex rounded border border-color-grey py-2 mt-1 mb-1">
-                <div class="col-lg-4 col-12  immagine d-flex align-items-center">
+            <div class="col-12 d-lg-flex mt-4 apartment-container">
+                <div id="img-wrap" class="col-lg-4 col-12 img-wrap">
                     @if ($apartment->image_url)
-                        <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        <img class="img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                        <img class="img-fluid img-appartamento" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
                     @endif
                 </div>
                 <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
