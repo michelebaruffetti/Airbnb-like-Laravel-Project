@@ -10984,6 +10984,7 @@ ul ul a {
 
 #content {
   width: 100%;
+  margin-left: 250px;
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
@@ -11032,8 +11033,8 @@ ul ul a {
 }
 
 .center-cropped {
-  -o-object-fit: none;
-     object-fit: none;
+  -o-object-fit: cover;
+     object-fit: cover;
   /* Do not scale the image */
   -o-object-position: center;
      object-position: center;
@@ -11063,6 +11064,10 @@ i.fas {
   }
 
   #sidebar.active {
+    margin-left: 0;
+  }
+
+  #content {
     margin-left: 0;
   }
 }

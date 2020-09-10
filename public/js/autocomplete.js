@@ -10811,29 +10811,31 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+/* WEBPACK VAR INJECTION */(function(process) {$(document).ready(function () {
+  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
-(function () {
-  var placesAutocomplete = places({
-    appId: process.env.$MIX_APP_ID,
-    apiKey: process.env.$MIX_API_KEY,
-    container: document.querySelector('#form-address'),
-    templates: {
-      value: function value(suggestion) {
-        return suggestion.name;
+  (function () {
+    var placesAutocomplete = places({
+      appId: process.env.$MIX_APP_ID,
+      apiKey: process.env.$MIX_API_KEY,
+      container: document.querySelector('#form-address'),
+      templates: {
+        value: function value(suggestion) {
+          return suggestion.name;
+        }
       }
-    }
-  }).configure({
-    type: 'address'
+    }).configure({
+      type: 'address'
+    });
+    placesAutocomplete.on('change', function resultSelected(e) {
+      document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';
+      document.querySelector('#longitude').value = e.suggestion.latlng.lng || ''; // var latitude = e.suggestion.latlng.lat || '';
+      // var longitude = e.suggestion.latlng.lng || '';
+      // console.log(latitude);
+      // console.log(longitude);
+    });
   });
-  placesAutocomplete.on('change', function resultSelected(e) {
-    document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';
-    document.querySelector('#longitude').value = e.suggestion.latlng.lng || ''; // var latitude = e.suggestion.latlng.lat || '';
-    // var longitude = e.suggestion.latlng.lng || '';
-    // console.log(latitude);
-    // console.log(longitude);
-  });
-})();
+});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
