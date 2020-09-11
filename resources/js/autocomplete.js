@@ -1,4 +1,3 @@
-$(document).ready(function() {
 var places = require('places.js');
 (function() {
 
@@ -22,6 +21,4 @@ var places = require('places.js');
       // console.log(latitude);
       // console.log(longitude);
     });
-  });
-
-});
+  })();
