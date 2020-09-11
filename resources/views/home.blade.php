@@ -18,39 +18,14 @@
                 <div class="form-group">
                     <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
                     <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude')}}">
-                </div>
-            </div>
-            <div class="form-group col-4">
-                <label for="range">Raggio</label>
-                <select class="form-control" name="range" id="range">
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-10">
-                Servizi:
-                <div class="d-flex ">
-                    @foreach ($services as $service)
-                        <div class="form-check">
-                            <label class="form-check-label">
-                            <input
-                                    class="form-check-input"
-                                    name="services[]"
-                                    type="checkbox"
-                                    value="{{ $service->id }}">
-                                {{ $service->description }}
-                            </label>
-                        </div>
-                    @endforeach
+                    <input type="hidden" name="range" class="form-control" id="range" value="20">
                 </div>
             </div>
             <div class="col-2">
                 <button type="submit" class="btn btn-primary">Cerca</button>
             </div>
         </div>
+        
         </form>
     </div>
 
