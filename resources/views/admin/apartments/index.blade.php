@@ -4,16 +4,21 @@
 <div id="main-cards" >
     <div class="container">
         <div class="row">
-            <div class=" col-10">
-                <h1 class="h4">Lista Appartamenti</h1>
-
+            <div class="titolo-wrap col-12 d-flex align-items-center">
+                <h1 class="h4 mr-3">I tuoi appartamenti</h1>
+                <h1>
+                    <a class="h4" href="
+                    {{ route('admin.apartments.create')}}
+                    "><i class="fas fa-plus"></i>
+                    </a>
+                </h1>
             </div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
+            {{-- <div class="col-2 d-flex align-items-center justify-content-end plus-wrap">
                 <a class="" href="
                 {{ route('admin.apartments.create')}}
                 "><i class="fas fa-plus"></i>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="container lista-cards">
@@ -25,13 +30,14 @@
                         <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid img-appartamento" src="https://media-cdn.tripadvisor.com/media/photo-s/09/ab/e9/50/finn-lough.jpg"  alt="foto gatto">
+                        <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
                     @endif
                 </div>
                 <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">
-                        <h3>{{$apartment->title}}</h3>
-                        <p>{{$apartment->description}}</p>
+                        <h2 class="title h4">{{$apartment->title}}</h3>
+                            {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
+                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 150, $end = '...')}}</p>
                         @forelse ($apartment->services as $service)
                              {{ $service->description }}{{ $loop->last ? '' : ', '}}
                         @empty

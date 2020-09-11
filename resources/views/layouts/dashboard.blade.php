@@ -46,7 +46,7 @@
                         <span class="title">Profilo</span>
                     </a>
                 </li>
-                <li class="voce-menu {{Request::route()->getName() == 'admin.apartments.index' ? 'active' : ''}}">
+                <li class="voce-menu {{ (request()->is('admin/apartments*')) ? 'active' : '' }}">
                     <a href="{{ route('admin.apartments.index') }}">
                         <span class="icon"><i class="fas fa-list"></i></span>
                         <span class="title">Appartamenti</span>

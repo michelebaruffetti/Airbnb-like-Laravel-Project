@@ -29,6 +29,28 @@ img-wrap {
     border-bottom-left-radius: $radious;
 }
 
+h2.title {
+    color: $font_color_dark;
+}
+
+p.paragrafo {
+    color: $font_color;
+}
+
+.fa-plus {
+    color: $colore_primario;
+    font-size: 24px;
+}
+
+#main-cards > div:nth-child(1) > div > div.col-10 > h1 {
+    color: $font_color_dark;
+}
+
+div.titolo-wrap, div.plus-wrap {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 
 @media (max-width: 1091px) {
     #img-wrap {
@@ -41,7 +63,6 @@ img-wrap {
         border-top-right-radius: $radious;
         border-bottom-left-radius: 0;
     }
-
 }
 
 

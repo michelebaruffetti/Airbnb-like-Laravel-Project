@@ -11478,6 +11478,29 @@ img-wrap {
   border-bottom-left-radius: 7px;
 }
 
+h2.title {
+  color: #222;
+}
+
+p.paragrafo {
+  color: #757575;
+}
+
+.fa-plus {
+  color: #f9423a;
+  font-size: 24px;
+}
+
+#main-cards > div:nth-child(1) > div > div.col-10 > h1 {
+  color: #222;
+}
+
+div.titolo-wrap,
+div.plus-wrap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 @media (max-width: 1091px) {
   #img-wrap {
     border-top-left-radius: 7px;
