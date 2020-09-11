@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Apartment;
 use App\Service;
 use App\Sponsor;
@@ -61,6 +62,7 @@ class ApartmentController extends Controller
             'room' => 'numeric|max:10',
             'bath' => 'required|numeric|max:10',
             'square_meters' => 'required|numeric|max:1000',
+            'image' => 'image|dimensions:min_width=800,min_height=600'
         ]);
 
         $id = Auth::id();

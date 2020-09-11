@@ -1,7 +1,91 @@
 .img-appartamento {
-    width: 480px;
+    border-top-left-radius: $radious;
+    border-bottom-left-radius: $radious;
 }
 
 #descrizione_appartamento {
     min-height: 50px;
 }
+
+.apartment-container {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+    box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: $radious;
+
+}
+
+img-wrap {
+    height: 100%;
+    width: 100%;
+}
+
+#img-wrap {
+    padding-left: 0;
+    padding-right: 0;
+    border-top-left-radius: $radious;
+    border-bottom-left-radius: $radious;
+}
+
+h2.title {
+    color: $font_color_dark;
+}
+
+p.paragrafo {
+    color: $font_color;
+}
+
+.fa-plus-square {
+    font-size: 19px;
+    margin-right: 10px;
+}
+
+#main-cards > div:nth-child(1) > div > div.col-10 > h1 {
+    color: $font_color_dark;
+}
+
+div.titolo-wrap, div.plus-wrap {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+a.bottone {
+    color: $colore_primario;
+    background-color: #feeceb;
+    border: 1px solid #feeceb;
+    padding: 6px 8px;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+a.bottone:hover{
+    border: 1px solid $colore_primario;
+}
+
+span.tag-servizi {
+    background-color: #dfe3ed;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: #3c4858;
+    font-weight: 500;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+
+@media (max-width: 1091px) {
+    #img-wrap {
+        border-top-left-radius: $radious;
+        border-top-right-radius: $radious;
+    }
+
+    .img-appartamento {
+        border-top-left-radius: $radious;
+        border-top-right-radius: $radious;
+        border-bottom-left-radius: 0;
+    }
+}
+
+

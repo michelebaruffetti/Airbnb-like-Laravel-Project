@@ -4,36 +4,41 @@
 <div id="main-cards" >
     <div class="container">
         <div class="row">
-            <div class=" col-10">
-                <h1 class="h4">Lista Appartamenti</h1>
-
+            <div class="titolo-wrap col-12 d-flex align-items-center">
+                <h1 class="h4 mr-4">I tuoi appartamenti</h1>
+                <a class="bottone d-flex align-items-center justify-content-around" href="
+                {{ route('admin.apartments.create')}}
+                "><i class="far fa-plus-square"></i> Inserisci annuncio
+                </a>
             </div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
+            {{-- <div class="col-2 d-flex align-items-center justify-content-end plus-wrap">
                 <a class="" href="
                 {{ route('admin.apartments.create')}}
                 "><i class="fas fa-plus"></i>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="container lista-cards">
         <div class="row mb-2">
             @forelse ($apartments as $apartment)
-            <div class="col-12 d-lg-flex rounded border border-color-grey py-2 mt-1 mb-1">
-                <div class="col-lg-4 col-12  immagine d-flex align-items-center">
+            <div class="col-12 d-lg-flex mt-4 apartment-container">
+                <div id="img-wrap" class="col-lg-4 col-12 img-wrap">
                     @if ($apartment->image_url)
-                        <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                        <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
                     @endif
                 </div>
                 <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">
-                        <h3>{{$apartment->title}}</h3>
-                        <p>{{$apartment->description}}</p>
+                        <h2 class="title h4 text-uppercase">{{$apartment->title}}</h3>
+                            {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
+                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 150, $end = '...')}}</p>
                         @forelse ($apartment->services as $service)
-                             {{ $service->description }}{{ $loop->last ? '' : ', '}}
+                             <span class="tag-servizi">{{ $service->description }}</span>
+                             {{-- {{ $loop->last ? '' : ', '}} --}}
                         @empty
                            -
                         @endforelse
