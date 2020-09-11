@@ -33,11 +33,12 @@
                 </div>
                 <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">
-                        <h2 class="title h4">{{$apartment->title}}</h3>
+                        <h2 class="title h4 text-uppercase">{{$apartment->title}}</h3>
                             {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
                         <p class="paragrafo">{{str_limit($apartment->description, $limit = 150, $end = '...')}}</p>
                         @forelse ($apartment->services as $service)
-                             {{ $service->description }}{{ $loop->last ? '' : ', '}}
+                             <span class="tag-servizi">{{ $service->description }}</span>
+                             {{-- {{ $loop->last ? '' : ', '}} --}}
                         @empty
                            -
                         @endforelse

@@ -10933,7 +10933,7 @@ a:focus {
   min-width: 250px;
   max-width: 250px;
   background: white;
-  color: #757575;
+  color: #717e8f;
   transition: all 0.3s;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -10942,7 +10942,7 @@ a:focus {
 
 #sidebar i.fas {
   font-size: 24px;
-  color: #757575;
+  color: #717e8f;
   margin-right: 8px;
   width: 35px;
 }
@@ -10959,13 +10959,13 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-  background: #f2f2f2;
+  background: rgba(223, 227, 237, 0.4);
 }
 
 #sidebar ul li.active > a,
 a[aria-expanded=true] {
-  color: #222;
-  background: #f2f2f2;
+  color: #3c4858;
+  background: rgba(223, 227, 237, 0.4);
 }
 
 #sidebar > ul > li.active > a > span.icon > i {
@@ -11025,10 +11025,10 @@ ul ul a {
 }
 
 .hamburger-menu ul li a {
-  color: #757575;
+  color: #717e8f;
   text-decoration: none;
   font-size: 25px;
-  border-bottom: 2px solid #757575;
+  border-bottom: 2px solid #717e8f;
 }
 
 .close {
@@ -11055,7 +11055,7 @@ ul ul a {
   margin: 0;
   font-weight: 600;
   font-size: 16px;
-  color: #222;
+  color: #3c4858;
 }
 
 @media (max-width: 767px) {
@@ -11479,11 +11479,11 @@ img-wrap {
 }
 
 h2.title {
-  color: #222;
+  color: #3c4858;
 }
 
 p.paragrafo {
-  color: #757575;
+  color: #717e8f;
 }
 
 .fa-plus-square {
@@ -11492,7 +11492,7 @@ p.paragrafo {
 }
 
 #main-cards > div:nth-child(1) > div > div.col-10 > h1 {
-  color: #222;
+  color: #3c4858;
 }
 
 div.titolo-wrap,
@@ -11512,6 +11512,16 @@ a.bottone {
 
 a.bottone:hover {
   border: 1px solid #f9423a;
+}
+
+span.tag-servizi {
+  background-color: #dfe3ed;
+  padding: 4px 7px;
+  border-radius: 4px;
+  color: #3c4858;
+  font-weight: 500;
+  margin-right: 5px;
+  font-size: 13px;
 }
 
 @media (max-width: 1091px) {

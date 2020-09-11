@@ -60,7 +60,7 @@ a:focus{
 }
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-	color: #222;
+	color: $font_color_dark;
 	background: $bg_active_hover;
 }
 

@@ -64,6 +64,16 @@ a.bottone:hover{
     border: 1px solid $colore_primario;
 }
 
+span.tag-servizi {
+    background-color: #dfe3ed;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: #3c4858;
+    font-weight: 500;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
 
 @media (max-width: 1091px) {
     #img-wrap {
