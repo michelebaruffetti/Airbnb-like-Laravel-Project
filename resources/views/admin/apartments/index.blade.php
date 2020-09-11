@@ -5,13 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="titolo-wrap col-12 d-flex align-items-center">
-                <h1 class="h4 mr-3">I tuoi appartamenti</h1>
-                <h1>
-                    <a class="h4" href="
-                    {{ route('admin.apartments.create')}}
-                    "><i class="fas fa-plus"></i>
-                    </a>
-                </h1>
+                <h1 class="h4 mr-4">I tuoi appartamenti</h1>
+                <a class="bottone d-flex align-items-center justify-content-around" href="
+                {{ route('admin.apartments.create')}}
+                "><i class="far fa-plus-square"></i> Inserisci annuncio
+                </a>
             </div>
             {{-- <div class="col-2 d-flex align-items-center justify-content-end plus-wrap">
                 <a class="" href="

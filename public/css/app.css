@@ -11486,9 +11486,9 @@ p.paragrafo {
   color: #757575;
 }
 
-.fa-plus {
-  color: #f9423a;
-  font-size: 24px;
+.fa-plus-square {
+  font-size: 19px;
+  margin-right: 10px;
 }
 
 #main-cards > div:nth-child(1) > div > div.col-10 > h1 {
@@ -11499,6 +11499,19 @@ div.titolo-wrap,
 div.plus-wrap {
   padding-left: 0;
   padding-right: 0;
+}
+
+a.bottone {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-weight: 500;
+}
+
+a.bottone:hover {
+  border: 1px solid #f9423a;
 }
 
 @media (max-width: 1091px) {
