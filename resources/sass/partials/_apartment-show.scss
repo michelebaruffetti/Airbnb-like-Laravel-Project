@@ -114,22 +114,16 @@ input[type=submit].myinput:active {
     background-color: transparent;
 }
 
-
+// Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
     #img-wrap {
         height: 250px;
-        border-top-left-radius: $radious;
-        border-top-right-radius: $radious;
         background-size: cover;
         background-position: center center;
-    }
-
-    .img-appartamento {
         border-top-left-radius: $radious;
         border-top-right-radius: $radious;
         border-bottom-left-radius: 0;
     }
-
 }
 
 //remind breakpoint bootstrap
