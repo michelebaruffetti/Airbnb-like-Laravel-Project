@@ -92,12 +92,17 @@ span.tag-servizi {
     color: $colore_primario;
 }
 
+.dropdown-item {
+    color: $font_color_dark;
+}
+
 input[type=submit].myinput {
     border: 0;
     background-color: transparent;
     padding: 0;
     font-family: inherit;
     font-weight: inherit;
+    color: $font_color_dark;
 }
 
 input[type=submit].myinput:focus {
@@ -112,6 +117,11 @@ input[type=submit].myinput:active {
     color: rgb(60, 72, 88, 0.8);
     text-decoration: none;
     background-color: transparent;
+}
+
+.dropdown-item:hover {
+    color: rgb(60, 72, 88, 0.8);
+    background-color: $bg_active_hover;
 }
 
 // Medium devices (tablets, less than 992px)

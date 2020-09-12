@@ -11540,12 +11540,17 @@ span.tag-servizi {
   color: #f9423a;
 }
 
+.dropdown-item {
+  color: #3c4858;
+}
+
 input[type=submit].myinput {
   border: 0;
   background-color: transparent;
   padding: 0;
   font-family: inherit;
   font-weight: inherit;
+  color: #3c4858;
 }
 
 input[type=submit].myinput:focus {
@@ -11560,6 +11565,11 @@ input[type=submit].myinput:active {
   color: rgba(60, 72, 88, 0.8);
   text-decoration: none;
   background-color: transparent;
+}
+
+.dropdown-item:hover {
+  color: rgba(60, 72, 88, 0.8);
+  background-color: rgba(223, 227, 237, 0.4);
 }
 
 @media (max-width: 991.98px) {
