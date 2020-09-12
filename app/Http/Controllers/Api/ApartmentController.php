@@ -12,12 +12,16 @@ class ApartmentController extends Controller
 {
     public function all(Request $request){
 
+        $results = [
+            'number_records' => 0,
+            'response' => []
+        ];
 
         $latitude= $request->latitude;
         $longitude= $request->longitude;
         $distance= $request->range;
 
-        $results = Apartment::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( latitude ) ) * cos(
+        $response = Apartment::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( latitude ) ) * cos(
             radians( longitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( latitude ) ) ) ) AS
             distance'))
             ->having('distance', '<', $distance)
@@ -25,6 +29,9 @@ class ApartmentController extends Controller
             ->with('services')
             ->where('status', '1')
             ->get();
+
+        $results['response'] = $response;
+        $results['number_records'] = count($response);
 
         return response()->json($results);
     }

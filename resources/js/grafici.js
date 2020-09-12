@@ -1,3 +1,4 @@
+var $ = require('jquery');
 $(document).ready(function() {
     var Chart = require('chart.js');
 //grafico

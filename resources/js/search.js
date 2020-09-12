@@ -1,27 +1,44 @@
+var $ = require('jquery');
 $(document).ready(function(){
 //al caricamento della pagina recupero i dati negli input nascosti e faccio la chiamata ajax
-    var lat = $('#latitude').val();
-    var lng = $('#longitude').val();
-    var rag = $('#range').val();
-    ricerca(lat, lng, rag);
+    ricerca();
 
     //al click di ricerca recupero i dati negli input nascosti e faccio la chiamata ajax
     $('#ricerca').click(function(){
-        var lat = $('#latitude').val();
-        var lng = $('#longitude').val();
-        var rag = $('#range').val();
-        console.log(lat);
-        console.log(lng);
-        console.log(rag);
-        ricerca(lat, lng, rag);
+        ricerca();
     });
 
+    $('#range').change(function(){
+        ricerca();
+    });
 
+    // $(document).on('change','#range', function(){
+    //     var lat = $('#latitude').val();
+    //     var lng = $('#longitude').val();
+    //     var rag = $('select').val();
+    //     ricerca(lat, lng, rag);
+    // });
+
+    // $(document).on(‘change’, ‘select’, function() {
+    //     var genreSelected = $(‘select’).val();
+    //     console.log(genreSelected);
+    //     $(‘.cd’).hide();
+    //     if (genreSelected == ‘All’) {
+    //         $(‘.cd’).show();
+    //     } else {
+    //         $(“.cd[data-genre=” + genreSelected + “]”).show();
+    //     }
+    // });
 });
 
+function ricerca(){
+    var lat = $('#latitude').val();
+    var lng = $('#longitude').val();
+    var rag = $('#range').val();
+    chiamata(lat, lng, rag);
+}
 
-
-function ricerca(latitude, longitude, raggio){
+function chiamata(latitude, longitude, raggio){
 
     $.ajax({
         'url': 'api/allapartments',

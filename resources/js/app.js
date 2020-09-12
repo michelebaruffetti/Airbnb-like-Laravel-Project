@@ -3,8 +3,7 @@ require('./bootstrap');
 
 var $ = require('jquery');
 import 'bootstrap';
-require('./search');
-require('./grafici');
+
 
 $(document).ready(function() {
     // cliccando sull'hamburger menu, mostriamo gli elementi della navbar
