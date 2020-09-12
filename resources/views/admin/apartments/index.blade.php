@@ -41,7 +41,7 @@
                         <div class="options d-flex justify-content-between align-items-center">
                             <div class="tags">
                                 @forelse ($apartment->services as $service)
-                                    <span class="tag-servizi mt-1">{{ $service->description }}</span>
+                                    <nobr class="tag-servizi mt-1">{{ $service->description }}</nobr>
                                     {{-- {{ $loop->last ? '' : ', '}} --}}
                                 @empty
                                     -

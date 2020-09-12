@@ -11495,6 +11495,8 @@ a.title:hover {
 p.paragrafo {
   color: #717e8f;
   margin: 12px 0 18px 0;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .fa-plus-square {
@@ -11525,7 +11527,7 @@ a.bottone:hover {
   border: 1px solid #f9423a;
 }
 
-span.tag-servizi {
+nobr.tag-servizi {
   background-color: #dfe3ed;
   padding: 4px 7px;
   border-radius: 4px;
@@ -11542,6 +11544,10 @@ span.tag-servizi {
 
 .dropdown-item {
   color: #3c4858;
+}
+
+.fa-cog {
+  font-size: 20px;
 }
 
 input[type=submit].myinput {
