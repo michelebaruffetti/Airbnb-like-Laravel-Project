@@ -15,6 +15,7 @@
     padding-right: 0;
     border-radius: $radious;
 
+
 }
 
 img-wrap {
@@ -27,6 +28,8 @@ img-wrap {
     padding-right: 0;
     border-top-left-radius: $radious;
     border-bottom-left-radius: $radious;
+    background-size: cover;
+    background-position: center center;
 }
 
 div.card-dx {
@@ -82,6 +85,7 @@ span.tag-servizi {
     font-weight: 500;
     margin-right: 5px;
     font-size: 13px;
+    line-height: 30px;
 }
 
 .mydrop {
@@ -110,10 +114,14 @@ input[type=submit].myinput:active {
     background-color: transparent;
 }
 
-@media (max-width: 1091px) {
+
+@media (max-width: 991.98px) {
     #img-wrap {
+        height: 250px;
         border-top-left-radius: $radious;
         border-top-right-radius: $radious;
+        background-size: cover;
+        background-position: center center;
     }
 
     .img-appartamento {
@@ -121,6 +129,23 @@ input[type=submit].myinput:active {
         border-top-right-radius: $radious;
         border-bottom-left-radius: 0;
     }
+
 }
+
+//remind breakpoint bootstrap
+// // Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575.98px) { ... }
+
+// // Small devices (landscape phones, less than 768px)
+// @media (max-width: 767.98px) { ... }
+
+// // Medium devices (tablets, less than 992px)
+// @media (max-width: 991.98px) { ... }
+
+// // Large devices (desktops, less than 1200px)
+// @media (max-width: 1199.98px) { ... }
+
+// // Extra large devices (large desktops)
+// // No media query since the extra-large breakpoint has no upper bound on its width
 
 

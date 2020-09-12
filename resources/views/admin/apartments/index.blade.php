@@ -4,7 +4,7 @@
 <div id="main-cards" >
     <div class="container">
         <div class="row">
-            <div class="titolo-wrap col-12 d-flex align-items-center">
+            <div class="titolo-wrap col-12 col col-md-10 offset-md-1 d-flex align-items-center">
                 <h1 class="h4 mr-4">I tuoi appartamenti</h1>
                 <a class="bottone d-flex align-items-center justify-content-around" href="
                 {{ route('admin.apartments.create')}}
@@ -20,27 +20,28 @@
         </div>
     </div>
     <div class="container lista-cards">
-        <div class="row mb-2">
+        <div class="row justify-content-center mb-2">
             @forelse ($apartments as $apartment)
-            <div class="col-12 d-lg-flex mt-4 apartment-container">
-                <div id="img-wrap" class="col-lg-4 col-12 img-wrap">
+            <div class="col col-12 col-md-10 d-lg-flex mt-4 apartment-container">
+                <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
                     @if ($apartment->image_url)
-                        <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        style="background-image: url({{asset('storage/' . $apartment->image_url)}})"
                     @else
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
+                        style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
                     @endif
+                    >
                 </div>
-                <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
+                <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
                     <div class="testo">
                         <a href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}"
                             class="title h4 text-uppercase">{{$apartment->title}}</a>
                             {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
-                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 150, $end = '...')}}</p>
+                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 100, $end = '...')}}</p>
                         <div class="options d-flex justify-content-between align-items-center">
                             <div class="tags">
                                 @forelse ($apartment->services as $service)
-                                    <span class="tag-servizi">{{ $service->description }}</span>
+                                    <span class="tag-servizi mt-1">{{ $service->description }}</span>
                                     {{-- {{ $loop->last ? '' : ', '}} --}}
                                 @empty
                                     -
