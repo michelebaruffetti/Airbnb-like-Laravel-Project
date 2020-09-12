@@ -31,19 +31,43 @@
                         <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
                     @endif
                 </div>
-                <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
+                <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
                     <div class="testo">
-                        <h2 class="title h4 text-uppercase">{{$apartment->title}}</h3>
+                        <a href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}"
+                            class="title h4 text-uppercase">{{$apartment->title}}</a>
                             {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
                         <p class="paragrafo">{{str_limit($apartment->description, $limit = 150, $end = '...')}}</p>
-                        @forelse ($apartment->services as $service)
-                             <span class="tag-servizi">{{ $service->description }}</span>
-                             {{-- {{ $loop->last ? '' : ', '}} --}}
-                        @empty
-                           -
-                        @endforelse
+                        <div class="options d-flex justify-content-between align-items-center">
+                            <div class="tags">
+                                @forelse ($apartment->services as $service)
+                                    <span class="tag-servizi">{{ $service->description }}</span>
+                                    {{-- {{ $loop->last ? '' : ', '}} --}}
+                                @empty
+                                    -
+                                @endforelse
+                            </div>
+                            <div class="dropdown d-inline mr-3">
+                                <button class="mydrop btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <a value="Visualizza" href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}" class="dropdown-item" type="button">
+                                        Visualizza
+                                    </a>
+                                    <a value="Modifica"  href="{{ route('admin.apartments.edit',['apartment'=> $apartment->id])}}" class="dropdown-item" type="button">
+                                        Modifica
+                                    </a>
+                                    {{-- <button class="dropdown-item" type="button">Disattiva</button> --}}
+                                    <form autocomplete="off" class="dropdown-item" type="button" action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id]) }}"method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="myinput" type="submit" value="Elimina">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                        <div class="buttons">
+                        {{-- <div class="buttons">
                             <a class=" btn btn-outline-primary" value="Dettagli" href="
                             {{ route('admin.apartments.show',['apartment'=> $apartment->id])}}
                             "><i class="fas fa-search"></i></a>
@@ -62,7 +86,7 @@
                             <input class="btn btn-outline-danger" type="submit" value="&#xf12d;">
 
                             </form>
-                        </div>
+                        </div> --}}
                 </div>
             </div>
          @empty

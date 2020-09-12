@@ -29,12 +29,22 @@ img-wrap {
     border-bottom-left-radius: $radious;
 }
 
-h2.title {
+div.card-dx {
+    padding-left: 30px;
+}
+
+a.title {
     color: $font_color_dark;
+}
+
+a.title:hover {
+    color: rgb(60, 72, 88, 0.8);
 }
 
 p.paragrafo {
     color: $font_color;
+    margin: 12px 0 18px 0;
+
 }
 
 .fa-plus-square {
@@ -65,15 +75,40 @@ a.bottone:hover{
 }
 
 span.tag-servizi {
-    background-color: #dfe3ed;
+    background-color: $tag;
     padding: 4px 7px;
     border-radius: 4px;
-    color: #3c4858;
+    color: $font_color_dark;
     font-weight: 500;
     margin-right: 5px;
     font-size: 13px;
 }
 
+.mydrop {
+    color: $colore_primario;
+}
+
+input[type=submit].myinput {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    font-family: inherit;
+    font-weight: inherit;
+}
+
+input[type=submit].myinput:focus {
+    outline: none;
+}
+
+input[type=submit].myinput:active {
+    background-color: transparent;
+}
+
+.dropdown-item:active {
+    color: rgb(60, 72, 88, 0.8);
+    text-decoration: none;
+    background-color: transparent;
+}
 
 @media (max-width: 1091px) {
     #img-wrap {

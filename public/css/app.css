@@ -11478,12 +11478,21 @@ img-wrap {
   border-bottom-left-radius: 7px;
 }
 
-h2.title {
+div.card-dx {
+  padding-left: 30px;
+}
+
+a.title {
   color: #3c4858;
+}
+
+a.title:hover {
+  color: rgba(60, 72, 88, 0.8);
 }
 
 p.paragrafo {
   color: #717e8f;
+  margin: 12px 0 18px 0;
 }
 
 .fa-plus-square {
@@ -11522,6 +11531,32 @@ span.tag-servizi {
   font-weight: 500;
   margin-right: 5px;
   font-size: 13px;
+}
+
+.mydrop {
+  color: #f9423a;
+}
+
+input[type=submit].myinput {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+input[type=submit].myinput:focus {
+  outline: none;
+}
+
+input[type=submit].myinput:active {
+  background-color: transparent;
+}
+
+.dropdown-item:active {
+  color: rgba(60, 72, 88, 0.8);
+  text-decoration: none;
+  background-color: transparent;
 }
 
 @media (max-width: 1091px) {
