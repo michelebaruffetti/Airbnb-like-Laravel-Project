@@ -23,6 +23,11 @@
         <div class="row mb-2">
             @forelse ($apartments as $apartment)
             <div class="col-12 d-lg-flex mt-4 apartment-container">
+                {{-- @if ($apartment->status==0)
+                    <div class="inactive">
+                            <i class="far fa-eye-slash"></i><span>Non visibile</span>
+                    </div>
+                @endif --}}
                 <div id="img-wrap" class="col-lg-4 col-12 img-wrap">
                     @if ($apartment->image_url)
                         <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">

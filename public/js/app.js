@@ -37287,6 +37287,9 @@ $(document).ready(function () {
     $('#panino').show();
     $('#main-cards').show();
   });
+  $('#button-message').click(function () {
+    $('#alert-message').alert('close');
+  });
 });
 
 /***/ }),

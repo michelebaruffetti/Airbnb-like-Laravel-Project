@@ -2,7 +2,8 @@ var $ = require('jquery');
 $(document).ready(function(){
 //al caricamento della pagina recupero i dati negli input nascosti e faccio la chiamata ajax
     ricerca();
-
+//recupero gli appartamneti sponsorizzati tramite api
+    chiamata_sponsored();
     //al click di ricerca recupero i dati negli input nascosti e faccio la chiamata ajax
     $('#ricerca').click(function(){
         ricerca();
@@ -48,6 +49,19 @@ function chiamata(latitude, longitude, raggio){
             'longitude': longitude,
             'range': raggio
         },
+        success: function(data){
+
+            console.log(data);
+
+        }
+    });
+}
+
+function chiamata_sponsored(){
+
+    $.ajax({
+        'url': 'api/sponsored',
+        'method': 'GET',
         success: function(data){
 
             console.log(data);

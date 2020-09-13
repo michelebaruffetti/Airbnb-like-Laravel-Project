@@ -41,12 +41,13 @@ class ApartmentController extends Controller
 
     public function sponsored(){
         $oggi = date("Y/m/d");
-        $apartments = DB::table('apartments')
+        $apartments = Apartment::select(DB::raw('*'))
             ->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
             ->where([
                 ['status', '=', '1'],
                 ['end_date', '>', $oggi],
                 ])
+            ->with('services')
             ->get();
             return response()->json($apartments);
     }

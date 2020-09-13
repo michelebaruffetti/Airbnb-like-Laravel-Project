@@ -19,6 +19,7 @@
             <form action="{{ route('admin.apartments.update', ['apartment' => $apartment->id] )}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
                 <div class="form-group">
                     <label for="titolo">Titolo</label>
                     <input type="text" name="title" class="form-control" id="titolo" placeholder="Titolo inserzione" value="{{ old('title', $apartment->title) }}">
@@ -71,6 +72,23 @@
                 {{-- <div class="">
                         <img src="{{asset('storage/' . $apartment->image_url)}}" alt="foto appartamento">
                 </div> --}}
+
+                <div class="form-group">
+                    <input class="radio" type="radio" name="status" id="is_active_yes" value="1" @if($apartment->status==1)
+                checked
+                @endif>
+                <label class="radio-label-form" for="is_active_yes">
+                    <i class="far fa-eye"></i><span>Visibile nelle ricerche</span>
+                </label>
+                <input class="radio" type="radio" name="status" id="is_active_no" value="0" @if(!$apartment->status==1)
+                checked
+                @endif>
+                <label class="radio-label-form" for="is_active_no">
+                    <i class="far fa-eye-slash"></i><span>Non visibile nelle ricerche</span>
+                </label>
+                </div>
+
+
 
 
                 <div class="form-group">
