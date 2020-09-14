@@ -4,7 +4,7 @@
 <div id="main-cards" >
     <div class="container">
         <div class="row">
-            <div class="titolo-wrap col-12 col col-md-10 offset-md-1 d-flex align-items-center">
+            <div class="titolo-wrap col-12 col col-md-10 offset-md-1 d-flex align-items-center justify-content-between">
                 <h1 class="h4 mr-4">I tuoi appartamenti</h1>
                 <a class="bottone d-flex align-items-center justify-content-around" href="
                 {{ route('admin.apartments.create')}}

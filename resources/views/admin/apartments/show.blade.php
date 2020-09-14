@@ -9,35 +9,37 @@
     {{-- sezione immagine --}}
     <div class="container immagine px-0 mt-3">
         <div class="row intestazione">
-            <div class="offset-1 col-10">
+            <div class="col-10 offset-lg-1 col-lg-10">
                 <h1 class="h2 d-block mb-0">{{$apartment->title}}</h1>
                 <p class="h6 mt-2 mb-3 address">{{$apartment->address}}</p>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-8">
+            <div class="col-12 col-lg-8">
                 @if ($apartment->image_url)
                     <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}"  alt="foto appartamento">
                 @else
                     <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
                 @endif
             </div>
-            <div class="col-2 dettagli-camera d-flex flex-column">
-                <h2 class="text-center h5 mt-4 mb-4">Dettagli</h2>
-                <ul class="list-unstyled d-flex flex-column justify-content-around mb-0 h-75">
-                    <li class="text-center">
-                        <i class="fas fa-ruler fa-2x"></i>
-                        <p class="">{{$apartment->square_meters . " m²"}}</p>
-                    </li>
-                    <li class="text-center">
-                        <i class="fas fa-bed fa-2x"></i>
-                        <p>{{$apartment->room . " stanze"}}</p>
-                    </li>
-                    <li class="text-center">
-                        <i class="fas fa-bath fa-2x"></i>
-                        <p>{{$apartment->bath . " bagni"}}</p>
-                    </li>
-                </ul>
+            <div class="col-12 col-lg-2">
+                <div class="dettagli-camera d-flex align-items-center flex-lg-column h-100 w-100 p-2 mt-2 mt-lg-0">
+                    <h2 class="text-center h5 mt-4 mb-4 d-none d-md-block">Dettagli</h2>
+                    <ul class="list-unstyled d-flex flex-lg-column justify-content-around mb-0 h-75 w-100">
+                        <li class="text-center">
+                            <i class="fas fa-ruler fa-2x"></i>
+                            <p class="mb-0">{{$apartment->square_meters . " m²"}}</p>
+                        </li>
+                        <li class="text-center">
+                            <i class="fas fa-bed fa-2x"></i>
+                            <p class="mb-0">{{$apartment->room . " stanze"}}</p>
+                        </li>
+                        <li class="text-center">
+                            <i class="fas fa-bath fa-2x"></i>
+                            <p class="mb-0">{{$apartment->bath . " bagni"}}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
