@@ -29,6 +29,48 @@
         </form>
     </div>
 
+
+    <section class="carousel mb-3">
+        <div class="container">
+            <div class="row justify-items-center">
+                <div class="col-12 col-md-8 offset-md-2">
+                    <div id="carousel-sponsor" class="carousel slide" data-ride="carousel">
+
+                        <!-- immagini carosello -->
+                        <div class="carousel-inner text-center">
+                            @foreach($apartments as $apartment)
+                              <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                  @if ($apartment->image_url)
+                                      <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                                  @else
+                                      {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
+                                      <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                                  @endif
+                                     <div class="carousel-caption d-none d-md-block">
+                                        <h3>{{$apartment->title}}</h3>
+                                        <p>{{$apartment->description }}</p>
+                                     </div>
+                              </div>
+                            @endforeach
+                        </div>
+
+                        <!-- controlli carosello -->
+                        <a class="carousel-control-prev" href="#carousel-sponsor" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-sponsor" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
     <div class="container lista-cards">
         <div class="row mb-2">
             <h1>SPONSORIZZATI</h1>
@@ -59,11 +101,13 @@
                         </div>
                 </div>
             </div>
-         @empty
+            @empty
             <p>non ci sono Appartamenti sponsorizzati</p>
-         @endforelse
+            @endforelse
         </div>
     </div>
+
+
 @endsection
 @section('script')
     <script src="{{ asset('js/autocomplete.js') }}" charset="utf-8"></script>
