@@ -11593,6 +11593,19 @@ input[type=submit].myinput:active {
   }
 }
 
+.messaggio {
+  background-color: white;
+  color: #3c4858;
+}
+
+.messaggio .messaggio-left {
+  background-color: rgba(223, 227, 237, 0.4);
+}
+
+.messaggio i {
+  color: #f9423a;
+}
+
 #map {
   height: 300px;
 }
