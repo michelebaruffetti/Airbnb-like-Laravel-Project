@@ -1,4 +1,5 @@
 var $ = require('jquery');
+const Handlebars = require("handlebars");
 $(document).ready(function(){
 //al caricamento della pagina recupero i dati negli input nascosti e faccio la chiamata ajax
     ricerca();
@@ -13,23 +14,6 @@ $(document).ready(function(){
         ricerca();
     });
 
-    // $(document).on('change','#range', function(){
-    //     var lat = $('#latitude').val();
-    //     var lng = $('#longitude').val();
-    //     var rag = $('select').val();
-    //     ricerca(lat, lng, rag);
-    // });
-
-    // $(document).on(‘change’, ‘select’, function() {
-    //     var genreSelected = $(‘select’).val();
-    //     console.log(genreSelected);
-    //     $(‘.cd’).hide();
-    //     if (genreSelected == ‘All’) {
-    //         $(‘.cd’).show();
-    //     } else {
-    //         $(“.cd[data-genre=” + genreSelected + “]”).show();
-    //     }
-    // });
 });
 
 function ricerca(){
@@ -51,7 +35,23 @@ function chiamata(latitude, longitude, raggio){
         },
         success: function(data){
 
+            var source = $("#template-apartment").html();
+            var template = Handlebars.compile(source);
+            for (var i = 0; i < data.response.length; i++) {
+                
+                // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
+                var context = {
+                    url_image: data.response[i].image_url,
+                    title: data.response[i].title,
+                    description: data.response[i].description,
+                    services: data.response[i].services
+                };
+                var html = template(context);
+    
+                $('#contenitore-appartamenti').append(html);
+            }
             console.log(data);
+
 
         }
     });
