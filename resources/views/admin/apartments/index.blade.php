@@ -11,12 +11,6 @@
                 "><i class="far fa-plus-square"></i> Inserisci annuncio
                 </a>
             </div>
-            {{-- <div class="col-2 d-flex align-items-center justify-content-end plus-wrap">
-                <a class="" href="
-                {{ route('admin.apartments.create')}}
-                "><i class="fas fa-plus"></i>
-                </a>
-            </div> --}}
         </div>
     </div>
     <div class="container lista-cards">
@@ -27,7 +21,6 @@
                     @if ($apartment->image_url)
                         style="background-image: url({{asset('storage/' . $apartment->image_url)}})"
                     @else
-                        {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
                         style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
                     @endif
                     >
@@ -68,26 +61,6 @@
                             </div>
                         </div>
                     </div>
-                        {{-- <div class="buttons">
-                            <a class=" btn btn-outline-primary" value="Dettagli" href="
-                            {{ route('admin.apartments.show',['apartment'=> $apartment->id])}}
-                            "><i class="fas fa-search"></i></a>
-
-                            <a class="btn btn-outline-success" value="Modifica"  href="
-                            {{ route('admin.apartments.edit',['apartment'=> $apartment->id])}}
-                            "
-                            ><i class="fas fa-pencil-alt"></i></a>
-
-                            <form class="d-inline" action="
-                            {{ route('admin.apartments.destroy', ['apartment' => $apartment->id]) }}
-                            "
-                            method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input class="btn btn-outline-danger" type="submit" value="&#xf12d;">
-
-                            </form>
-                        </div> --}}
                 </div>
             </div>
          @empty
