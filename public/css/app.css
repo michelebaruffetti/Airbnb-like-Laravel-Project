@@ -11596,6 +11596,11 @@ input[type=submit].myinput:active {
 .messaggio {
   background-color: white;
   color: #3c4858;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 7px;
 }
 
 .messaggio .messaggio-left {
@@ -11604,6 +11609,7 @@ input[type=submit].myinput:active {
 
 .messaggio i {
   color: #f9423a;
+  margin-right: 5px;
 }
 
 #map {

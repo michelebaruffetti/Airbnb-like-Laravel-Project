@@ -1,6 +1,11 @@
 .messaggio  {
     background-color: $background;
     color: $font_color_dark;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: $radious;
 
     .messaggio-left {
         background-color: $bg_active_hover;
@@ -8,5 +13,6 @@
 
     i  {
         color: $colore_primario;
+        margin-right: 5px;
     }
 }
