@@ -1,11 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    {{-- {{$ricerca['address']}}
-    {{$ricerca['latitude']}}
-    {{$ricerca['longitude']}}
-    {{$ricerca['range']}} --}}
-
-
 
 <div class="container">
     <div class="row">
@@ -69,4 +63,5 @@
 @endsection
 @section('script')
         <script src="{{ asset('js/autocomplete.js') }}" charset="utf-8"></script>
+        <script src="{{ asset('js/search.js') }}" charset="utf-8"></script>
 @endsection

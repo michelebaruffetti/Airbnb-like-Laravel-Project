@@ -172,6 +172,7 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::find($id);
         if($apartment) {
+            $apartment->messages()->delete();
             $apartment->delete();
             return redirect()->route('admin.apartments.index');
         } else {

@@ -3,8 +3,7 @@ require('./bootstrap');
 
 var $ = require('jquery');
 import 'bootstrap';
-require('./search');
-require('./grafici');
+
 
 $(document).ready(function() {
     // cliccando sull'hamburger menu, mostriamo gli elementi della navbar
@@ -23,4 +22,9 @@ $(document).ready(function() {
             $('#panino').show();
             $('#main-cards').show();
     });
+
+    $('#button-message').click(function(){
+        $('#alert-message').alert('close');
+    });
+
 });
