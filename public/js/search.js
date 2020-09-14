@@ -16093,14 +16093,14 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 
 $(document).ready(function () {
   //al caricamento della pagina recupero i dati negli input nascosti e faccio la chiamata ajax
-  ricerca(); //recupero gli appartamneti sponsorizzati tramite api
-
-  chiamata_sponsored(); //al click di ricerca recupero i dati negli input nascosti e faccio la chiamata ajax
+  ricerca(); //al click di ricerca recupero i dati negli input nascosti e faccio la chiamata ajax
 
   $('#ricerca').click(function () {
+    $('#contenitore-appartamenti').empty();
     ricerca();
   });
   $('#range').change(function () {
+    $('#contenitore-appartamenti').empty();
     ricerca();
   });
 });
@@ -16137,16 +16137,6 @@ function chiamata(latitude, longitude, raggio) {
         $('#contenitore-appartamenti').append(html);
       }
 
-      console.log(data);
-    }
-  });
-}
-
-function chiamata_sponsored() {
-  $.ajax({
-    'url': 'api/sponsored',
-    'method': 'GET',
-    success: function success(data) {
       console.log(data);
     }
   });
