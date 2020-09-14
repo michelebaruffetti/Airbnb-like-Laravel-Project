@@ -60,11 +60,23 @@ class HomeController extends Controller
         $services = Service::all();
         $ricerca = $request->all();
 
-        $data = [
-            'services' => $services,
-            'ricerca' => $ricerca
-        ];
-        return view('search', $data);
+        $oggi = date("Y/m/d");
+        $apartments = Apartment::select(DB::raw('*'))
+            ->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
+            ->where([
+                ['status', '=', '1'],
+                ['end_date', '>', $oggi],
+                ])
+            ->with('services')
+            ->get();
+
+            $data = [
+                'services' => $services,
+                'ricerca' => $ricerca,
+                'apartments' => $apartments
+            ];
+            return view('search', $data);
+        
     }
 
 }
