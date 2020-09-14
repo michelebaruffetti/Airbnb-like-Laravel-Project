@@ -15,6 +15,7 @@
     padding-right: 0;
     border-radius: $radious;
 
+
 }
 
 img-wrap {
@@ -27,14 +28,27 @@ img-wrap {
     padding-right: 0;
     border-top-left-radius: $radious;
     border-bottom-left-radius: $radious;
+    background-size: cover;
+    background-position: center center;
 }
 
-h2.title {
+div.card-dx {
+    padding-left: 30px;
+}
+
+a.title {
     color: $font_color_dark;
+}
+
+a.title:hover {
+    color: rgb(60, 72, 88, 0.8);
 }
 
 p.paragrafo {
     color: $font_color;
+    margin: 12px 0 18px 0;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 .fa-plus-square {
@@ -64,28 +78,87 @@ a.bottone:hover{
     border: 1px solid $colore_primario;
 }
 
-span.tag-servizi {
-    background-color: #dfe3ed;
+nobr.tag-servizi {
+    background-color: $tag;
     padding: 4px 7px;
     border-radius: 4px;
-    color: #3c4858;
+    color: $font_color_dark;
     font-weight: 500;
     margin-right: 5px;
     font-size: 13px;
+    line-height: 30px;
 }
 
+.mydrop {
+    color: $colore_primario;
+}
 
-@media (max-width: 1091px) {
+.dropdown-item {
+    color: $font_color_dark;
+}
+
+.fa-cog {
+    font-size: 20px;
+}
+
+input[type=submit].myinput {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    color: $font_color_dark;
+}
+
+input[type=submit].myinput:focus {
+    outline: none;
+}
+
+input[type=submit].myinput:active {
+    background-color: transparent;
+}
+
+.dropdown-item:active {
+    color: rgb(60, 72, 88, 0.8);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.dropdown-item:hover {
+    color: rgb(60, 72, 88, 0.8);
+    background-color: $bg_active_hover;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
     #img-wrap {
-        border-top-left-radius: $radious;
-        border-top-right-radius: $radious;
-    }
-
-    .img-appartamento {
+        height: 250px;
+        background-size: cover;
+        background-position: center center;
         border-top-left-radius: $radious;
         border-top-right-radius: $radious;
         border-bottom-left-radius: 0;
     }
 }
+
+//remind breakpoint bootstrap
+// // Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575.98px) { ... }
+
+// // Small devices (landscape phones, less than 768px)
+// @media (max-width: 767.98px) { ... }
+
+// // Medium devices (tablets, less than 992px)
+// @media (max-width: 991.98px) { ... }
+
+// // Large devices (desktops, less than 1200px)
+// @media (max-width: 1199.98px) { ... }
+
+// // Extra large devices (large desktops)
+// // No media query since the extra-large breakpoint has no upper bound on its width
 
 

@@ -11476,14 +11476,27 @@ img-wrap {
   padding-right: 0;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
+  background-size: cover;
+  background-position: center center;
 }
 
-h2.title {
+div.card-dx {
+  padding-left: 30px;
+}
+
+a.title {
   color: #3c4858;
+}
+
+a.title:hover {
+  color: rgba(60, 72, 88, 0.8);
 }
 
 p.paragrafo {
   color: #717e8f;
+  margin: 12px 0 18px 0;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .fa-plus-square {
@@ -11514,7 +11527,7 @@ a.bottone:hover {
   border: 1px solid #f9423a;
 }
 
-span.tag-servizi {
+nobr.tag-servizi {
   background-color: #dfe3ed;
   padding: 4px 7px;
   border-radius: 4px;
@@ -11522,15 +11535,58 @@ span.tag-servizi {
   font-weight: 500;
   margin-right: 5px;
   font-size: 13px;
+  line-height: 30px;
 }
 
-@media (max-width: 1091px) {
-  #img-wrap {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-  }
+.mydrop {
+  color: #f9423a;
+}
 
-  .img-appartamento {
+.dropdown-item {
+  color: #3c4858;
+}
+
+.fa-cog {
+  font-size: 20px;
+}
+
+input[type=submit].myinput {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #3c4858;
+}
+
+input[type=submit].myinput:focus {
+  outline: none;
+}
+
+input[type=submit].myinput:active {
+  background-color: transparent;
+}
+
+.dropdown-item:active {
+  color: rgba(60, 72, 88, 0.8);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.dropdown-item:hover {
+  color: rgba(60, 72, 88, 0.8);
+  background-color: rgba(223, 227, 237, 0.4);
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 991.98px) {
+  #img-wrap {
+    height: 250px;
+    background-size: cover;
+    background-position: center center;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-left-radius: 0;
