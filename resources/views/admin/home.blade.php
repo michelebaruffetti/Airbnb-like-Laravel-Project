@@ -5,14 +5,14 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="h3">Account:</h1>
+            <h1 class="h5">Account:</h1>
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-10 text-center profile-wrapper">
+        <div class="col-md-8 col-lg-12 text-center profile-wrapper">
             <div class="container ">
                 <div class="row">
                     <div id="immagine-profilo" class="col-12 col-lg-4  p-3 justify-content-center">
@@ -35,7 +35,7 @@
                             <form class="p-4" action="/upload" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <input class="form-control-sm" type="file" name="image">
-                                <input class="form-control-sm" type="submit" value="upload">
+                                <input class="form-control-sm mt-2" type="submit" value="Upload">
                             </form>
                         </div>
                     </div>

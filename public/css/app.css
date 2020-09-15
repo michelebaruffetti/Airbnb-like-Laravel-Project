@@ -11559,6 +11559,15 @@ nobr.tag-servizi {
   background-color: rgba(223, 227, 237, 0.4);
 }
 
+.form-control-sm {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+  padding: 8px 8px;
+  padding-bottom: 24px;
+  border-radius: 7px;
+}
+
 @media (max-width: 992px) {
   #immagine-profilo {
     border-right: 0px;
