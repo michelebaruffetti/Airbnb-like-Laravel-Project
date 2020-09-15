@@ -16,11 +16,13 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-8">
-                @if ($apartment->image_url)
-                    <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}"  alt="foto appartamento">
-                @else
-                    <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
-                @endif
+                <div>
+                    @if ($apartment->image_url)
+                        <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}"  alt="foto appartamento">
+                    @else
+                        <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
+                    @endif
+                </div>
             </div>
             <div class="col-12 col-lg-2">
                 <div class="dettagli-camera d-flex align-items-center flex-lg-column h-100 w-100 p-2 mt-2 mt-lg-0">
@@ -45,36 +47,32 @@
     </div>
 
     {{-- sezione descrizione --}}
-    <div class="container">
-        <div class="row justify-content-center mb-3">
-            {{-- sezione sinistra titolo + descrizione + promozioni --}}
-            <div class="col-12 col-lg-8 testo-descrizione text-left pt-4">
-                <div id="descrizione-appartamento testo-descrizione">
+    <div class="container px-0 mt-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="pt-4" id="descrizione-appartamento">
                     <p class="text-justify">{{$apartment->description}}</p>
                 </div>
             </div>
-            {{-- sezione destra dettagli + servizi + statistiche --}}
-            <div class="col-12 col-lg-2">
-                <div class="dettagli-camera d-flex align-items-center flex-lg-column h-100 w-100 p-2 mt-2 mt-lg-0">
-                    <h2 class="text-center h5 mt-4 mb-4 d-none d-md-block">Dettagli</h2>
-                    <ul class="list-unstyled d-flex flex-lg-column justify-content-around mb-0 h-75 w-100">
-                        <li class="text-center">
-                            <i class="fas fa-ruler fa-2x"></i>
-                            <p class="mb-0">{{$apartment->square_meters . " m²"}}</p>
-                        </li>
-                        <li class="text-center">
-                            <i class="fas fa-bed fa-2x"></i>
-                            <p class="mb-0">{{$apartment->room . " stanze"}}</p>
-                        </li>
-                        <li class="text-center">
-                            <i class="fas fa-bath fa-2x"></i>
-                            <p class="mb-0">{{$apartment->bath . " bagni"}}</p>
-                        </li>
-                    </ul>
+            <div class="col-12 col-lg-2 mt-4">
+                <div class="dettagli-servizi d-flex align-items-center flex-lg-column w-100 p-2 mt-2 mt-lg-0">
+                    <h2 class="text-center h5 mb-4 mt-5 d-none d-md-block">Servizi</h2>
+                    <div class="tags">
+                        <ul class="list-unstyled">
+                            @forelse ($apartment->services as $service)
+                            <li class="mt-3">
+                                <nobr class="tag-servizi mt-1">{{ $service->description }}</nobr>
+                            </li>
+                            @empty
+                                -
+                            @endforelse
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-12">

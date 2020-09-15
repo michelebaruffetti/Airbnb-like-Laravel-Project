@@ -33,9 +33,25 @@ h1, h2, h6 {
     }
 }
 
+.dettagli-servizi {
+    border-left: 3px solid $colore_primario;
+    height: 96%;
+}
+
 #descrizione-appartamento p {
     font-size: 17px;
     line-height: 27px;
+}
+
+nobr.tag-servizi {
+    background-color: $tag;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: $font_color_dark;
+    font-weight: 500;
+    margin-right: 5px;
+    font-size: 13px;
+    line-height: 30px;
 }
 
 // Small devices (landscape phones, less than 768px)
