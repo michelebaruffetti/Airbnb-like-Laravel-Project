@@ -1,5 +1,23 @@
-// img.img-profilo-grande {
-//     max-width: 250px;
-//     max-height: 250px;
-//     object-fit: cover;
-// }
+.profile-wrapper    {
+    background-color: $background;
+    color: $font_color_dark;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: $radious;
+
+
+}
+
+#immagine-profilo   {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: $bg_active_hover;
+}
+
+@media (max-width: 992px) {
+    #immagine-profilo {
+        border-right: 0px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
