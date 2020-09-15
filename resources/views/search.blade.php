@@ -35,7 +35,7 @@
                             {{in_array($service->id, $ricerca['services']) ? 'checked' : '' }}
                         @endisset
 
-                                class="form-check-input "
+                                class="form-check-input servizi "
                                 name="services[]"
                                 type="checkbox"
                                 value="{{ $service->id }}">
