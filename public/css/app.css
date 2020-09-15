@@ -10905,16 +10905,8 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background: #fafafa;
-}
-
-p {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
-  line-height: 1.7em;
-  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
 }
 
 a,
@@ -10940,41 +10932,44 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #EADFC9;
-  color: #93ADA4;
+  background: white;
+  color: #717e8f;
   transition: all 0.3s;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100%;
+}
+
+#sidebar i.fas {
+  font-size: 24px;
+  color: #717e8f;
+  margin-right: 8px;
+  width: 35px;
 }
 
 #sidebar .sidebar-header {
+  background: white;
   padding: 20px;
-  background: #EADFC9;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-  color: #93ADA4;
-  padding: 10px;
 }
 
 #sidebar ul li a {
-  padding: 10px;
-  font-size: 1.1em;
+  font-size: 15px;
+  padding: 10px 20px;
   display: block;
 }
 
 #sidebar ul li a:hover {
-  color: #93ADA4;
-  background: #f2ece1;
+  background: rgba(223, 227, 237, 0.4);
 }
 
 #sidebar ul li.active > a,
 a[aria-expanded=true] {
-  color: #fff;
-  background: #93ADA4;
+  color: #3c4858;
+  background: rgba(223, 227, 237, 0.4);
+}
+
+#sidebar > ul > li.active > a > span.icon > i {
+  color: #f9423a;
 }
 
 a[data-toggle=collapse] {
@@ -10996,6 +10991,7 @@ ul ul a {
 
 #content {
   width: 100%;
+  margin-left: 250px;
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
@@ -11029,10 +11025,10 @@ ul ul a {
 }
 
 .hamburger-menu ul li a {
-  color: #93ADA4;
+  color: #717e8f;
   text-decoration: none;
   font-size: 25px;
-  border-bottom: 2px solid #93ADA4;
+  border-bottom: 2px solid #717e8f;
 }
 
 .close {
@@ -11043,8 +11039,23 @@ ul ul a {
   top: 20px;
 }
 
-#immagine-profilo img {
-  width: 100%;
+.center-cropped {
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* Do not scale the image */
+  -o-object-position: center;
+     object-position: center;
+  /* Center the image within the element */
+  height: 35px;
+  width: 35px;
+  margin-right: 8px;
+}
+
+.nome-admin {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #3c4858;
 }
 
 @media (max-width: 767px) {
@@ -11053,6 +11064,10 @@ ul ul a {
   }
 
   #sidebar.active {
+    margin-left: 0;
+  }
+
+  #content {
     margin-left: 0;
   }
 }
@@ -11433,14 +11448,30 @@ input[type=submit] {
   font-weight: 900;
 }
 
+p {
+  color: #717e8f;
+}
+
+p.address {
+  color: #a0a3ab;
+}
+
+h1,
+h2,
+h6 {
+  color: #3c4858;
+}
+
 .img-appartamento {
-  width: 480px;
+  border-radius: 7px;
+  max-height: 500px;
 }
 
 #descrizione_appartamento {
   min-height: 50px;
 }
 
+<<<<<<< HEAD
 img {
   float: left;
   padding: 5px;
@@ -11538,6 +11569,216 @@ img {
 
 .hovereffects:hover a.info {
   transition-delay: 0.2s;
+=======
+.dettagli-camera {
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dettagli-camera i {
+  color: #f9423a;
+}
+
+.dettagli-camera p {
+  font-size: 18px;
+}
+
+.dettagli-servizi {
+  border-left: 3px solid #f9423a;
+  height: 96%;
+}
+
+#descrizione-appartamento p {
+  font-size: 17px;
+  line-height: 27px;
+}
+
+nobr.tag-servizi {
+  background-color: #dfe3ed;
+  padding: 4px 7px;
+  border-radius: 4px;
+  color: #3c4858;
+  font-weight: 500;
+  margin-right: 5px;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+@media (max-width: 767.98px) {
+  .dettagli-camera i {
+    font-size: 23px;
+  }
+
+  .dettagli-camera p {
+    font-size: 15px;
+  }
+}
+
+.img-appartamento {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+#descrizione_appartamento {
+  min-height: 50px;
+}
+
+.apartment-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 7px;
+}
+
+img-wrap {
+  height: 100%;
+  width: 100%;
+}
+
+#img-wrap {
+  padding-left: 0;
+  padding-right: 0;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  background-size: cover;
+  background-position: center center;
+}
+
+div.card-dx {
+  padding-left: 30px;
+}
+
+a.title {
+  color: #3c4858;
+}
+
+a.title:hover {
+  color: rgba(60, 72, 88, 0.8);
+}
+
+p.paragrafo {
+  color: #717e8f;
+  margin: 12px 0 18px 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.fa-plus-square {
+  font-size: 19px;
+  margin-right: 10px;
+}
+
+#main-cards > div:nth-child(1) > div > div.col-10 > h1 {
+  color: #3c4858;
+}
+
+div.titolo-wrap,
+div.plus-wrap {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+a.bottone {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-weight: 500;
+}
+
+a.bottone:hover {
+  border: 1px solid #f9423a;
+}
+
+nobr.tag-servizi {
+  background-color: #dfe3ed;
+  padding: 4px 7px;
+  border-radius: 4px;
+  color: #3c4858;
+  font-weight: 500;
+  margin-right: 5px;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.mydrop {
+  color: #f9423a;
+}
+
+.dropdown-item {
+  color: #3c4858;
+}
+
+.fa-cog {
+  font-size: 20px;
+}
+
+input[type=submit].myinput {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #3c4858;
+}
+
+input[type=submit].myinput:focus {
+  outline: none;
+}
+
+input[type=submit].myinput:active {
+  background-color: transparent;
+}
+
+.dropdown-item:active {
+  color: rgba(60, 72, 88, 0.8);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.dropdown-item:hover {
+  color: rgba(60, 72, 88, 0.8);
+  background-color: rgba(223, 227, 237, 0.4);
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 991.98px) {
+  #img-wrap {
+    height: 250px;
+    background-size: cover;
+    background-position: center center;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.messaggio {
+  background-color: white;
+  color: #3c4858;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 7px;
+}
+
+.messaggio .messaggio-left {
+  background-color: rgba(223, 227, 237, 0.4);
+}
+
+.messaggio i {
+  color: #f9423a;
+  margin-right: 5px;
+>>>>>>> main
 }
 
 #map {

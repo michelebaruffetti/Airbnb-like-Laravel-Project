@@ -1,7 +1,67 @@
+p {
+    color: $font_color;
+}
+
+p.address {
+    color: #a0a3ab;
+}
+
+h1, h2, h6 {
+    color: $font_color_dark;
+}
+
 .img-appartamento {
-    width: 480px;
+    border-radius: $radious;
+    max-height: 500px;
 }
 
 #descrizione_appartamento {
     min-height: 50px;
+}
+
+.dettagli-camera {
+    background-color: white;
+    border-radius: $radious;
+    box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    i {
+        // font-size: 20px;
+        color: $colore_primario;
+    }
+    p {
+        font-size: 18px;
+    }
+}
+
+.dettagli-servizi {
+    border-left: 3px solid $colore_primario;
+    height: 96%;
+}
+
+#descrizione-appartamento p {
+    font-size: 17px;
+    line-height: 27px;
+}
+
+nobr.tag-servizi {
+    background-color: $tag;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: $font_color_dark;
+    font-weight: 500;
+    margin-right: 5px;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    .dettagli-camera {
+        i {
+            font-size: 23px;
+        }
+        p {
+            font-size: 15px;
+        }
+    }
 }

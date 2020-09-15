@@ -4,60 +4,63 @@
 <div id="main-cards" >
     <div class="container">
         <div class="row">
-            <div class=" col-10">
-                <h1 class="h4">Lista Appartamenti</h1>
-
-            </div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
-                <a class="" href="
+            <div class="titolo-wrap col-12 col col-md-10 offset-md-1 d-flex align-items-center justify-content-between">
+                <h1 class="h4 mr-4">I tuoi appartamenti</h1>
+                <a class="bottone d-flex align-items-center justify-content-around" href="
                 {{ route('admin.apartments.create')}}
-                "><i class="fas fa-plus"></i>
+                "><i class="far fa-plus-square"></i> Inserisci annuncio
                 </a>
             </div>
         </div>
     </div>
     <div class="container lista-cards">
-        <div class="row mb-2">
+        <div class="row justify-content-center mb-2">
             @forelse ($apartments as $apartment)
-            <div class="col-12 d-lg-flex rounded border border-color-grey py-2 mt-1 mb-1">
-                <div class="col-lg-4 col-12  immagine d-flex align-items-center">
+            <div class="col col-12 col-md-10 d-lg-flex mt-4 apartment-container">
+                <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
                     @if ($apartment->image_url)
-                        <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        style="background-image: url({{asset('storage/' . $apartment->image_url)}})"
                     @else
-                        {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                        style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
                     @endif
+                    >
                 </div>
-                <div class="text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-between">
+                <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
                     <div class="testo">
-                        <h3>{{$apartment->title}}</h3>
-                        <p>{{$apartment->description}}</p>
-                        @forelse ($apartment->services as $service)
-                             {{ $service->description }}{{ $loop->last ? '' : ', '}}
-                        @empty
-                           -
-                        @endforelse
-                    </div>
-                        <div class="buttons">
-                            <a class=" btn btn-outline-primary" value="Dettagli" href="
-                            {{ route('admin.apartments.show',['apartment'=> $apartment->id])}}
-                            "><i class="fas fa-search"></i></a>
-
-                            <a class="btn btn-outline-success" value="Modifica"  href="
-                            {{ route('admin.apartments.edit',['apartment'=> $apartment->id])}}
-                            "
-                            ><i class="fas fa-pencil-alt"></i></a>
-
-                            <form class="d-inline" action="
-                            {{ route('admin.apartments.destroy', ['apartment' => $apartment->id]) }}
-                            "
-                            method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input class="btn btn-outline-danger" type="submit" value="&#xf12d;">
-
-                            </form>
+                        <a href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}"
+                            class="title h4 text-uppercase">{{$apartment->title}}</a>
+                            {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
+                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 100, $end = '...')}}</p>
+                        <div class="options d-flex justify-content-between align-items-center">
+                            <div class="tags">
+                                @forelse ($apartment->services as $service)
+                                    <nobr class="tag-servizi mt-1">{{ $service->description }}</nobr>
+                                    {{-- {{ $loop->last ? '' : ', '}} --}}
+                                @empty
+                                    -
+                                @endforelse
+                            </div>
+                            <div class="dropdown d-inline mr-3">
+                                <button class="mydrop btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <a value="Visualizza" href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}" class="dropdown-item" type="button">
+                                        Visualizza
+                                    </a>
+                                    <a value="Modifica"  href="{{ route('admin.apartments.edit',['apartment'=> $apartment->id])}}" class="dropdown-item" type="button">
+                                        Modifica
+                                    </a>
+                                    {{-- <button class="dropdown-item" type="button">Disattiva</button> --}}
+                                    <form autocomplete="off" class="dropdown-item" type="button" action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id]) }}"method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="myinput" type="submit" value="Elimina">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
          @empty

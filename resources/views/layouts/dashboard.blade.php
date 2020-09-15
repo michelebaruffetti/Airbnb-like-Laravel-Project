@@ -14,7 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7f25fd8a42.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
@@ -24,42 +24,43 @@
 <body>
     <div class="wrapper">
         <nav id="sidebar">
-            <div class="sidebar-header d-flex flex-column align-items-center">
+            <div class="sidebar-header d-flex align-items-center">
                 {{-- mostra avatar solo se presente --}}
                 @if (Auth::user()->avatar)
-                <img class="rounded" src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" width="70">
+                <img class="rounded-circle center-cropped" src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar">
                 {{-- altrimenti non mostra nulla --}}
                 @endif
+                <p class="nome-admin">{{Auth::user()->name . ' ' . Auth::user()->lastname}}</p>
 
             </div>
-            <ul class="list-unstyled cambio-active">
+            <ul class="list-unstyled cambio-active mt-1">
             <li class="voce-menu">
-                    <a href="{{ route('home') }}">
-                        <span class="icon pr-2"><i class="fas fa-home"></i></span>
+                    <a href="{{ route('home')}}">
+                        <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="title">Visita il sito</span>
                     </a>
                 </li>
                 <li class="voce-menu {{Request::route()->getName() == 'admin.home' ? 'active' : ''}}">
                     <a href="{{ route('admin.home') }}">
-                        <span class="icon pr-2"><i class="fas fa-user"></i></span>
+                        <span class="icon"><i class="fas fa-user"></i></span>
                         <span class="title">Profilo</span>
                     </a>
                 </li>
-                <li class="voce-menu {{Request::route()->getName() == 'admin.apartments.index' ? 'active' : ''}}">
+                <li class="voce-menu {{ (request()->is('admin/apartments*')) ? 'active' : '' }}">
                     <a href="{{ route('admin.apartments.index') }}">
-                        <span class="icon pr-2"><i class="fas fa-list"></i></span>
+                        <span class="icon"><i class="fas fa-list"></i></span>
                         <span class="title">Appartamenti</span>
                     </a>
                 </li>
                 <li class="voce-menu {{Request::route()->getName() == 'admin.message' ? 'active' : ''}}">
                     <a href="{{ route('admin.message') }}">
-                        <span class="icon pr-2"><i class="fas fa-envelope"></i></span>
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
                         <span class="title">Messaggi</span>
                     </a>
                 </li>
                 <li class="voce-menu">
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <span class="icon pr-2"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                         <span class="title">Logout</span>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

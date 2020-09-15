@@ -1,4 +1,5 @@
-
+var $ = require('jquery');
+$(document).ready(function() {
     var Chart = require('chart.js');
 //grafico
     var messaggi = $('#messaggi_ricevuti').text();
@@ -40,4 +41,6 @@
             }]
         }
     }
+});
+
 });

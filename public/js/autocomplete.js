@@ -10824,7 +10824,7 @@ module.exports = g;
       }
     }
   }).configure({
-    type: 'address'
+    type: ['address', 'city']
   });
   placesAutocomplete.on('change', function resultSelected(e) {
     document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';
@@ -10845,7 +10845,19 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\autocomplete.js */"./resources/js/autocomplete.js");
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/js/autocomplete.js */"./resources/js/autocomplete.js");
+=======
+module.exports = __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/js/autocomplete.js */"./resources/js/autocomplete.js");
+>>>>>>> frontend-carousel
+=======
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo-3/resources/js/autocomplete.js */"./resources/js/autocomplete.js");
+>>>>>>> handlebars
+>>>>>>> main
 
 
 /***/ }),

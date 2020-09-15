@@ -11,7 +11,7 @@ var places = require('places.js');
         }
       }
     }).configure({
-      type: 'address'
+      type: ['address', 'city']
     });
     placesAutocomplete.on('change', function resultSelected(e) {
       document.querySelector('#latitude').value = e.suggestion.latlng.lat || '';

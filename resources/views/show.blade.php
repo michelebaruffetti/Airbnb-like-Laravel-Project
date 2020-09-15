@@ -3,11 +3,15 @@
 {{-- messaggio di conferma invio messaggio --}}
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-sm-12 col-lg-6 offset-lg-3 text-center">
                 @if(session()->has('message'))
-                <div class="alert alert-success">
-                {{ session()->get('message') }}
-                </div>
+                {{-- <div class="alert alert-success"> --}}
+                    <div id='alert-message' class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session()->get('message') }}
+                        <button id='button-message' type="button" class="close d-block" data-dismiss="alert" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
             @endif
         </div>
     </div>
