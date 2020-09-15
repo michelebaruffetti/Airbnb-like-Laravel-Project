@@ -12,7 +12,7 @@
                 <div class="col-12  text-center my-2 p-0 messaggio">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-5 d-flex flex-column justify-content-center messaggio-left p-3 border-right">
+                            <div class="col-lg-5 d-flex flex-column justify-content-center messaggio-left p-3 ">
                                 <h3 class="h5">ID dell'appartamento: {{$message->apartment_id}}</h3>
                                 <div class="dati-mittente">
                                     <p class="mb-0"><i class="fas fa-user"></i> {{$message->name}} {{$message->lastname}}</p>

@@ -37358,6 +37358,7 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\sass\app.scss */"./resources/sass/app.scss");
 =======
@@ -37374,6 +37375,10 @@ __webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo-3/resources/sass/app.scss */"./resources/sass/app.scss");
 >>>>>>> handlebars
 >>>>>>> main
+=======
+__webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> Frontend-profile
 
 
 /***/ })

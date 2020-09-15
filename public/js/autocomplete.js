@@ -10846,6 +10846,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\autocomplete.js */"./resources/js/autocomplete.js");
 =======
 <<<<<<< HEAD
@@ -10858,6 +10859,9 @@ module.exports = __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boole
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo-3/resources/js/autocomplete.js */"./resources/js/autocomplete.js");
 >>>>>>> handlebars
 >>>>>>> main
+=======
+module.exports = __webpack_require__(/*! /Users/baruffetty/Documents/Corso Boolean/airbnb-gruppo-3/resources/js/autocomplete.js */"./resources/js/autocomplete.js");
+>>>>>>> Frontend-profile
 
 
 /***/ }),

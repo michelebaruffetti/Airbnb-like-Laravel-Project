@@ -11616,6 +11616,64 @@ nobr.tag-servizi {
   }
 }
 
+.messaggio {
+  background-color: white;
+  color: #3c4858;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 7px;
+}
+
+.messaggio i {
+  color: #f9423a;
+  margin-right: 5px;
+}
+
+.messaggio-left {
+  background-color: rgba(223, 227, 237, 0.4);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .messaggio-left {
+    border-right: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.profile-wrapper {
+  background-color: white;
+  color: #3c4858;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 7px;
+}
+
+#immagine-profilo {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(223, 227, 237, 0.4);
+}
+
+.form-control-sm {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+  padding: 8px 8px;
+  padding-bottom: 24px;
+  border-radius: 7px;
+}
+
+@media (max-width: 992px) {
+  #immagine-profilo {
+    border-right: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
 .img-appartamento {
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
@@ -11761,6 +11819,7 @@ input[type=submit].myinput:active {
   }
 }
 
+<<<<<<< HEAD
 .messaggio {
   background-color: white;
   color: #3c4858;
@@ -11781,6 +11840,8 @@ input[type=submit].myinput:active {
 >>>>>>> main
 }
 
+=======
+>>>>>>> Frontend-profile
 #map {
   height: 300px;
 }
