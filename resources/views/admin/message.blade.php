@@ -4,21 +4,23 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="h6">I Tuoi Messaggi:</h1>
+                <h1 class="h5">I Tuoi Messaggi:</h1>
             </div>
         </div>
         <div class="row">
             @forelse ($messages as $message)
-                <div class="col-12 border rounded text-center my-2 p-3">
+                <div class="col-12  text-center my-2 p-0 messaggio">
                     <div class="container">
                         <div class="row">
-                            <div class="col-5 d-flex flex-column justify-content-center">
+                            <div class="col-lg-5 d-flex flex-column justify-content-center messaggio-left p-3 border-right">
                                 <h3 class="h5">ID dell'appartamento: {{$message->apartment_id}}</h3>
-                                <p class="mb-0"><strong>Mittente:</strong> {{$message->name}} {{$message->lastname}}</p>
-                                <p class="mb-0"><strong>Email:</strong> {{$message->email}}</p>
+                                <div class="dati-mittente">
+                                    <p class="mb-0"><i class="fas fa-user"></i> {{$message->name}} {{$message->lastname}}</p>
+                                    <p class="mb-0"><i class="fas fa-envelope"></i> {{$message->email}}</p>
+                                </div>
                             </div>
-                            <div class="col-7 d-flex flex-column justify-content-center">
-                                <p><strong>Richiesta:</strong> {{$message->text}}</p>
+                            <div class="col-lg-7 d-flex flex-column justify-content-center messaggio-right p-3">
+                                <p>{{$message->text}}</p>
                             </div>
 
                         </div>
