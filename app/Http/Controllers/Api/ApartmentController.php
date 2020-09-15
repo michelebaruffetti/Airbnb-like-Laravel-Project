@@ -17,8 +17,8 @@ class ApartmentController extends Controller
             'response' => []
         ];
 
-        $latitude= $request->latitude;
-        $longitude= $request->longitude;
+        $latitude= $request->latitude + 0.001;
+        $longitude= $request->longitude + 0.001;
         $distance= $request->range;
 
         $response = Apartment::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( latitude ) ) * cos(

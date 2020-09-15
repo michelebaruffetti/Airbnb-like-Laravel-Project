@@ -44,7 +44,7 @@
                             <option value="">Seleziona il numero di stanze</option>
                             @for ($i = 1; $i <= 10; $i++)
                                 <option
-                                value="{{ $i }}{{ old('room')}}">
+                                value="{{ $i }}"{{ old('room')==$i ? 'selected' : '' }}>
                                 {{ $i }}
                                 </option>
                             @endfor
@@ -56,7 +56,7 @@
                             <option value="">Seleziona il numero di bagni</option>
                             @for ($i = 1; $i <= 10; $i++)
                                 <option
-                                value="{{ $i }}{{ old('bath')}}">
+                                value="{{ $i }}"{{ old('bath')==$i ? 'selected' : ''}}>
                                 {{ $i }}
                                 </option>
                             @endfor
