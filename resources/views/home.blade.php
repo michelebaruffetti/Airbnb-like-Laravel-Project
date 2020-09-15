@@ -54,7 +54,7 @@
         </form>
     </div>
 
-    <div class="container lista-cards">
+    {{-- <div class="container lista-cards">
         <div class="row mb-2">
             <h1>SPONSORIZZATI</h1>
             @forelse ($apartments as $apartment)
@@ -64,7 +64,7 @@
                         <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                     @else
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
-                        <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
+                        {{-- <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
                     @endif
                 </div>
                 <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
@@ -87,8 +87,85 @@
          @empty
             <p>non ci sono Appartamenti sponsorizzati</p>
          @endforelse
+        </div> --}}
+    {{-- </div>  --}}
+
+
+
+
+    <p class="text-center text-uppercase" id="paragrafo" >Appartamenti sponsorizzati</p>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @forelse ($apartments as $apartment)
+                <div class="carousel-item {{ $loop->first ? 'active' : "" }} ">
+                    <div class="col-md-4 col-sm-6 col-xs-12 rounded">
+                        <div class="hovereffects">
+                        @if ($apartment->image_url)
+                            <img src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        @else
+                            {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
+                                <img class="" src="https://picsum.photos/200/200" height="300px" width="100%" alt="images">
+                        @endif
+
+                            <div class="overlay">
+                                <h3 class="h-25">{{$apartment->title}}</h3>
+                                <p class="h-50">{{$apartment->description}}</p>
+                                <a class="info h-25" href="#">more info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 d-flex flex-wrap">
+                        <div class="hovereffects">
+                        @if ($apartment->image_url)
+                            <img class="rounded img-fluid d-flex flex-wrap" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        @else
+                            {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
+                                <img class="" src="https://picsum.photos/200/200" height="300px" width="100%" alt="images">
+                        @endif
+
+                            <div class="overlay">
+                                <h3 class="h-25" >{{$apartment->title}}</h3>
+                                <p class="h-50" >{{$apartment->description}}</p>
+                                <a class="info h-25" href="#">more info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="hovereffects">
+                        @if ($apartment->image_url)
+                            <img class="rounded img-fluid d-flex flex-wrap" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                        @else
+                            {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
+                            <div class="hovereffects">
+                                <img src="https://picsum.photos/200/200" height="300px" width="100%" alt="images">
+                            </div>
+                        @endif
+                            <div class="overlay">
+                                <h3 class="h-25" >{{$apartment->title}}</h3>
+                                <p class="h-50" >{{$apartment->description}}</p>
+                                <a class="info h-25" href="#">more info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" id="control-larghezza" href="#myCarousel" data-slide="prev" style="background: transparent;color: #3255e3;">
+                   <span class="glyphicon glyphicon-chevron-left" ></span>
+                   <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" id="control-larghezza" href="#myCarousel" data-slide="next" style="background: transparent;color: #3255e3;">
+                   <span class="glyphicon glyphicon-chevron-right" ></span>
+                   <span class="sr-only">Next</span>
+                </a>
+
+            @empty
+            <p>non ci sono Appartamenti sponsorizzati</p>
         </div>
+        @endforelse
     </div>
+
 @endsection
 @section('script')
     <script src="{{ asset('js/autocomplete.js') }}" charset="utf-8"></script>
