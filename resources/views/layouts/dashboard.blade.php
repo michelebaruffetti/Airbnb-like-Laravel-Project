@@ -22,67 +22,105 @@
 
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3 sidebar">
-                <ul>
-                    <li class="mt-3">
-                        <p>
-                            <span class="icon"><i class="far fa-laugh-wink"></i></span>
-                            <span class="title">
-                                Ciao {{ Auth::user()->name }}
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header d-flex flex-column align-items-center">
+                {{-- mostra avatar solo se presente --}}
+                @if (Auth::user()->avatar)
+                <img class="rounded" src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" width="70">
+                {{-- altrimenti non mostra nulla --}}
+                @endif
 
-                                {{-- mostra avatar solo se presente --}}
-                                @if (Auth::user()->avatar)
-                                <img src="{{asset('/storage/image/' . Auth::user()->avatar)}}" alt="avatar" width="70">
-                                {{-- altrimenti non mostra nulla --}}
-                                @endif
-                            </span>
-                        </p>
-                    </li>
-                    <li>
-                        <a href="{{ route('home') }}">
-                            <span class="icon"><i class="fas fa-home"></i></span>
-                            <span class="title">Visita il sito</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.home') }}">
-                            <span class="icon"><i class="fas fa-user"></i></span>
-                            <span class="title">Profilo</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.apartments.index') }}">
-                            <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                            <span class="title">Appartamenti</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.message') }}">
-                            <span class="icon"><i class="fas fa-envelope"></i></span>
-                            <span class="title">Messaggi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                            <span class="title">Logout</span>
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
-                </ul>
             </div>
-            {{-- <div class="toggle">
+            <ul class="list-unstyled cambio-active">
+            <li class="voce-menu">
+                    <a href="{{ route('home') }}">
+                        <span class="icon pr-2"><i class="fas fa-home"></i></span>
+                        <span class="title">Visita il sito</span>
+                    </a>
+                </li>
+                <li class="voce-menu {{Request::route()->getName() == 'admin.home' ? 'active' : ''}}">
+                    <a href="{{ route('admin.home') }}">
+                        <span class="icon pr-2"><i class="fas fa-user"></i></span>
+                        <span class="title">Profilo</span>
+                    </a>
+                </li>
+                <li class="voce-menu {{Request::route()->getName() == 'admin.apartments.index' ? 'active' : ''}}">
+                    <a href="{{ route('admin.apartments.index') }}">
+                        <span class="icon pr-2"><i class="fas fa-list"></i></span>
+                        <span class="title">Appartamenti</span>
+                    </a>
+                </li>
+                <li class="voce-menu {{Request::route()->getName() == 'admin.message' ? 'active' : ''}}">
+                    <a href="{{ route('admin.message') }}">
+                        <span class="icon pr-2"><i class="fas fa-envelope"></i></span>
+                        <span class="title">Messaggi</span>
+                    </a>
+                </li>
+                <li class="voce-menu">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="icon pr-2"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Logout</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <div id="toggle" class="p-4 d-md-none">
+                <a id="panino" href="#">
+                    <i class="fas fa-2x fa-bars"></i>
+                </a>
 
-            </div> --}}
-            <div class=" col-9 text-center">
-                @yield('content')
+                <div class="hamburger-menu">
+                    <ul class="">
+                        <li class="voce-menu">
+                                <a href="{{ route('home') }}">
+                                    <span class="icon pr-2"><i class="fas fa-home"></i></span>
+                                    <span class="title">Visita il sito</span>
+                                </a>
+                            </li>
+                            <li class="voce-menu {{Request::route()->getName() == 'admin.home' ? 'active' : ''}}">
+                                <a href="{{ route('admin.home') }}">
+                                    <span class="icon pr-2"><i class="fas fa-user"></i></span>
+                                    <span class="title">Profilo</span>
+                                </a>
+                            </li>
+                            <li class="voce-menu {{Request::route()->getName() == 'admin.apartments.index' ? 'active' : ''}}">
+                                <a href="{{ route('admin.apartments.index') }}">
+                                    <span class="icon pr-2"><i class="fas fa-list"></i></span>
+                                    <span class="title">Appartamenti</span>
+                                </a>
+                            </li>
+                            <li class="voce-menu {{Request::route()->getName() == 'admin.message' ? 'active' : ''}}">
+                                <a href="{{ route('admin.message') }}">
+                                    <span class="icon pr-2"><i class="fas fa-envelope"></i></span>
+                                    <span class="title">Messaggi</span>
+                                </a>
+                            </li>
+                            <li class="voce-menu">
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <span class="icon pr-2"><i class="fas fa-sign-out-alt"></i></span>
+                                    <span class="title">Logout</span>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    <a class="close">
+                        <i id="close" class="fas fa-times"></i>
+                    </a>
+
+                </div>
             </div>
+            @yield('content')
         </div>
+
     </div>
     @yield('script')
+
 </body>
 </html>

@@ -25,6 +25,7 @@
     "dependencies": {
         "@tomtom-international/web-sdk-maps": "^6.1.2-public-preview.6",
         "@tomtom-international/web-sdk-services": "^6.1.2-public-preview.6",
+        "chart.js": "^2.9.3",
         "places.js": "^1.19.0"
     }
 }
