@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="style.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js">
+
+    </script>
 </head>
 <body>
     <div id="app">
@@ -100,6 +103,9 @@
             @yield('content')
         </main>
     </div>
+
+    @include('partials.footer')
+
     @yield('script')
 </body>
 </html>
