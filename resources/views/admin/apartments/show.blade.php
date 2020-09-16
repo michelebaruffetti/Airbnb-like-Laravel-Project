@@ -73,7 +73,7 @@
                     <h2 class="h4 mb-4 mt-3 d-none d-lg-block">Statistiche</h2>
                     <div class="">
                         <div class="mb-3">
-                            <img class="img-fluid rounded border border-color-grey" src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2018/12/24160114/LOSDOS1-1024x767.png" alt="grafici">
+                            <img class="img-fluid rounded" src="https://static.html.it/app/uploads/2014/11/chart_pie.png" alt="grafici">
                         </div>
                         <a class="bottone" href="{{Route('admin.statistics', ['apartment' => $apartment->id])}}">Le tue statistiche</a>
                     </div>
@@ -82,25 +82,27 @@
         </div>
     </div>
 
-        {{-- promozioni --}}
-    <div class="container promozioni py-3">
-        <div class="row">
-            <div class=" col-12 col-lg-10 offset-lg-1">
-                <h3 class="h4 text-center">Sponsorizza il tuo appartamento</h3>
+    <div class="container px-0 mt-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10">
+                <h3 class="h4 mt-3">Incrementa le visite sponsorizzando il tuo appartamento</h3>
             </div>
         </div>
-
-        @foreach ($sponsors as $sponsor)
-            <div class="row ">
-                <div class="col-12 col-lg-10 offset-lg-1">
-                    <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                        <h5>Prezzo: {{$sponsor->price}}</h5>
-                        <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
-
+        <div class="row">
+            <div class="col-12 offset-lg-1 col-lg-10">
+                <div class="d-flex justify-content-between w-100 mt-3">
+                    @foreach ($sponsors as $sponsor)
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Pacchetto promo {{$sponsor->id}}:</h5>
+                            <p class="card-text">Mettilo in evidenza per {{$sponsor->description}} ore</p>
+                            <a href="#" class="bottone-pieno">Paga {{$sponsor->price}} €</a>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
-        @endforeach
+        </div>
     </div>
 </div>
 @endsection
