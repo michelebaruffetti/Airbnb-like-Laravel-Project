@@ -11471,105 +11471,6 @@ h6 {
   min-height: 50px;
 }
 
-<<<<<<< HEAD
-img {
-  float: left;
-  padding: 5px;
-}
-
-.carousel-indicators .active {
-  background-color: #3255e3;
-}
-
-.carousel-indicators {
-  padding-top: 50px;
-}
-
-#control-larghezza {
-  width: 7%;
-}
-
-.hovereffects {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  cursor: default;
-  margin-bottom: 10px;
-}
-
-.hovereffects .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: all 0.4s ease-in-out;
-}
-
-.hovereffects img {
-  display: block;
-  position: relative;
-  transition: all 0.4s linear;
-}
-
-#paragrafo {
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-}
-
-.hovereffects h3,
-.hovereffects p {
-  color: #fff;
-  text-align: center;
-  position: relative;
-  font-size: 17px;
-  background: rgba(0, 0, 0, 0.6);
-  transition: all 0.2s ease-in-out;
-  padding: 10px;
-  overflow-y: hidden;
-}
-
-.hovereffects a.info {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
-  border: 1px solid #fff;
-  background-color: transparent;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  transition: all 0.2s ease-in-out;
-  margin: 50px 0 0;
-  padding: 7px 14px;
-}
-
-.hovereffects a.info:hover {
-  box-shadow: 0 0 5px #fff;
-}
-
-.hovereffects:hover img {
-  transform: scale(1.2);
-}
-
-.hovereffects:hover .overlay {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-
-.hovereffects:hover h2,
-.hovereffects:hover a.info {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  transform: translateY(0);
-}
-
-.hovereffects:hover a.info {
-  transition-delay: 0.2s;
-=======
 .dettagli-camera {
   background-color: white;
   border-radius: 7px;
@@ -11585,14 +11486,14 @@ img {
   font-size: 18px;
 }
 
-.dettagli-servizi {
-  border-left: 3px solid #f9423a;
-  height: 96%;
-}
-
 #descrizione-appartamento p {
   font-size: 17px;
   line-height: 27px;
+  white-space: pre-wrap;
+}
+
+.dettagli-servizi {
+  height: 43%;
 }
 
 nobr.tag-servizi {
@@ -11602,8 +11503,8 @@ nobr.tag-servizi {
   color: #3c4858;
   font-weight: 500;
   margin-right: 5px;
-  font-size: 13px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 32px;
 }
 
 @media (max-width: 767.98px) {
@@ -11819,29 +11720,6 @@ input[type=submit].myinput:active {
   }
 }
 
-<<<<<<< HEAD
-.messaggio {
-  background-color: white;
-  color: #3c4858;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
-  padding-left: 0;
-  padding-right: 0;
-  border-radius: 7px;
-}
-
-.messaggio .messaggio-left {
-  background-color: rgba(223, 227, 237, 0.4);
-}
-
-.messaggio i {
-  color: #f9423a;
-  margin-right: 5px;
->>>>>>> main
-}
-
-=======
->>>>>>> Frontend-profile
 #map {
   height: 300px;
 }
