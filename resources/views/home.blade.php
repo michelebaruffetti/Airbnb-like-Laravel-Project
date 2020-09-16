@@ -71,7 +71,7 @@
 
     </section>
 
-    <div class="container lista-cards">
+    {{-- <div class="container lista-cards">
         <div class="row mb-2">
             <h1>SPONSORIZZATI</h1>
             @forelse ($apartments as $apartment)
@@ -79,7 +79,7 @@
                 <div class="col-4  immagine d-flex align-items-center">
                     @if ($apartment->image_url)
                         <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
-                    @else
+                    @else --}}
                         {{-- <img class="rounded img-fluid" src="{{asset('storage/not-found/not-found.png')}}" alt="foto-appartamento"> --}}
                         {{-- <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg"  alt="foto gatto">
                     @endif
@@ -106,7 +106,7 @@
             @endforelse
         </div>
         @endforelse
-    </div>
+    </div> --}}
 
 
 @endsection
