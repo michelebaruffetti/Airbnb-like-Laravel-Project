@@ -21,7 +21,7 @@
                     @if ($apartment->image_url)
                         style="background-image: url({{asset('storage/' . $apartment->image_url)}})"
                     @else
-                        style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
+                        style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg)"
                     @endif
                     >
                 </div>
