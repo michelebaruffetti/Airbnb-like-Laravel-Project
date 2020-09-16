@@ -142,7 +142,7 @@ class ApartmentController extends Controller
             'room' => 'required|numeric|max:10',
             'bath' => 'required|numeric|max:10',
             'square_meters' => 'required|numeric|max:1000',
-            'image' => 'image|max:1024'
+            'image' => 'image|dimensions:min_width=800,min_height=600'
         ]);
 
         $dati = $request->all();

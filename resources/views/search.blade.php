@@ -35,7 +35,7 @@
                             {{in_array($service->id, $ricerca['services']) ? 'checked' : '' }}
                         @endisset
 
-                                class="form-check-input "
+                                class="form-check-input servizi "
                                 name="services[]"
                                 type="checkbox"
                                 value="{{ $service->id }}">
@@ -112,6 +112,7 @@
                     <div class="testo">
                         @{{title}}
                         <p class="paragrafo">@{{description}}</p>
+                        
                         <div class="options d-flex justify-content-between align-items-center">
                             <div class="tags">
                                 @{{#each services}}
