@@ -16109,7 +16109,7 @@ $(document).ready(function () {
 
     if (servizi_selezionati.includes(servizio_selezionato)) {
       var indice = servizi_selezionati.indexOf(servizio_selezionato);
-      servizi_selezionati.splice(indice);
+      servizi_selezionati.splice(indice, 1);
     } else {
       servizi_selezionati.push(servizio_selezionato);
     }
@@ -16120,7 +16120,7 @@ $(document).ready(function () {
   });
 
   function ricerca() {
-    $('#contenitore-appartamenti').empty();
+    // $('#contenitore-appartamenti').empty();
     var lat = $('#latitude').val();
     var lng = $('#longitude').val();
     var rag = $('#range').val();
@@ -16137,9 +16137,9 @@ $(document).ready(function () {
         'range': raggio
       },
       success: function success(data) {
+        $('#contenitore-appartamenti').empty();
         var source = $("#template-apartment").html();
-        var template = Handlebars.compile(source);
-        var sentinella = 0;
+        var template = Handlebars.compile(source); // var sentinella = 0;
 
         for (var i = 0; i < data.response.length; i++) {
           var servizi_appartamento = []; // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
@@ -16150,6 +16150,7 @@ $(document).ready(function () {
             description: data.response[i].description,
             services: data.response[i].services
           };
+          var sentinella = 0;
 
           for (var j = 0; j < data.response[i].services.length; j++) {
             // var servizio = data.response[i].services[j];
@@ -16167,13 +16168,16 @@ $(document).ready(function () {
               var pippo = Number(servizi_selezionati[y]);
 
               if (servizi_appartamento.includes(pippo)) {
-                $('#contenitore-appartamenti').empty(); // sentinella = sentinella + 1;
-                // console.log(sentinella);
-
-                $('#contenitore-appartamenti').append(html);
+                // $('#contenitore-appartamenti').empty();
+                sentinella = sentinella + 1;
+                console.log(sentinella); // $('#contenitore-appartamenti').append(html);
               }
 
               ;
+            }
+
+            if (sentinella == servizi_selezionati.length) {
+              $('#contenitore-appartamenti').append(html);
             } // console.log(sentinella);
             // if (sentinella == servizi_selezionati.length){
             //     $('#contenitore-appartamenti').append(html);
