@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="container px-0 mt-3">
+    <div class="container px-0 mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-10">
                 <h3 class="h4 mt-3">Incrementa le visite sponsorizzando il tuo appartamento</h3>
@@ -90,7 +90,7 @@
         </div>
         <div class="row">
             <div class="col-12 offset-lg-1 col-lg-10">
-                <div class="d-flex justify-content-between w-100 mt-3">
+                <div class="d-flex justify-content-between w-100 mt-3 mb-5">
                     @foreach ($sponsors as $sponsor)
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
