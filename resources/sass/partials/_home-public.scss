@@ -1,0 +1,39 @@
+#btn-cerca  {
+    height: 41px;
+    width: 75px;
+    font-size: 14px;
+    align-self: end;
+    color: #feeceb;
+    background-color: $colore_primario;
+    border: 1px solid $colore_primario;
+    border-radius: 7px;
+
+    &:hover {
+        background-color: #ea0b0b;
+        transition: 0.5s;
+    }
+}
+
+.label-ricerca  {
+    color: $font_color_dark;
+}
+
+.ap-input{
+    color: $colore_primario;
+    border: 1px solid $colore_primario;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    height: 40px;
+
+
+
+
+}
+
+.ap-icon-pin svg    {
+    fill: $font_color;
+
+}
