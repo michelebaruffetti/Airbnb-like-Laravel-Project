@@ -115,7 +115,7 @@
                         <div class="options d-flex justify-content-between align-items-center">
                             <div class="tags">
                                 @{{#each services}}
-                                    <nobr class="tag-servizi mt-1">@{{description}}</nobr>
+                                    <nobr class="tag-servizi mt-1 @{{id}}">@{{description}}</nobr>
                                 @{{/each}}
                             </div>
                 

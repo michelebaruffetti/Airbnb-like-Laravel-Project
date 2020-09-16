@@ -16170,14 +16170,10 @@ $(document).ready(function () {
             var pippo = Number(servizi_selezionati[y]);
 
             if (servizi_appartamento.includes(pippo)) {
+              $('#contenitore-appartamenti').empty();
               sentinella = sentinella + 1;
               console.log(sentinella);
-              console.log(servizi_selezionati.length);
-
-              if (sentinella == servizi_selezionati.length) {
-                $('#contenitore-appartamenti').append(html);
-              } // $('#contenitore-appartamenti').append(html);
-
+              $('#contenitore-appartamenti').append(html);
             }
 
             ; // console.log(sentinella);

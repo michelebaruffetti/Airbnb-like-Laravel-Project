@@ -74,18 +74,20 @@ $(document).ready(function(){
                     if (servizi_selezionati.length == 0) {
                         $('#contenitore-appartamenti').append(html);
                     };
+                
                     
                     
                         for (var y = 0; y < servizi_selezionati.length; y++) {
                             console.log(servizi_selezionati[y]);
                             var pippo = Number(servizi_selezionati[y]);
                             if (servizi_appartamento.includes(pippo)){
+                                $('#contenitore-appartamenti').empty();
                                 sentinella = sentinella + 1;
                                 console.log(sentinella);
                                 $('#contenitore-appartamenti').append(html);
                             };
                         
-                        
+                             
                         // console.log(sentinella);
                         // if (sentinella == servizi_selezionati.length){
                         //     $('#contenitore-appartamenti').append(html);
