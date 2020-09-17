@@ -18,9 +18,9 @@
             <div class="col-12 col-lg-8">
                 <div>
                     @if ($apartment->image_url)
-                        <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}"  alt="foto appartamento">
+                        <img class="img-fluid img-appartamento" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto appartamento">
                     @else
-                        <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"  alt="immagine mancante">
+                        <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg" alt="immagine mancante">
                     @endif
                 </div>
             </div>
@@ -105,15 +105,16 @@
                         </button>
                     </form> --}}
 
-                    <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}">
-                        @method('POST')
-                        <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                    {{-- <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}"> --}}
+                        {{-- @method('POST') --}}
+                        {{-- <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
                             <h5>Prezzo: {{$sponsor->price}}</h5>
                             <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
+        @endforeach
         </div>
     </div>
 </div>
