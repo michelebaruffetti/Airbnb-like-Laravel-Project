@@ -93,10 +93,10 @@
                 <div class="d-flex justify-content-between w-100 mt-3 mb-5">
                     @foreach ($sponsors as $sponsor)
                     <div class="card" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body text-center  py-5">
                             <h5 class="card-title">Pacchetto promo {{$sponsor->id}}:</h5>
-                            <p class="card-text">Mettilo in evidenza per {{$sponsor->description}} ore</p>
-                            <a href="#" class="bottone-pieno">Paga {{$sponsor->price}} €</a>
+                            <p class="card-text py-2">Mettilo in evidenza per {{$sponsor->description}} ore</p>
+                            <a href="#" class="bottone-pieno mt-3">Paga {{$sponsor->price}} €</a>
                         </div>
                     </div>
                     @endforeach
