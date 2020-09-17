@@ -23,17 +23,6 @@
                         </div>
                 </form>
             </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" id="control-larghezza" href="#myCarousel" data-slide="prev" style="background: transparent;color: #3255e3;">
-                   <span class="glyphicon glyphicon-chevron-left" ></span>
-                   <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" id="control-larghezza" href="#myCarousel" data-slide="next" style="background: transparent;color: #3255e3;">
-                   <span class="glyphicon glyphicon-chevron-right" ></span>
-                   <span class="sr-only">Next</span>
-                </a>
-
     </div>
 
     <div class="container lista-cards mb-3 ">
@@ -57,40 +46,7 @@
                     </div>
                 </div>
             @empty
-                
             @endforelse
-
-                {{-- <h1>SPONSORIZZATI</h1>
-                @forelse ($apartments as $apartment)
-                <div class="col-12 d-flex rounded border border-color-grey py-2 mt-1 mb-1">
-                    <div class="col-4  immagine d-flex align-items-center">
-                        @if ($apartment->image_url)
-                            <img class="rounded img-fluid " src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
-                        @else
-
-                            <img class="img-fluid rounded" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg" alt="foto gatto">
-                        @endif
-                    </div>
-                    <div class="text-left col-8 py-4 d-flex flex-column justify-content-between">
-                        <div class="testo">
-                            <h3>{{$apartment->title}}</h3>
-                            <p>{{$apartment->description}}</p>
-                            @foreach ($apartment_service as $ser)
-                                @if($apartment->id == $ser->apartment_id)
-                                 {{$ser->description }}
-                                @endif
-                            @endforeach
-                        </div>
-                            <div class="buttons">
-                                <a class=" btn btn-outline-primary" value="Dettagli" href="
-                                {{ route('show',['apartment'=> $apartment->id])}}
-                                "><i class="fas fa-search"></i></a>
-                            </div>
-                    </div>
-                </div>
-                @empty
-                <p>Non ci sono appartamenti sponsorizzati</p>
-                @endforelse --}}
         </div>
 
     </div>
