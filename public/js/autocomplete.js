@@ -496,22 +496,6 @@ function coerce(val) {
 
 /***/ }),
 
-/***/ "./node_modules/algoliasearch/node_modules/isarray/index.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/algoliasearch/node_modules/isarray/index.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var toString = {}.toString;
-
-module.exports = Array.isArray || function (arr) {
-  return toString.call(arr) == '[object Array]';
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/algoliasearch/src/AlgoliaSearchCore.js":
 /*!*************************************************************!*\
   !*** ./node_modules/algoliasearch/src/AlgoliaSearchCore.js ***!
@@ -562,7 +546,7 @@ function AlgoliaSearchCore(applicationID, apiKey, opts) {
   var debug = __webpack_require__(/*! debug */ "./node_modules/algoliasearch/node_modules/debug/src/browser.js")('algoliasearch');
 
   var clone = __webpack_require__(/*! ./clone.js */ "./node_modules/algoliasearch/src/clone.js");
-  var isArray = __webpack_require__(/*! isarray */ "./node_modules/algoliasearch/node_modules/isarray/index.js");
+  var isArray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js");
   var map = __webpack_require__(/*! ./map.js */ "./node_modules/algoliasearch/src/map.js");
 
   var usage = 'Usage: algoliasearch(applicationID, apiKey, opts)';
@@ -1138,7 +1122,7 @@ AlgoliaSearchCore.prototype._computeRequestHeaders = function(options) {
  * @return {Promise|undefined} Returns a promise if no callback given
  */
 AlgoliaSearchCore.prototype.search = function(queries, opts, callback) {
-  var isArray = __webpack_require__(/*! isarray */ "./node_modules/algoliasearch/node_modules/isarray/index.js");
+  var isArray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js");
   var map = __webpack_require__(/*! ./map.js */ "./node_modules/algoliasearch/src/map.js");
 
   var usage = 'Usage: client.search(arrayOfQueries[, callback])';
@@ -1221,7 +1205,7 @@ AlgoliaSearchCore.prototype.search = function(queries, opts, callback) {
 * Pagination is not supported. The page and hitsPerPage parameters will be ignored.
 */
 AlgoliaSearchCore.prototype.searchForFacetValues = function(queries) {
-  var isArray = __webpack_require__(/*! isarray */ "./node_modules/algoliasearch/node_modules/isarray/index.js");
+  var isArray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js");
   var map = __webpack_require__(/*! ./map.js */ "./node_modules/algoliasearch/src/map.js");
 
   var usage = 'Usage: client.searchForFacetValues([{indexName, params: {facetName, facetQuery, ...params}}, ...queries])'; // eslint-disable-line max-len
@@ -1844,7 +1828,7 @@ IndexCore.prototype.getObject = function(objectID, attrs, callback) {
 * @param objectIDs the array of unique identifier of objects to retrieve
 */
 IndexCore.prototype.getObjects = function(objectIDs, attributesToRetrieve, callback) {
-  var isArray = __webpack_require__(/*! isarray */ "./node_modules/algoliasearch/node_modules/isarray/index.js");
+  var isArray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js");
   var map = __webpack_require__(/*! ./map.js */ "./node_modules/algoliasearch/src/map.js");
 
   var usage = 'Usage: index.getObjects(arrayOfObjectIDs[, callback])';
@@ -8739,6 +8723,22 @@ function createStyleElement() {
 
 module.exports = insertCss;
 module.exports.insertCss = insertCss;
+
+
+/***/ }),
+
+/***/ "./node_modules/isarray/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/isarray/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
 
 
 /***/ }),

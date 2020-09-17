@@ -1,0 +1,32 @@
+.nav-item {
+    font-size: 18px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $font_color_dark;
+    outline: none;
+}
+
+.nav-link:hover {
+    color: rgb(60, 72, 88, 0.8);
+}
+
+.navbar {
+    height: 70px;
+}
+
+#drop-home.dropdown-menu{
+    min-width: 16rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+    font-size: initial;
+}
+
+#sidebar ul li.active > a, a[aria-expanded=true] {
+    color: #3c4858;
+    background: transparent;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    margin-top: -12px;
+}
