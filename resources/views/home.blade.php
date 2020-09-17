@@ -30,10 +30,8 @@
 
     <div class="container lista-cards mb-3 ">
         <div class="row mb-2">
-
             @forelse ($apartments as $apartment)
-
-                <div class="col-10 offset-1 offset-md-0 col-md-4 mt-5">
+                <div class="col-10 offset-1 offset-md-0 col-md-4 mt-5 text-center">
                     <div class="card card-appartamento h-100 mt-3">
                         <a href="{{ route('show',['apartment'=> $apartment->id])}}">
                             @if ($apartment->image_url)
@@ -50,9 +48,8 @@
                         </a>
                     </div>
                 </div>
-
             @empty
-
+                
             @endforelse
 
                 {{-- <h1>SPONSORIZZATI</h1>
