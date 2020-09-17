@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import "partials/_variables";
@@ -8,13 +8,14 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Partials
-@import "partials/_menu-dashboard";
 @import "partials/_normalize";
 @import "partials/_common";
-@import "partials/_apartment-show";
-@import "partials/_messages";
+@import "partials/_menu-dashboard";
 @import "partials/_homeadmin";
 @import "partials/_apartment-index";
+@import "partials/_apartment-show";
+@import "partials/_messages";
 @import "partials/_menu";
 @import "partials/_home-public";
+@import "partials/_show-guest";
 #map {height: 300px;}
