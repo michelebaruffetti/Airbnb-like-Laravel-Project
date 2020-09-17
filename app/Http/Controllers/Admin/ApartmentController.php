@@ -203,6 +203,18 @@ class ApartmentController extends Controller
         }
     }
 
+
+    // public function pagamento(){
+    //     $gateway = new Braintree\Gateway([
+    //         'environment' => config('services.braintree.environment'),
+    //         'merchantId' => config('services.braintree.merchantId'),
+    //         'publicKey' => config('services.braintree.publicKey'),
+    //         'privateKey' => config('services.braintree.privateKey')
+    //     ]);
+    //     $token = $gateway->ClientToken()->generate();
+    //
+    //     return view('admin.apartments.show', ['token' => $token]);
+    // }
     // public function uploadImage(Request $request) {
     //     if ($request->hasFile('image')) {
     //         //upload avatar
