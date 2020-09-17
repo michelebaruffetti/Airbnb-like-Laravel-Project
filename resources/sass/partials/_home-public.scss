@@ -18,7 +18,7 @@
     color: $font_color_dark;
 }
 
-.ap-input{
+.testo-ricerca{
     color: $font_color_dark;
     border: 1px solid $colore_primario;
     position: relative;
@@ -33,7 +33,7 @@
 .card   {
     border-radius: $radious !important;
     position: relative;
-    transition: 0.4s;
+    transition: opacity 0.4s;
     transition-timing-function: ease;
     &:hover {
         opacity: 0.8;

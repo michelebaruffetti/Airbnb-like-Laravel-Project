@@ -31,8 +31,8 @@
 
                 </div>
             @empty
-                <div class="col-12 border rounded text-center ">
-                    <p class="p-2">Non hai messaggi da visualizzare.</p>
+                <div class="col-12 border rounded text-center card ">
+                    <p class="p-4">Non hai messaggi da visualizzare.</p>
 
                 </div>
             @endforelse
