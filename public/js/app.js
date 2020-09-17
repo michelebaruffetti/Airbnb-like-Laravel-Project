@@ -37357,13 +37357,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo-3/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/esercizi_boolean/airbnb-gruppo-3/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> Filtri-servizi
+__webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

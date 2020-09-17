@@ -11547,7 +11547,6 @@ a.bottone-pieno:hover {
   border-radius: 7px;
 }
 
-<<<<<<< HEAD
 .messaggio i {
   color: #f9423a;
   margin-right: 5px;
@@ -11594,15 +11593,6 @@ a.bottone-pieno:hover {
     border-right: 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-=======
-.messaggio .messaggio-left {
-  background-color: rgba(223, 227, 237, 0.4);
-}
-
-.messaggio i {
-  color: #f9423a;
-  margin-right: 5px;
->>>>>>> Filtri-servizi
 }
 
 .img-appartamento {
@@ -11748,6 +11738,24 @@ input[type=submit].myinput:active {
     border-top-right-radius: 7px;
     border-bottom-left-radius: 0;
   }
+}
+
+#selettore-footer {
+  border-top: 1px solid black;
+}
+
+#selettore-footer a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+#selettore-footer a {
+  font-size: 11px;
+}
+
+#selettore-footer h6,
+#selettore-footer .h6 {
+  font-size: 1.4rem;
 }
 
 #map {

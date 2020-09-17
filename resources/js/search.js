@@ -1,5 +1,5 @@
 var $ = require('jquery');
-// const Handlebars = require("handlebars");
+const Handlebars = require("handlebars");
 $(document).ready(function(){
 //al caricamento della pagina recupero i dati negli input nascosti e faccio la chiamata ajax
     ricerca();
@@ -24,8 +24,8 @@ $(document).ready(function(){
         } else {
             servizi_selezionati.push(servizio_selezionato);
         }
-        console.log('servizio-selezionato: ' + servizio_selezionato);        
-        
+        console.log('servizio-selezionato: ' + servizio_selezionato);
+
         console.log('Array servizi selezionati: ' + servizi_selezionati);
         ricerca();
     });
@@ -65,7 +65,7 @@ $(document).ready(function(){
                         description: data.response[i].description,
                         services: data.response[i].services
                     };
-                    
+
                     for (var j = 0; j < data.response[i].services.length; j++) {
                         // var servizio = data.response[i].services[j];
                         servizi_appartamento.push(data.response[i].services[j].id);
@@ -85,12 +85,12 @@ $(document).ready(function(){
                                 $('#contenitore-appartamenti').append(html);
                             };
                     }
-                
-                    
-                    
-                        
-                        
-                             
+
+
+
+
+
+
                         // console.log(sentinella);
                         // if (sentinella == servizi_selezionati.length){
                         //     $('#contenitore-appartamenti').append(html);
@@ -114,37 +114,37 @@ function ricerca(){
     chiamata(lat, lng, rag);
 }
 
-// function chiamata(latitude, longitude, raggio){
-//
-//     $.ajax({
-//         'url': 'api/allapartments',
-//         'method': 'GET',
-//         'data': {
-//             'latitude': latitude,
-//             'longitude': longitude,
-//             'range': raggio
-//         },
-//         success: function(data){
-//
-//             var source = $("#template-apartment").html();
-//             var template = Handlebars.compile(source);
-//             for (var i = 0; i < data.response.length; i++) {
-//
-//                 // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
-//                 var context = {
-//                     url_image: data.response[i].image_url,
-//                     title: data.response[i].title,
-//                     description: data.response[i].description,
-//                     services: data.response[i].services
-//                 };
-//                 var html = template(context);
-//
-//                 $('#contenitore-appartamenti').append(html);
-//             }
-//             console.log(data);
-//
-//
-//         }
-//     });
-// }
+function chiamata(latitude, longitude, raggio){
+
+    $.ajax({
+        'url': 'api/allapartments',
+        'method': 'GET',
+        'data': {
+            'latitude': latitude,
+            'longitude': longitude,
+            'range': raggio
+        },
+        success: function(data){
+
+            var source = $("#template-apartment").html();
+            var template = Handlebars.compile(source);
+            for (var i = 0; i < data.response.length; i++) {
+
+                // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
+                var context = {
+                    url_image: data.response[i].image_url,
+                    title: data.response[i].title,
+                    description: data.response[i].description,
+                    services: data.response[i].services
+                };
+                var html = template(context);
+
+                $('#contenitore-appartamenti').append(html);
+            }
+            console.log(data);
+
+
+        }
+    });
+}
 >>>>>>> Stashed changes

@@ -104,7 +104,6 @@
         </main>
     </div>
 
-    @include('partials.footer')
 
     @yield('script')
 </body>
