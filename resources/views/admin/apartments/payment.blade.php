@@ -23,7 +23,7 @@
                            <input id="amount" hidden name="amount" type="tel" min="1" placeholder="Amount" value="{{$sponsor->price}}">
                        </div>
                    </label>
-                   <input hidden name="amount" type="tel" min="1" placeholder="Amount" value="{{$sponsor->price}}">
+                   <input hidden name="sponsor" type="number" value="{{$sponsor->id}}">
                    {{-- <input  hidden name="user_id" type="tel" min="1" placeholder="Amount" value="{{$user->name}}">
                    <input  hidden name="amount" type="tel" min="1" placeholder="Amount" value="{{$sponsor->price}}"> --}}
                    <div class="bt-drop-in-wrapper">
@@ -33,7 +33,7 @@
 
                <input id="nonce" name="payment_method_nonce" type="hidden" />
                <button class="button" type="submit"><span>Test Transaction</span></button>
-           </form>
+    </form>
 @endsection
 @section('script')
     <script src="https://js.braintreegateway.com/web/dropin/1.24.0/js/dropin.min.js"></script>
