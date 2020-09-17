@@ -10845,11 +10845,7 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/js/autocomplete.js */"./resources/js/autocomplete.js");
-=======
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\autocomplete.js */"./resources/js/autocomplete.js");
->>>>>>> footer-francesca
 
 
 /***/ }),

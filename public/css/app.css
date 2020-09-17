@@ -11377,7 +11377,6 @@ ul ul a {
   right: -28px;
 }
 
-<<<<<<< HEAD
 .hamburger-menu {
   position: absolute;
   top: 0;
@@ -11388,13 +11387,8 @@ ul ul a {
   height: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  background: #D94854;
+  background: #3c4858;
   z-index: 1;
-=======
-.messaggio i {
-  color: #f9423a;
-  margin-right: 5px;
->>>>>>> footer-francesca
 }
 
 .hamburger-menu ul {
@@ -11407,10 +11401,13 @@ ul ul a {
 }
 
 .hamburger-menu ul li a {
-  color: #717e8f;
+  color: #dfe3ed;
   text-decoration: none;
   font-size: 25px;
-  border-bottom: 2px solid #717e8f;
+}
+
+.hamburger-menu > ul > li:hover > a > span.icon > i {
+  color: #f9423a;
 }
 
 .close {
@@ -11419,6 +11416,12 @@ ul ul a {
   z-index: 2;
   right: 25px;
   top: 20px;
+  color: #dfe3ed;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #f9423a;
 }
 
 .center-cropped {
@@ -11630,7 +11633,6 @@ input[type=submit].myinput:active {
   }
 }
 
-<<<<<<< HEAD
 p {
   color: #717e8f;
 }
@@ -11875,7 +11877,8 @@ p.address.show-paragraph {
   color: #3c4858;
   font-size: 18px;
   font-weight: 600;
-=======
+}
+
 #selettore-footer {
   border-top: 1px solid black;
 }
@@ -11892,7 +11895,6 @@ p.address.show-paragraph {
 #selettore-footer h6,
 #selettore-footer .h6 {
   font-size: 1.4rem;
->>>>>>> footer-francesca
 }
 
 #map {
