@@ -26,16 +26,16 @@
                     </div>
                     <div class="col-12 p-3 col-lg-8 d-flex flex-column justify-content-center">
                         <div class="dati-anagrafici p-2 border-bottom border-color-grey">
-                            <p>Nome: {{Auth::user()->name}}</p>
-                            <p>Cognome: {{Auth::user()->lastname}}</p>
-                            <p>Data di Nascita: {{Auth::user()->birthday}}</p>
-                            <p>E-mail: {{Auth::user()->email}}</p>
+                            <p><strong>Nome:</strong> {{Auth::user()->name}}</p>
+                            <p><strong>Cognome:</strong> {{Auth::user()->lastname}}</p>
+                            <p><strong>Data di Nascita:</strong> {{Auth::user()->birthday}}</p>
+                            <p><strong>E-mail:</strong> {{Auth::user()->email}}</p>
                         </div>
                         <div class="inserimento-immagine d-flex justify-content-center">
                             <form class="p-4" action="/upload" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <input class="form-control-sm" type="file" name="image">
-                                <input class="form-control-sm mt-2" type="submit" value="Upload">
+                                <input class="mt-2" type="file" name="image">
+                                <input class="form-control-caricafoto mt-2" type="submit" value="Upload">
                             </form>
                         </div>
                     </div>
