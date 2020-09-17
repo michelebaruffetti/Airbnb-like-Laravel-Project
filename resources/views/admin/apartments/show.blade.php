@@ -95,8 +95,7 @@
 
                     {{-- <form class="col-12 col-lg-10 offset-lg-1" action="{{Route('admin.payment')}}" method="post">
                         <input hidden type="text" name="apartment" value="{{$apartment->id}}">
-                        <input hidden type="text" name="price" value="{{$sponsor->price}}">
-                        <input hidden type="text" name="ore" value="{{$sponsor->description}}">
+                        <input hidden type="text" name="price" value="{{$sponsor->id}}">
                         <button type="submit" name="button">
                             <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
                                 <h5>Prezzo: {{$sponsor->price}}</h5>
@@ -105,13 +104,12 @@
                         </button>
                     </form> --}}
 
-                    {{-- <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}"> --}}
-                        {{-- @method('POST') --}}
-                        {{-- <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                    <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}">
+                        <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
                             <h5>Prezzo: {{$sponsor->price}}</h5>
                             <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
                         </div>
-                    </a> --}}
+                    </a>
                 </div>
             </div>
         @endforeach

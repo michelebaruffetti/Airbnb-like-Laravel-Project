@@ -12,6 +12,7 @@ use App\Apartment;
 use App\Service;
 use App\Sponsor;
 use App\Message;
+use App\User;
 
 class ApartmentController extends Controller
 {
@@ -205,7 +206,10 @@ class ApartmentController extends Controller
     }
 
 
-    public function formPagamento(){
+    public function formPagamento(Request $request){
+        $apartment = Apartment::find($request->apartment);
+        $user = User::find($apartment->user_id);
+        $sponsor = Sponsor::find($request->sponsor);
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -213,11 +217,20 @@ class ApartmentController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
         $token = $gateway->ClientToken()->generate();
+        $data = [
+            'token' => $token,
+            'apartment' => $apartment,
+            'user' => $user,
+            'sponsor' => $sponsor,
+        ];
 
-        return view('admin.apartments.payment', ['token' => $token]);
+        return view('admin.apartments.payment', $data);
     }
 
+
+
     public function transazione(Request $request){
+        $apartment = Apartment::find($request->apartment);
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -226,7 +239,6 @@ class ApartmentController extends Controller
         ]);
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
-
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
@@ -235,10 +247,32 @@ class ApartmentController extends Controller
             ]
         ]);
 
+        $resultdue= $gateway->customer()->create([
+        'firstName' => 'Mike',
+        'lastName' => 'Jones',
+        'company' => 'Jones Co.',
+        'email' => 'mike.jones@example.com',
+        'phone' => '281.330.8004',
+        'fax' => '419.555.1235',
+        'website' => 'http://example.com'
+        ]);
+
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+            dd($transaction);
+
+
+
+
+
+
+
             return back()->with('succes_message', 'pagamento andato a buon fine, ID transazione:' . $transaction->id );
+
+
+
+
+
         } else {
             $errorString = "";
 

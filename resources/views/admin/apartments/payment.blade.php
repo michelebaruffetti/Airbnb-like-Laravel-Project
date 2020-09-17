@@ -14,17 +14,18 @@
             </ul>
         </div>
     @endif
-    <form method="post" id="payment-form" action="{{Route('admin.checkout')}}">
+    <form method="post" id="payment-form" action="{{Route('admin.checkout', ['apartment' => $apartment->id])}}">
                 @csrf
                <section>
                    <label for="amount">
-                       <span class="input-label">Amount</span>
+                       <span class="input-label">Importo: {{$sponsor->price}} €</span>
                        <div class="input-wrapper amount-wrapper">
-
-                           <input id="amount" hidden name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                           <input id="amount" hidden name="amount" type="tel" min="1" placeholder="Amount" value="{{$sponsor->price}}">
                        </div>
                    </label>
-
+                   <input hidden name="amount" type="tel" min="1" placeholder="Amount" value="{{$sponsor->price}}">
+                   {{-- <input  hidden name="user_id" type="tel" min="1" placeholder="Amount" value="{{$user->name}}">
+                   <input  hidden name="amount" type="tel" min="1" placeholder="Amount" value="{{$sponsor->price}}"> --}}
                    <div class="bt-drop-in-wrapper">
                        <div id="bt-dropin"></div>
                    </div>
@@ -43,9 +44,9 @@
       braintree.dropin.create({
         authorization: client_token,
         selector: '#bt-dropin',
-        paypal: {
-          flow: 'vault'
-        }
+        // paypal: {
+        //   flow: 'vault'
+        // }
       }, function (createErr, instance) {
         if (createErr) {
           console.log('Create Error', createErr);
