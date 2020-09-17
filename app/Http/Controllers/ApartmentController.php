@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use App\Apartment;
 use App\Message;
+use App\Service;
+use App\Sponsor;
 
 class ApartmentController extends Controller
 {
@@ -36,8 +40,8 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+        $sponsors = Sponsor::all();
         $apartment = Apartment::find($id);
-
 //se l'$utente loggato non è il proprietario dell'appartamento non conto la view
         $utente = Auth::id();
         if (!$apartment->user_id == $utente) {
@@ -49,11 +53,13 @@ class ApartmentController extends Controller
                 $user = Auth::user();
                 $data = [
                     'apartment' => $apartment,
+                    'sponsors' => $sponsors,
                     'user' => $user
                 ];
             }else{
                 $data = [
-                    'apartment' => $apartment
+                    'apartment' => $apartment,
+                    'sponsors' => $sponsors
                 ];
             }
             return view('show', $data);
