@@ -92,9 +92,10 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+        $id_user = Auth::id();
         $sponsors = Sponsor::all();
         $apartment = Apartment::find($id);
-        if($apartment){
+        if($apartment && ($apartment->user_id == $id_user)){
             $data = [
                 'apartment' => $apartment,
                 'sponsors' => $sponsors
@@ -204,17 +205,54 @@ class ApartmentController extends Controller
     }
 
 
-    // public function pagamento(){
-    //     $gateway = new Braintree\Gateway([
-    //         'environment' => config('services.braintree.environment'),
-    //         'merchantId' => config('services.braintree.merchantId'),
-    //         'publicKey' => config('services.braintree.publicKey'),
-    //         'privateKey' => config('services.braintree.privateKey')
-    //     ]);
-    //     $token = $gateway->ClientToken()->generate();
-    //
-    //     return view('admin.apartments.show', ['token' => $token]);
-    // }
+    public function formPagamento(){
+        $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+        $token = $gateway->ClientToken()->generate();
+
+        return view('admin.apartments.payment', ['token' => $token]);
+    }
+
+    public function transazione(Request $request){
+        $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+        $amount = $request->amount;
+        $nonce = $request->payment_method_nonce;
+
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+            'submitForSettlement' => true
+            ]
+        ]);
+
+        if ($result->success) {
+            $transaction = $result->transaction;
+            // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+            return back()->with('succes_message', 'pagamento andato a buon fine, ID transazione:' . $transaction->id );
+        } else {
+            $errorString = "";
+
+            foreach($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+
+            // $_SESSION["errors"] = $errorString;
+            // header("Location: " . $baseUrl . "index.php");
+            return back()->withErrors('transazione negata per il seguente errore:' . $result->message );
+        }
+
+    }
+
     // public function uploadImage(Request $request) {
     //     if ($request->hasFile('image')) {
     //         //upload avatar

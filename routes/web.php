@@ -37,51 +37,8 @@ Route::prefix('admin')
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/message', 'HomeController@readmessage')->name('message');
     Route::resource('/apartments', 'ApartmentController');
-    Route::get('/payment', function(){
-        $gateway = new Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-        $token = $gateway->ClientToken()->generate();
-
-        return view('admin.apartments.payment', ['token' => $token]);
-    });
-    Route::post('/checkout', function(Request $request){
-        $gateway = new Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-        $amount = $request->amount;
-        $nonce = $request->payment_method_nonce;
-
-        $result = $gateway->transaction()->sale([
-            'amount' => $amount,
-            'paymentMethodNonce' => $nonce,
-            'options' => [
-            'submitForSettlement' => true
-            ]
-        ]);
-
-        if ($result->success) {
-            $transaction = $result->transaction;
-            // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-            return back()->with('succes_message', 'pagamento andato a buon fine, ID transazione:' . $transaction->id );
-        } else {
-            $errorString = "";
-
-            foreach($result->errors->deepAll() as $error) {
-                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-            }
-
-            // $_SESSION["errors"] = $errorString;
-            // header("Location: " . $baseUrl . "index.php");
-            return back()->withErrors('transazione negata per il seguente errore:' . $result->message );
-        }
-    })->name('checkout');
+    Route::get('/payment', 'ApartmentController@formPagamento')->name('payment');
+    Route::post('/checkout', 'ApartmentController@transazione')->name('checkout');
     Route::get('/statistics/{apartment}', 'ApartmentController@statistics')->name('statistics');
 });
 
