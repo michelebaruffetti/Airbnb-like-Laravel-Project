@@ -88,18 +88,30 @@
                 <h3 class="h4 mt-3">Incrementa le visite sponsorizzando il tuo appartamento</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 offset-lg-1 col-lg-10">
-                <div class="d-flex justify-content-between w-100 mt-3 mb-5">
-                    @foreach ($sponsors as $sponsor)
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body text-center  py-5">
-                            <h5 class="card-title">Pacchetto promo {{$sponsor->id}}:</h5>
-                            <p class="card-text py-2">Mettilo in evidenza per {{$sponsor->description}} ore</p>
-                            <a href="#" class="bottone-pieno mt-3">Paga {{$sponsor->price}} €</a>
+
+        @foreach ($sponsors as $sponsor)
+            <div class="row ">
+                <div class="col-12 col-lg-10 offset-lg-1">
+
+                    {{-- <form class="col-12 col-lg-10 offset-lg-1" action="{{Route('admin.payment')}}" method="post">
+                        <input hidden type="text" name="apartment" value="{{$apartment->id}}">
+                        <input hidden type="text" name="price" value="{{$sponsor->price}}">
+                        <input hidden type="text" name="ore" value="{{$sponsor->description}}">
+                        <button type="submit" name="button">
+                            <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                                <h5>Prezzo: {{$sponsor->price}}</h5>
+                                <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
+                            </div>
+                        </button>
+                    </form> --}}
+
+                    <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}">
+                        @method('POST')
+                        <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                            <h5>Prezzo: {{$sponsor->price}}</h5>
+                            <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
                         </div>
-                    </div>
-                    @endforeach
+                    </a>
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 //     return view('welcome');
 // });
 
+
 Auth::routes();
 
 //rotte pubbliche
@@ -36,6 +37,8 @@ Route::prefix('admin')
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/message', 'HomeController@readmessage')->name('message');
     Route::resource('/apartments', 'ApartmentController');
+    Route::get('/payment', 'ApartmentController@formPagamento')->name('payment');
+    Route::post('/checkout', 'ApartmentController@transazione')->name('checkout');
     Route::get('/statistics/{apartment}', 'ApartmentController@statistics')->name('statistics');
 });
 
