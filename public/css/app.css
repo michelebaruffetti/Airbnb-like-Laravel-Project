@@ -2164,6 +2164,11 @@ pre code {
   opacity: 1;
 }
 
+.form-control::-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -11509,7 +11514,7 @@ nobr.tag-servizi {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-a.bottone-pieno {
+.bottone-pieno {
   color: white;
   background-color: #f9423a;
   border: 1px solid #f9423a;
@@ -11518,7 +11523,7 @@ a.bottone-pieno {
   font-weight: 500;
 }
 
-a.bottone-pieno:hover {
+.bottone-pieno:hover {
   background-color: rgba(249, 66, 58, 0.7);
 }
 
@@ -11533,16 +11538,15 @@ a.bottone-pieno:hover {
 }
 
 .messaggio {
-  background-color: white;
+  background-color: transparent;
   color: #3c4858;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: none;
   padding-left: 0;
   padding-right: 0;
   border-radius: 7px;
 }
 
-<<<<<<< HEAD
 .messaggio i {
   color: #f9423a;
   margin-right: 5px;
@@ -11551,6 +11555,26 @@ a.bottone-pieno:hover {
 .messaggio-left {
   background-color: rgba(223, 227, 237, 0.4);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 6px 9px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #3c4858;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#email.form-control {
+  font-size: 13px;
 }
 
 @media (max-width: 992px) {
@@ -11589,15 +11613,6 @@ a.bottone-pieno:hover {
     border-right: 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-=======
-.messaggio .messaggio-left {
-  background-color: rgba(223, 227, 237, 0.4);
-}
-
-.messaggio i {
-  color: #f9423a;
-  margin-right: 5px;
->>>>>>> Filtri-servizi
 }
 
 .img-appartamento {
