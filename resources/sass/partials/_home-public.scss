@@ -30,6 +30,15 @@
 
 }
 
+.card   {
+    border-radius: $radious !important;
+}
+
+.card-img-top    {
+    border-top-left-radius:  $radious !important;
+    border-top-right-radius:  $radious !important;
+}
+
 // .ap-icon-pin svg    {
 //     fill: $font_color;
 //
