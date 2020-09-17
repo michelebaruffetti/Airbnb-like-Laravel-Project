@@ -1,0 +1,70 @@
+#btn-cerca  {
+    height: 40px;
+    width: 75px;
+    font-size: 14px;
+    align-self: end;
+    color: #feeceb;
+    background-color: $colore_primario;
+    border: 1px solid $colore_primario;
+    border-radius: 7px;
+
+    &:hover {
+        background-color: #ea0b0b;
+        transition: 0.5s;
+    }
+}
+
+.label-ricerca  {
+    color: $font_color_dark;
+}
+
+.ap-input{
+    color: $font_color_dark;
+    border: 1px solid $colore_primario;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    height: 40px;
+
+}
+
+.card   {
+    border-radius: $radious !important;
+    position: relative;
+    transition: 0.4s;
+    transition-timing-function: ease;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.card-img-top    {
+    border-top-left-radius:  $radious !important;
+    border-top-right-radius:  $radious !important;
+}
+
+.sponsorizzato  {
+    background-color: $colore_primario;
+    padding: 3px 7px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+
+// .ap-icon-pin svg    {
+//     fill: $font_color;
+//
+// }
+//
+// #form-address:hover svg {
+//     fill: $colore_primario;
+// }
+//
+// .ap-input-icon:hover svg {
+//     fill: $colore_primario;
+// }
