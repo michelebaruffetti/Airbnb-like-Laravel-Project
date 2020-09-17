@@ -11377,6 +11377,7 @@ ul ul a {
   right: -28px;
 }
 
+<<<<<<< HEAD
 .hamburger-menu {
   position: absolute;
   top: 0;
@@ -11389,6 +11390,11 @@ ul ul a {
   min-height: 100vh;
   background: #D94854;
   z-index: 1;
+=======
+.messaggio i {
+  color: #f9423a;
+  margin-right: 5px;
+>>>>>>> footer-francesca
 }
 
 .hamburger-menu ul {
@@ -11624,6 +11630,7 @@ input[type=submit].myinput:active {
   }
 }
 
+<<<<<<< HEAD
 p {
   color: #717e8f;
 }
@@ -11868,6 +11875,24 @@ p.address.show-paragraph {
   color: #3c4858;
   font-size: 18px;
   font-weight: 600;
+=======
+#selettore-footer {
+  border-top: 1px solid black;
+}
+
+#selettore-footer a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+#selettore-footer a {
+  font-size: 11px;
+}
+
+#selettore-footer h6,
+#selettore-footer .h6 {
+  font-size: 1.4rem;
+>>>>>>> footer-francesca
 }
 
 #map {

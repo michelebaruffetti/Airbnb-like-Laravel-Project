@@ -48405,7 +48405,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/js/grafici.js */"./resources/js/grafici.js");
+=======
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\consegne\airbnb-gruppo-3\resources\js\grafici.js */"./resources/js/grafici.js");
+>>>>>>> footer-francesca
 
 
 /***/ })

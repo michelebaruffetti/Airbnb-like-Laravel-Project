@@ -24,7 +24,15 @@
                 </form>
             </div>
 
-        </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" id="control-larghezza" href="#myCarousel" data-slide="prev" style="background: transparent;color: #3255e3;">
+                   <span class="glyphicon glyphicon-chevron-left" ></span>
+                   <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" id="control-larghezza" href="#myCarousel" data-slide="next" style="background: transparent;color: #3255e3;">
+                   <span class="glyphicon glyphicon-chevron-right" ></span>
+                   <span class="sr-only">Next</span>
+                </a>
 
     </div>
 
