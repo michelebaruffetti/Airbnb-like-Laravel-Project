@@ -25,8 +25,8 @@
     <div class="container immagine px-0 mt-3">
         <div class="row intestazione">
             <div class="col-10 offset-lg-1 col-lg-10">
-                <h1 class="h2 d-block mb-0">{{$apartment->title}}</h1>
-                <p class="h6 mt-2 mb-3 address">{{$apartment->address}}</p>
+                <h1 class="show-titolo d-block mb-0">{{$apartment->title}}</h1>
+                <p class="h6 mt-2 mb-3 address show-paragraph">{{$apartment->address}}</p>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
@@ -42,7 +42,7 @@
             {{-- dettagli --}}
             <div class="col-12 col-lg-2">
                 <div class="dettagli-camera d-flex align-items-center flex-lg-column h-100 w-100 p-2 mt-2 mt-lg-0">
-                    <h2 class="text-center h5 mt-4 mb-4 d-none d-md-block">Dettagli</h2>
+                    <h2 class="text-center show-dettagli mt-4 mb-4 d-none d-md-block">Dettagli</h2>
                     <ul class="list-unstyled d-flex flex-lg-column justify-content-around mb-0 h-75 w-100">
                         <li class="text-center">
                             <i class="fas fa-ruler fa-2x"></i>
@@ -71,9 +71,9 @@
                 </div>
             </div>
             {{-- servizi --}}
-            <div class="col-12 col-lg-2 mt-4">
-                <div class="dettagli-servizi d-flex align-items-center align-items-lg-start flex-lg-column pl-4 h-50 w-100 p-2 mt-2 mt-lg-0">
-                    <h2 class="h4 mb-4 mt-3 d-none d-lg-block">Servizi</h2>
+            <div class="col-12 col-lg-2 mt-4 h-100">
+                <div class="dettagli-servizi d-flex align-items-center align-items-lg-start flex-lg-column pl-4 w-100 p-2 mt-2 mt-lg-0">
+                    <h2 class="mb-4 mt-3 show-dettagli d-none d-lg-block">Servizi</h2>
                     <div class="tags">
                         <ul class="list-unstyled d-flex flex-wrap flex-md-nowrap flex-lg-column mb-0 w-100">
                             @forelse ($apartment->services as $service)
@@ -89,7 +89,7 @@
 
             {{-- invia messaggio --}}
                 <div class="mt-3 messaggio pt-5">
-                    <h5 class="h4">Contatta il proprietario</h5>
+                    <h5 class="show-dettagli">Contatta il proprietario</h5>
                     <form class="pt-2" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
@@ -134,10 +134,10 @@
     </div>
 
     {{-- sezione mappa --}}
-    <div class="container px-0 mt-3">
+    <div class="container px-0 mt-3 mb-5">
         <div class="row intestazione">
-            <div class="col-10 col-lg-10">
-                <h3 class="h4 text-center">Localizzazione appartamento</h3>
+            <div class="col-12 offset-lg-1 col-lg-10 mt-5 mb-3">
+                <h3 class="show-dettagli">Localizzazione appartamento</h3>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
