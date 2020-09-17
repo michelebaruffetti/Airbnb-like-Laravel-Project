@@ -44,10 +44,9 @@
                     <div class="logo-wrap d-flex align-items-center h-100">
                         <img class="img-fluid" src="{{asset('/storage/logo/Boolbnblogo.png')}}" alt="logo">
                     </div>
-                    {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"><i class="fas fa-2x fa-bars"></i></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

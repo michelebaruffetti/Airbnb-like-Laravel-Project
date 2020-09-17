@@ -23,19 +23,19 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-10">
+        <div class="form-group col-10 d-flex">
             Servizi:
             <div class="d-flex ">
                 @foreach ($services as $service)
                     <div class="form-check">
-                        <label class="form-check-label">
+                        <label class="form-check-label search d-flex align-items-center">
                         <input
 
                         @isset($ricerca['services'])
                             {{in_array($service->id, $ricerca['services']) ? 'checked' : '' }}
                         @endisset
 
-                                class="form-check-input servizi "
+                                class="form-check-input search servizi "
                                 name="services[]"
                                 type="checkbox"
                                 value="{{ $service->id }}">
@@ -103,7 +103,7 @@
                      @{{#if url_image}}
                         style="background-image: url({{asset('storage')}}/@{{url_image}})"
                     @{{else}}
-                        
+
                         style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
                     @{{/if}}
                     >
@@ -112,14 +112,14 @@
                     <div class="testo">
                         @{{title}}
                         <p class="paragrafo">@{{description}}</p>
-                        
+
                         <div class="options d-flex justify-content-between align-items-center">
                             <div class="tags">
                                 @{{#each services}}
                                     <nobr class="tag-servizi mt-1">@{{description}}</nobr>
                                 @{{/each}}
                             </div>
-                
+
                         </div>
                     </div>
                 </div>

@@ -11803,6 +11803,15 @@ a[aria-expanded=true] {
   margin-top: -12px;
 }
 
+.navbar-light .navbar-toggler-icon {
+  background-image: none;
+}
+
+.navbar-light .navbar-toggler {
+  color: #3c4858;
+  border-color: transparent;
+}
+
 #btn-cerca {
   height: 40px;
   width: 75px;
@@ -11895,6 +11904,21 @@ p.address.show-paragraph {
 #selettore-footer h6,
 #selettore-footer .h6 {
   font-size: 1.4rem;
+}
+
+.form-check-label.search {
+  margin-bottom: 0;
+  margin-right: 11px;
+}
+
+input[type=checkbox].search,
+input[type=radio].search {
+  margin: 0 10px 0 0;
+  line-height: normal;
+}
+
+.form-check-input.search {
+  position: relative;
 }
 
 #map {
