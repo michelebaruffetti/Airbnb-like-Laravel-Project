@@ -35,15 +35,19 @@
 
                 <div class="col-10 offset-1 offset-md-0 col-md-4 mt-5">
                     <div class="card card-appartamento h-100 mt-3">
-                        @if ($apartment->image_url)
-                            <img class="card-img-top" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
-                        @else
-                            <img class="card-img-top" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg" alt="No picture">
-                        @endif
-                      <div class="card-body">
-                        <h5 class="card-title">{{$apartment->title}}</h5>
-                        <p class="card-text">{{str_limit($apartment->description, $limit = 200, $end = '...')}}</p>
-                      </div>
+                        <a href="{{ route('show',['apartment'=> $apartment->id])}}">
+                            @if ($apartment->image_url)
+                                <img class="card-img-top" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
+                            @else
+                                <img class="card-img-top" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg" alt="No picture">
+                            @endif
+
+                          <div class="card-body">
+                            <h3 class="card-title h3 text-uppercase mt-0">{{$apartment->title}}</h3>
+                            <p class="card-text">{{str_limit($apartment->description, $limit = 200, $end = '...')}}</p>
+                          </div>
+                          <small class="sponsorizzato">IN VETRINA</small>
+                        </a>
                     </div>
                 </div>
 

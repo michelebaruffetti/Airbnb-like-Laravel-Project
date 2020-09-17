@@ -32,11 +32,28 @@
 
 .card   {
     border-radius: $radious !important;
+    position: relative;
+    transition: 0.4s;
+    transition-timing-function: ease;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .card-img-top    {
     border-top-left-radius:  $radious !important;
     border-top-right-radius:  $radious !important;
+}
+
+.sponsorizzato  {
+    background-color: $colore_primario;
+    padding: 3px 7px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 7px;
+    right: 7px;
 }
 
 // .ap-icon-pin svg    {
