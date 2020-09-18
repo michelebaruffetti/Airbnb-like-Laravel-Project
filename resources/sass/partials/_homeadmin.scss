@@ -15,14 +15,19 @@
     background-color: $bg_active_hover;
 }
 
-.form-control-sm    {
+.form-control-caricafoto    {
     color: $colore_primario;
     background-color: #feeceb;
     border: 1px solid #feeceb;
     padding: 8px 8px;
-    padding-bottom: 24px;
-    border-radius: 7px;
 
+    border-radius: 7px;
+    height: 40px;
+
+}
+
+.dati-anagrafici strong {
+    color: $font_color_dark;
 }
 
 @media (max-width: 992px) {

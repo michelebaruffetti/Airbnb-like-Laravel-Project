@@ -8,7 +8,7 @@
                     @csrf
                     <div class="form-group row">
                         <div class="col-12 col-md-10 mb-2">
-                            {{-- <label for="form-address" class="col-form-label label-ricerca">Ricerca il tuo appartamento: </label> --}}
+                            
                             <input class="testo-ricerca" type="text"  id="form-address" name="address" value="{{old('address')}}" placeholder="In quale città vuoi andare?">
                         </div>
                         <div class="col-6 offset-3 offset-md-0 col-md-2 d-flex mb-2">

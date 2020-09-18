@@ -88,32 +88,32 @@
                 </div>
 
             {{-- invia messaggio --}}
-                <div class="mt-3 messaggio pt-5">
+                <div id="invia-messaggio" class="mt-3 messaggio pt-5">
                     <h5 class="show-dettagli">Contatta il proprietario</h5>
                     <form class="pt-2" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" id="nome" placeholder="Nome" value="{{ old('name') }}">
+                            <input type="text" name="name" class="form-control form-control-messaggi" id="nome" placeholder="Nome" value="{{ old('name') }}">
                             @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" name="lastname" class="form-control" id="nome" placeholder="Cognome" value="{{ old('lastname') }}">
+                            <input type="text" name="lastname" class="form-control form-control-messaggi" id="nome" placeholder="Cognome" value="{{ old('lastname') }}">
                             @error('lastname')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             @auth
-                                <input type="email" name="email" class="form-control" id="mail" readonly placeholder="{{$user->email}}" value="{{$user->email}}">
+                                <input type="email" name="email" class="form-control form-control-messaggi" id="mail" readonly placeholder="{{$user->email}}" value="{{$user->email}}">
                                 @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             @endauth
 
                             @guest
-                                <input type="email" name="email" class="form-control" id="mail" placeholder="E-mail" value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control form-control-messaggi" id="mail" placeholder="E-mail" value="{{ old('email') }}">
                                 @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -121,7 +121,7 @@
 
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control"  name="text" id="testo" placeholder="Messaggio..." rows="6" cols="36"></textarea>
+                            <textarea class="form-control form-control-messaggi"  name="text" id="testo" placeholder="Messaggio..." rows="6" cols="36"></textarea>
                             @error('text')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
