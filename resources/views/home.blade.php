@@ -7,11 +7,11 @@
                 <form action="{{Route('search')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <div class="col-12 col-md-10 mb-2">
-                            
+                        <div class="col-12 col-md-10 mb-3">
+
                             <input class="testo-ricerca" type="text"  id="form-address" name="address" value="{{old('address')}}" placeholder="In quale città vuoi andare?">
                         </div>
-                        <div class="col-6 offset-3 offset-md-0 col-md-2 d-flex mb-2">
+                        <div class="col-4 offset-4 offset-md-0 col-md-2 d-flex mb-3">
                             <button id="btn-cerca" type="submit" class="btn w-100 ">Cerca</button>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 col-sm-8" >
             <div class="form-group">
-                <label for="form-address">Indirizzo</label>
+                {{-- <label for="form-address">Indirizzo</label> --}}
                 <input type="text" class="form-control testo-ricerca" id="form-address" name="address" value="{{old('address', $ricerca['address'])}}" placeholder="Inserisci il tuo indirizzo">
             </div>
             <div class="form-group">
@@ -13,20 +13,23 @@
                 <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude', $ricerca['longitude'])}}">
             </div>
         </div>
-        <div class="form-group col-4">
-            <label for="range">Raggio</label>
+        <div class="form-group col-4 col-sm-2">
+            {{-- <label for="range">Raggio</label> --}}
             <select class="form-control testo-ricerca" name="range" id="range">
                 <option {{$ricerca['range'] == '20' ? 'selected' : '' }} value="20">20</option>
                 <option {{$ricerca['range'] == '50' ? 'selected' : '' }} value="50">50</option>
                 <option {{$ricerca['range'] == '100' ? 'selected' : '' }} value="100">100</option>
             </select>
         </div>
+        <div class="col-4 col-sm-2">
+            <button id="ricerca" type="" class="btn-ricerca w-100">Cerca</button>
+        </div>
     </div>
 
     <div class="row">
-        <div class="form-group col-10 d-flex">
-            Servizi:
-            <div class="d-flex ">
+        <div class=" col-12">
+            <p>Servizi:</p>
+            <div class="d-flex flex-wrap">
                 @foreach ($services as $service)
                     <div class="form-check">
                         <label class="form-check-label search d-flex align-items-center">
@@ -46,16 +49,14 @@
                 @endforeach
             </div>
         </div>
-        <div class="col-2">
-            <button id="ricerca" type="" class="btn btn-primary">Cerca</button>
-        </div>
+
     </div>
 </div>
 
-
+{{-- appartamenti sponsorizzati --}}
 <div class="container">
     <div class="row">
-        <div id="contenitore-appartamenti-sponsorizzati"class="col-12 gold-sponsor mt-4">
+        <div id="contenitore-appartamenti-sponsorizzati"class="col-10 offset-1 gold-sponsor mt-4">
 
             @foreach ($apartments as $apartment)
                 <a href="{{ route('show',['apartment'=> $apartment->id])}}">
@@ -95,8 +96,9 @@
         </div>
     </div>
 
+{{-- appartamenti standard handlebars --}}
     <div class="row">
-        <div id="contenitore-appartamenti" class="col-12  mt-4">
+        <div id="contenitore-appartamenti" class="col-10 offset-1  mt-4">
 
         </div>
     </div>
