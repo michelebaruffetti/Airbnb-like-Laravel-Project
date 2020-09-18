@@ -56,7 +56,7 @@
 {{-- appartamenti sponsorizzati --}}
 <div class="container">
     <div class="row">
-        <div id="contenitore-appartamenti-sponsorizzati"class="col-10 offset-1 gold-sponsor mt-4">
+        <div id="contenitore-appartamenti-sponsorizzati"class="col-10 offset-1 mt-4">
 
             @foreach ($apartments as $apartment)
                 <a href="{{ route('show',['apartment'=> $apartment->id])}}">
@@ -71,8 +71,8 @@
                             @endif
                             >
                         </div>
-                        <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
-                            <div class="testo">
+                        <div class="card-dx text-left gold-sponsor col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
+                            <div class="testo ">
                                     <h3 class="title h4 text-uppercase">{{$apartment->title}}</h3>
                                     {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
                                 <p class="paragrafo">{{str_limit($apartment->description, $limit = 100, $end = '...')}}</p>
