@@ -107,6 +107,8 @@
         </div>
     </div>
 
+
+    {{-- sponsorizzazioni blu --}}
     <div class="container px-0 mt-5">
         @if ($apartment->status == 1)
         <div class="row d-flex justify-content-center">
@@ -142,6 +144,49 @@
                     </div>
                 </div>
             @endforeach
+        @endif
+    </div>
+
+    {{-- nuove card --}}
+    <div class="container px-0 mt-5">
+        @if ($apartment->status == 1)
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10">
+                <h3 class="h4 mt-3">Incrementa le visite sponsorizzando il tuo appartamento</h3>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-12 col-lg-10 offset-lg-1 d-flex justify-content-between">
+            @foreach ($sponsors as $sponsor)
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Pacchetto: {{$sponsor->id}}</h5>
+                    <p class="card-text">Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</p>
+                    <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}" class="btn bottone-pieno">{{$sponsor->price}} €</a>
+                </div>
+            </div>
+            @endforeach
+            </div>
+        </div>
+        @else
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <h3 class="h4 mt-3">Attiva il tuo appartamento per poterlo sponsorizzare</h3>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-12 col-lg-10 offset-lg-1 d-flex justify-content-between ">
+                @foreach ($sponsors as $sponsor)
+                <div class="card sponsor-inattivo" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pacchetto: {{$sponsor->id}}</h5>
+                        <p class="card-text">Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</p>
+                        <a href="#" class="btn bottone-pieno" disabled>{{$sponsor->price}} €</a>
+                    </div>
+                </div>
+                @endforeach
+                </div>
+            </div>
         @endif
     </div>
 </div>
