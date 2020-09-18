@@ -57,7 +57,9 @@
         <div id="contenitore-appartamenti-sponsorizzati"class="col-12">
 
                 @foreach ($apartments as $apartment)
+                    <a href="{{ route('show',['apartment'=> $apartment->id])}}">
                     <div class="col col-12 d-lg-flex mt-4 apartment-container">
+
                         <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
                             @if ($apartment->image_url)
                                 style="background-image: url({{asset('storage/' . $apartment->image_url)}})"
@@ -69,8 +71,7 @@
                         </div>
                         <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
                             <div class="testo">
-                                <a href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}"
-                                    class="title h4 text-uppercase">{{$apartment->title}}</a>
+                                    <h3 class="title h4 text-uppercase">{{$apartment->title}}</h3>
                                     {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
                                 <p class="paragrafo">{{str_limit($apartment->description, $limit = 100, $end = '...')}}</p>
                                 <div class="options d-flex justify-content-between align-items-center">
@@ -87,6 +88,7 @@
                         </div>
                          <small class="sponsorizzato">IN VETRINA</small>
                     </div>
+                    </a>
                 @endforeach
 
             </div>
