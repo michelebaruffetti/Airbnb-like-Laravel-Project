@@ -44,9 +44,10 @@
                     <div class="logo-wrap d-flex align-items-center h-100">
                         <img class="img-fluid" src="{{asset('/storage/logo/Boolbnblogo.png')}}" alt="logo">
                     </div>
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"><i class="fas fa-2x fa-bars"></i></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -95,7 +96,54 @@
                             </li>
                         @endguest
                     </ul>
+
                 </div>
+                <div id="toggle" class="p-4 d-md-none">
+                    <a id="panino" href="#">
+                        <i class="fas fa-2x fa-bars"></i>
+                    </a>
+
+                    <div class="hamburger-menu">
+                        <ul class="">
+                            <!-- Authentication Links -->
+                            @guest
+                            <li class="voce-menu">
+                                    <a href="{{ route('login') }}">
+                                        <span class="icon pr-2"><i class="fas fa-home"></i></span>
+                                        <span class="title">{{ __('Login') }}</span>
+                                    </a>
+                                </li>
+                            @if (Route::has('register'))
+                                <li class="voce-menu">
+                                    <a href="{{ route('register') }}">
+                                        <span class="icon pr-2"><i class="fas fa-user"></i></span>
+                                        <span class="title">{{ __('Diventa un host') }}</span>
+                                    </a>
+                                </li>
+                            @endif
+                            @else
+                                <li class="voce-menu">
+                                    <a href="{{ route('admin.home') }}">
+                                        <span class="icon pr-2"><i class="fas fa-list"></i></span>
+                                        <span class="title">{{ __('Dashboard') }}</span>
+                                    </a>
+                                </li>
+                                <li class="voce-menu">
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="icon pr-2"><i class="fas fa-sign-out-alt"></i></span>
+                                        <span class="title">Logout</span>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            @endguest
+                            </ul>
+                        <a class="close">
+                            <i id="close" class="fas fa-times"></i>
+                        </a>
+
+                    </div>
             </div>
         </nav>
 
