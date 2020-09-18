@@ -105,29 +105,27 @@
 
                     <div class="hamburger-menu">
                         <ul class="">
-
+                            <!-- Authentication Links -->
+                            @guest
                             <li class="voce-menu">
-                                    <a href="{{ route('home') }}">
+                                    <a href="{{ route('login') }}">
                                         <span class="icon pr-2"><i class="fas fa-home"></i></span>
-                                        <span class="title">Visita il sito</span>
+                                        <span class="title">{{ __('Login') }}</span>
                                     </a>
                                 </li>
-                                <li class="voce-menu {{Request::route()->getName() == 'admin.home' ? 'active' : ''}}">
-                                    <a href="{{ route('admin.home') }}">
+                            @if (Route::has('register'))
+                                <li class="voce-menu">
+                                    <a href="{{ route('register') }}">
                                         <span class="icon pr-2"><i class="fas fa-user"></i></span>
-                                        <span class="title">Profilo</span>
+                                        <span class="title">{{ __('Diventa un host') }}</span>
                                     </a>
                                 </li>
-                                <li class="voce-menu {{Request::route()->getName() == 'admin.apartments.index' ? 'active' : ''}}">
-                                    <a href="{{ route('admin.apartments.index') }}">
+                            @endif
+                            @else
+                                <li class="voce-menu">
+                                    <a href="{{ route('admin.home') }}">
                                         <span class="icon pr-2"><i class="fas fa-list"></i></span>
-                                        <span class="title">Appartamenti</span>
-                                    </a>
-                                </li>
-                                <li class="voce-menu {{Request::route()->getName() == 'admin.message' ? 'active' : ''}}">
-                                    <a href="{{ route('admin.message') }}">
-                                        <span class="icon pr-2"><i class="fas fa-envelope"></i></span>
-                                        <span class="title">Messaggi</span>
+                                        <span class="title">{{ __('Dashboard') }}</span>
                                     </a>
                                 </li>
                                 <li class="voce-menu">
@@ -139,6 +137,7 @@
                                         @csrf
                                     </form>
                                 </li>
+                            @endguest
                             </ul>
                         <a class="close">
                             <i id="close" class="fas fa-times"></i>
