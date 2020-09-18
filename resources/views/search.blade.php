@@ -122,7 +122,7 @@
                     </div>
                     <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
                         <div class="testo">
-                            @{{title}}
+                            <h3 class="title h4 text-uppercase">@{{title}}</h3>
                             <p class="paragrafo">@{{description}}</p>
 
                             <div class="options d-flex justify-content-between align-items-center">
