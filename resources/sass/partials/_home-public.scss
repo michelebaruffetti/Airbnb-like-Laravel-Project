@@ -43,6 +43,9 @@
 .card-img-top    {
     border-top-left-radius:  $radious !important;
     border-top-right-radius:  $radious !important;
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .sponsorizzato  {
