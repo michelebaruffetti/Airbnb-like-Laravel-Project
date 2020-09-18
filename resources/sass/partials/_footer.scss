@@ -1,8 +1,8 @@
 #selettore-footer{
-    border-top: 1px solid black;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
 
         a:hover{
-            color: black;
+            color: #f9423a;
             text-decoration: underline;
         }
 
@@ -14,5 +14,7 @@
             font-size: 1.4rem;
         }
 
-
+        #icone-footer a i{
+            font-size: 17px;
+        }
 }

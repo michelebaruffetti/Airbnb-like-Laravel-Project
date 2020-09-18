@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small mdb-color pt-4" id="selettore-footer">
+<footer class="page-footer font-small mdb-color pt-4 mt-5" id="selettore-footer">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -8,7 +8,7 @@
         <div class="row text-center text-md-left mt-3 pb-3">
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
                 <p>BoolBnB è una applicazione per trovare e gestire l’affitto di appartamenti.
                     Attraverso BoolBnB i proprietari di appartamento possono inserire le informazioni degli appartamenti che vogliono affittare per cercare utenti interessati.
@@ -58,8 +58,29 @@
             <!-- Grid column -->
             <hr class="w-100 clearfix d-md-none">
 
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Studenti Boolean</h6>
+                <p>
+                    <a href="#!">Maikel Abdelmalak</a>
+                </p>
+                <p>
+                    <a href="#!">Marco Rubolini</a>
+                </p>
+                <p>
+                    <a href="#!">Marzia Fatarella</a>
+                </p>
+                <p>
+                    <a href="#!">Michele Baruffetti</a>
+                </p>
+                <p>
+                    <a href="#!">Francesca Palumbo</a>
+                </p>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
             <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-2">
                 <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                 <p>
                     <i class="fas fa-home mr-3"></i> Roma, RM 00164, IT</p>
@@ -98,24 +119,24 @@
 
                 <!-- Social buttons -->
                 <div class="text-center text-md-right">
-                    <ul class="list-unstyled list-inline">
+                    <ul class="list-unstyled list-inline" id="icone-footer">
                         <li class="list-inline-item">
-                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1" href="#">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1" href="#">
                                 <i class="fab fa-twitter"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1" href="#">
                                 <i class="fab fa-google-plus-g"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1" href="#">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                         </li>

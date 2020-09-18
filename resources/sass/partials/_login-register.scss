@@ -1,0 +1,98 @@
+#register{
+
+    .card{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    #testo-register{
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 25px;
+    }
+
+    .card-body{
+        background-color: white;
+    }
+
+    label, input{
+        font-family: "Poppins-Regular";
+
+        .no-outline:focus {
+            outline: none !important;
+        }
+    }
+
+    input{
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid black;
+    }
+
+    .btn .btn-primary{
+        color: #f9423a;
+        background-color: #feeceb;
+        border: 1px solid #feeceb;
+    }
+
+    #bottone-register{
+        color: #f9423a;
+        background-color: #feeceb;
+        border: 1px solid #feeceb;
+        font-size: 15px;
+    }
+}
+
+#login{
+    .card{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    #testo-login{
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 25px;
+    }
+
+    .card-body{
+        background-color: white;
+    }
+
+    label, input{
+        font-family: "Poppins-Regular";
+
+        .no-outline:focus {
+            outline: none !important;
+        }
+    }
+
+    input{
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid black;
+    }
+
+    .btn .btn-primary{
+        color: #f9423a;
+        background-color: #feeceb;
+        border: 1px solid #feeceb;
+    }
+
+    #bottone-login{
+        color: #f9423a;
+        background-color: #feeceb;
+        border: 1px solid #feeceb;
+        font-size: 15px;
+    }
+}
