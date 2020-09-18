@@ -54,11 +54,11 @@
 
 <div class="container">
     <div class="row">
-        <div id="contenitore-appartamenti-sponsorizzati"class="col-12">
+        <div id="contenitore-appartamenti-sponsorizzati"class="col-12 gold-sponsor mt-4">
 
-                @foreach ($apartments as $apartment)
-                    <a href="{{ route('show',['apartment'=> $apartment->id])}}">
-                    <div class="col col-12 d-lg-flex mt-4 apartment-container">
+            @foreach ($apartments as $apartment)
+                <a href="{{ route('show',['apartment'=> $apartment->id])}}">
+                    <div class="col col-12 d-lg-flex mt-3 mb-3 apartment-container ">
 
                         <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
                             @if ($apartment->image_url)
@@ -88,46 +88,53 @@
                         </div>
                          <small class="sponsorizzato">IN VETRINA</small>
                     </div>
-                    </a>
-                @endforeach
+                </a>
+            @endforeach
 
-            </div>
-            <div id="contenitore-appartamenti">
+        </div>
+    </div>
 
-            </div>
+    <div class="row">
+        <div id="contenitore-appartamenti" class="col-12  mt-4">
+
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('script')
         <script src="{{ asset('js/autocomplete.js') }}" charset="utf-8"></script>
         <script src="{{ asset('js/search.js') }}" charset="utf-8"></script>
         <script id="template-apartment" type="text/x-handlebars-template">
-            <div class="col col-12  d-lg-flex mt-4 apartment-container">
-                <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
-                     @{{#if url_image}}
-                        style="background-image: url({{asset('storage')}}/@{{url_image}})"
-                    @{{else}}
+            <a href="{{ route('show',['apartment'=> $apartment->id])}}">
+                <div class="col col-12  d-lg-flex mt-4 apartment-container">
+                    <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
+                         @{{#if url_image}}
+                            style="background-image: url({{asset('storage')}}/@{{url_image}})"
+                        @{{else}}
 
-                        style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
-                    @{{/if}}
-                    >
-                </div>
-                <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
-                    <div class="testo">
-                        @{{title}}
-                        <p class="paragrafo">@{{description}}</p>
+                            style="background-image: url(https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg"
+                        @{{/if}}
+                        >
+                    </div>
+                    <div class="card-dx text-left col-12 col-lg-8 py-4 d-flex flex-column justify-content-around">
+                        <div class="testo">
+                            @{{title}}
+                            <p class="paragrafo">@{{description}}</p>
 
-                        <div class="options d-flex justify-content-between align-items-center">
-                            <div class="tags">
-                                @{{#each services}}
-                                    <nobr class="tag-servizi mt-1">@{{description}}</nobr>
-                                @{{/each}}
+                            <div class="options d-flex justify-content-between align-items-center">
+                                <div class="tags">
+                                    @{{#each services}}
+                                        <nobr class="tag-servizi mt-1">@{{description}}</nobr>
+                                    @{{/each}}
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </script>
 @endsection

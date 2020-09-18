@@ -12,3 +12,10 @@ input[type=checkbox].search, input[type=radio].search {
     position: relative;
 
 }
+
+.gold-sponsor  {
+    border: 2px solid gold;
+    border-radius: $radious;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
