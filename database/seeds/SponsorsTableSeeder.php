@@ -18,6 +18,7 @@ class SponsorsTableSeeder extends Seeder
             $nuova_sponsorizzazione = new Sponsor;
             $nuova_sponsorizzazione->price = $sponsorizzazione['prezzo'];
             $nuova_sponsorizzazione->description = $sponsorizzazione['descrizione'];
+            $nuova_sponsorizzazione->duration = $sponsorizzazione['durata'];
             $nuova_sponsorizzazione->save();
         }
     }

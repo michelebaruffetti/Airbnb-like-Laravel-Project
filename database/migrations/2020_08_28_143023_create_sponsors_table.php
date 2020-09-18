@@ -17,6 +17,7 @@ class CreateSponsorsTable extends Migration
             $table->id();
             $table->float('price', 3, 2);
             $table->string('description');
+            $table->bigInteger('duration');
             $table->timestamps();
         });
     }

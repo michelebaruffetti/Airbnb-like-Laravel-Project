@@ -2,6 +2,31 @@
 
 @section('content')
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 offset-lg-3 text-center">
+                @if(session()->has('message_sponsor_esistente'))
+                {{-- <div class="alert alert-success"> --}}
+                    <div id='alert-message' class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session()->get('message_sponsor_esistente') }}
+                        <button id='button-message' type="button" class="close d-block" data-dismiss="alert" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @if(session()->has('succes_message'))
+                {{-- <div class="alert alert-success"> --}}
+                    <div id='alert-message' class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session()->get('succes_message') }}
+                        <button id='button-message' type="button" class="close d-block" data-dismiss="alert" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                @endif
+        </div>
+    </div>
+</div>
+
 {{-- DETTAGLI APPARTAMENTO ADMIN --}}
 
 
@@ -83,39 +108,41 @@
     </div>
 
     <div class="container px-0 mt-5">
+        @if ($apartment->status == 1)
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-10">
                 <h3 class="h4 mt-3">Incrementa le visite sponsorizzando il tuo appartamento</h3>
             </div>
         </div>
-
-        @foreach ($sponsors as $sponsor)
-            <div class="row ">
-                <div class="col-12 col-lg-10 offset-lg-1">
-
-                    {{-- <form class="col-12 col-lg-10 offset-lg-1" action="{{Route('admin.payment')}}" method="post">
-                        <input hidden type="text" name="apartment" value="{{$apartment->id}}">
-                        <input hidden type="text" name="price" value="{{$sponsor->price}}">
-                        <input hidden type="text" name="ore" value="{{$sponsor->description}}">
-                        <button type="submit" name="button">
+            @foreach ($sponsors as $sponsor)
+                <div class="row ">
+                    <div class="col-12 col-lg-10 offset-lg-1">
+                        <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}">
                             <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
                                 <h5>Prezzo: {{$sponsor->price}}</h5>
                                 <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
                             </div>
-                        </button>
-                    </form> --}}
-
-                    {{-- <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}"> --}}
-                        {{-- @method('POST') --}}
-                        {{-- <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                            <h5>Prezzo: {{$sponsor->price}}</h5>
-                            <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
-                        </div>
-                    </a> --}}
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <h3 class="h4 mt-3">Attiva il tuo appartamento per poterlo sponsorizzare</h3>
                 </div>
             </div>
-        @endforeach
-        </div>
+            @foreach ($sponsors as $sponsor)
+                <div class="row ">
+                    <div class="col-12 col-lg-10 offset-lg-1">
+                            <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                                <h5>Prezzo: {{$sponsor->price}}</h5>
+                                <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
+                            </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
     </div>
 </div>
 @endsection

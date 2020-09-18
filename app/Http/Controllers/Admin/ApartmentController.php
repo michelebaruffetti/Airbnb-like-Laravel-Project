@@ -6,12 +6,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Apartment;
 use App\Service;
 use App\Sponsor;
 use App\Message;
+use App\User;
+use Carbon\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -205,19 +208,47 @@ class ApartmentController extends Controller
     }
 
 
-    public function formPagamento(){
-        $gateway = new \Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-        $token = $gateway->ClientToken()->generate();
+    public function formPagamento(Request $request){
+        $oggi = Carbon::now();
+        $apartment = DB::table('apartments')
+            ->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
+            ->where([
+                ['end_date', '>', $oggi],
+                ['apartment_id', '=', $request->apartment]
+            ])->get();
 
-        return view('admin.apartments.payment', ['token' => $token]);
+        if(!$apartment->isEmpty()){
+            return back()->with('message_sponsor_esistente', 'appartamento già sponsorizzato');
+        }else{
+            $apartment = Apartment::find($request->apartment);
+            $user = User::find($apartment->user_id);
+            $sponsor = Sponsor::find($request->sponsor);
+            $gateway = new \Braintree\Gateway([
+                'environment' => config('services.braintree.environment'),
+                'merchantId' => config('services.braintree.merchantId'),
+                'publicKey' => config('services.braintree.publicKey'),
+                'privateKey' => config('services.braintree.privateKey')
+            ]);
+            $token = $gateway->ClientToken()->generate();
+            $data = [
+                'token' => $token,
+                'apartment' => $apartment,
+                'user' => $user,
+                'sponsor' => $sponsor,
+            ];
+
+            return view('admin.apartments.payment', $data);
+
+        }
+
     }
 
+
+
     public function transazione(Request $request){
+        $apartment = Apartment::find($request->apartment);
+        $sponsor = Sponsor::find($request->sponsor);
+
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -226,19 +257,30 @@ class ApartmentController extends Controller
         ]);
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
-
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
+            'customer' => [
+                'firstName' => Auth::user()->name,
+                'lastName' => Auth::user()->lastname,
+                'email' => Auth::user()->email
+            ],
             'options' => [
             'submitForSettlement' => true
-            ]
+            ],
         ]);
 
         if ($result->success) {
             $transaction = $result->transaction;
             // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-            return back()->with('succes_message', 'pagamento andato a buon fine, ID transazione:' . $transaction->id );
+            $endDate = Carbon::now()->addDays($sponsor->duration);
+            $now = Carbon::now();
+            Apartment::find($apartment->id)->sponsors()->attach($sponsor->id, [
+                'created_at' => $now,
+                'end_date' => $endDate
+            ]);
+            
+            return redirect()->route('admin.apartments.show', ['apartment' => $apartment->id])->with('succes_message', 'pagamento andato a buon fine, ID transazione:' . $transaction->id );
         } else {
             $errorString = "";
 
@@ -246,8 +288,6 @@ class ApartmentController extends Controller
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
             }
 
-            // $_SESSION["errors"] = $errorString;
-            // header("Location: " . $baseUrl . "index.php");
             return back()->withErrors('transazione negata per il seguente errore:' . $result->message );
         }
 

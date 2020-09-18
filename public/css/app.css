@@ -11908,6 +11908,7 @@ p.address.show-paragraph {
 #selettore-footer h6,
 #selettore-footer .h6 {
   font-size: 1.4rem;
+<<<<<<< HEAD
 }
 
 #selettore-footer #icone-footer a i {
@@ -12025,6 +12026,8 @@ input[type=radio].search {
 
 .form-check-input.search {
   position: relative;
+=======
+>>>>>>> braintree
 }
 
 #map {
