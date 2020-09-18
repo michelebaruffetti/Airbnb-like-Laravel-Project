@@ -11908,7 +11908,6 @@ p.address.show-paragraph {
 #selettore-footer h6,
 #selettore-footer .h6 {
   font-size: 1.4rem;
-<<<<<<< HEAD
 }
 
 #selettore-footer #icone-footer a i {
@@ -11932,11 +11931,6 @@ p.address.show-paragraph {
 
 #register .card-body {
   background-color: white;
-}
-
-#register label,
-#register input {
-  font-family: "Poppins-Regular";
 }
 
 #register label .no-outline:focus,
@@ -11983,11 +11977,6 @@ p.address.show-paragraph {
   background-color: white;
 }
 
-#login label,
-#login input {
-  font-family: "Poppins-Regular";
-}
-
 #login label .no-outline:focus,
 #login input .no-outline:focus {
   outline: none !important;
@@ -11998,6 +11987,7 @@ p.address.show-paragraph {
   border-right: none;
   border-left: none;
   border-bottom: 1px solid black;
+  line-height: 30px;
 }
 
 #login .btn .btn-primary {
@@ -12026,8 +12016,6 @@ input[type=radio].search {
 
 .form-check-input.search {
   position: relative;
-=======
->>>>>>> braintree
 }
 
 #map {

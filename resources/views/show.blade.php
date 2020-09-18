@@ -142,7 +142,7 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-10">
-                <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
+                <div class="promozione rounded border border-color-grey mt-1 mb-1 text-center">
                     <div id="map"></div>
                     <script>
                         var map = L.map('map').setView(['{{$apartment->latitude}}', '{{$apartment->longitude}}'], 13);
