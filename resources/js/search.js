@@ -9,7 +9,7 @@ $(document).ready(function(){
         ricerca();
     });
 
-    $('#range').change(function(){
+    $('.filtri-select').change(function(){
         $('#contenitore-appartamenti').empty();
         ricerca();
     });
@@ -37,10 +37,12 @@ $(document).ready(function(){
         var lat = $('#latitude').val();
         var lng = $('#longitude').val();
         var rag = $('#range').val();
-        chiamata(lat, lng, rag);
+        var rom = $('#room').val();
+        var bat = $('#bath').val();
+        chiamata(lat, lng, rag, rom, bat);
     }
 
-    function chiamata(latitude, longitude, raggio){
+    function chiamata(latitude, longitude, raggio, stanze, bagni){
 
         $.ajax({
             'url': 'api/allapartments',
@@ -48,7 +50,9 @@ $(document).ready(function(){
             'data': {
                 'latitude': latitude,
                 'longitude': longitude,
-                'range': raggio
+                'range': raggio,
+                'room': stanze,
+                'bath': bagni
             },
             success: function(data){
                 $('#contenitore-appartamenti').empty();
@@ -83,16 +87,16 @@ $(document).ready(function(){
                                 console.log(sentinella);
                                 // $('#contenitore-appartamenti').append(html);
                             };
-                            
+
                     }
-                
+
                     if (sentinella == servizi_selezionati.length){
                         $('#contenitore-appartamenti').append(html);
                     }
-                    
-                        
-                        
-                             
+
+
+
+
                         // console.log(sentinella);
                         // if (sentinella == servizi_selezionati.length){
                         //     $('#contenitore-appartamenti').append(html);
