@@ -12,3 +12,19 @@ input[type=checkbox].search, input[type=radio].search {
     position: relative;
 
 }
+
+.gold-sponsor  {
+    background-color: #FEECEB;
+
+}
+
+.btn-ricerca     {
+    height: 40px;
+    width: 75px;
+    font-size: 14px;
+    align-self: end;
+    color: #feeceb;
+    background-color: $colore_primario;
+    border: 1px solid $colore_primario;
+    border-radius: 7px;
+}

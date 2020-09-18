@@ -27,7 +27,7 @@
     padding: 10px;
     border-radius: 7px;
     height: 40px;
-
+    font-size: 14px;
 }
 
 .card   {
@@ -43,6 +43,9 @@
 .card-img-top    {
     border-top-left-radius:  $radious !important;
     border-top-right-radius:  $radious !important;
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .sponsorizzato  {
