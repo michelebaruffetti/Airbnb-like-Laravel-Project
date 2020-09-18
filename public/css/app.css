@@ -11377,7 +11377,6 @@ ul ul a {
   right: -28px;
 }
 
-<<<<<<< HEAD
 .hamburger-menu {
   position: absolute;
   top: 0;
@@ -11388,13 +11387,8 @@ ul ul a {
   height: 100%;
   min-width: 100vw;
   min-height: 100vh;
-  background: #D94854;
+  background: #3c4858;
   z-index: 1;
-=======
-.messaggio i {
-  color: #f9423a;
-  margin-right: 5px;
->>>>>>> footer-francesca
 }
 
 .hamburger-menu ul {
@@ -11407,10 +11401,13 @@ ul ul a {
 }
 
 .hamburger-menu ul li a {
-  color: #717e8f;
+  color: #dfe3ed;
   text-decoration: none;
   font-size: 25px;
-  border-bottom: 2px solid #717e8f;
+}
+
+.hamburger-menu > ul > li:hover > a > span.icon > i {
+  color: #f9423a;
 }
 
 .close {
@@ -11419,6 +11416,12 @@ ul ul a {
   z-index: 2;
   right: 25px;
   top: 20px;
+  color: #dfe3ed;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #f9423a;
 }
 
 .center-cropped {
@@ -11469,13 +11472,17 @@ ul ul a {
   background-color: rgba(223, 227, 237, 0.4);
 }
 
-.form-control-sm {
+.form-control-caricafoto {
   color: #f9423a;
   background-color: #feeceb;
   border: 1px solid #feeceb;
   padding: 8px 8px;
-  padding-bottom: 24px;
   border-radius: 7px;
+  height: 40px;
+}
+
+.dati-anagrafici strong {
+  color: #3c4858;
 }
 
 @media (max-width: 992px) {
@@ -11630,7 +11637,6 @@ input[type=submit].myinput:active {
   }
 }
 
-<<<<<<< HEAD
 p {
   color: #717e8f;
 }
@@ -11721,10 +11727,10 @@ nobr.tag-servizi {
 }
 
 .messaggio {
-  background-color: transparent;
+  background-color: white;
   color: #3c4858;
-  border: none;
-  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 1px 4px 0px rgba(0, 0, 0, 0.1);
   padding-left: 0;
   padding-right: 0;
   border-radius: 7px;
@@ -11740,7 +11746,7 @@ nobr.tag-servizi {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.form-control {
+#invia-messaggio .form-control-messaggi {
   display: block;
   width: 100%;
   height: 36px;
@@ -11801,6 +11807,15 @@ a[aria-expanded=true] {
   margin-top: -12px;
 }
 
+.navbar-light .navbar-toggler-icon {
+  background-image: none;
+}
+
+.navbar-light .navbar-toggler {
+  color: #3c4858;
+  border-color: transparent;
+}
+
 #btn-cerca {
   height: 40px;
   width: 75px;
@@ -11821,7 +11836,7 @@ a[aria-expanded=true] {
   color: #3c4858;
 }
 
-.ap-input {
+.testo-ricerca {
   color: #3c4858;
   border: 1px solid #f9423a;
   position: relative;
@@ -11835,7 +11850,7 @@ a[aria-expanded=true] {
 .card {
   border-radius: 7px !important;
   position: relative;
-  transition: 0.4s;
+  transition: opacity 0.4s;
   transition-timing-function: ease;
 }
 
@@ -11875,13 +11890,14 @@ p.address.show-paragraph {
   color: #3c4858;
   font-size: 18px;
   font-weight: 600;
-=======
+}
+
 #selettore-footer {
-  border-top: 1px solid black;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 #selettore-footer a:hover {
-  color: black;
+  color: #f9423a;
   text-decoration: underline;
 }
 
@@ -11892,7 +11908,123 @@ p.address.show-paragraph {
 #selettore-footer h6,
 #selettore-footer .h6 {
   font-size: 1.4rem;
->>>>>>> footer-francesca
+}
+
+#selettore-footer #icone-footer a i {
+  font-size: 17px;
+}
+
+#register .card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#register .card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#register #testo-register {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 25px;
+}
+
+#register .card-body {
+  background-color: white;
+}
+
+#register label,
+#register input {
+  font-family: "Poppins-Regular";
+}
+
+#register label .no-outline:focus,
+#register input .no-outline:focus {
+  outline: none !important;
+}
+
+#register input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid black;
+}
+
+#register .btn .btn-primary {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+}
+
+#register #bottone-register {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+  font-size: 15px;
+}
+
+#login .card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#login .card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#login #testo-login {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 25px;
+}
+
+#login .card-body {
+  background-color: white;
+}
+
+#login label,
+#login input {
+  font-family: "Poppins-Regular";
+}
+
+#login label .no-outline:focus,
+#login input .no-outline:focus {
+  outline: none !important;
+}
+
+#login input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid black;
+}
+
+#login .btn .btn-primary {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+}
+
+#login #bottone-login {
+  color: #f9423a;
+  background-color: #feeceb;
+  border: 1px solid #feeceb;
+  font-size: 15px;
+}
+
+.form-check-label.search {
+  margin-bottom: 0;
+  margin-right: 11px;
+}
+
+input[type=checkbox].search,
+input[type=radio].search {
+  margin: 0 10px 0 0;
+  line-height: normal;
+}
+
+.form-check-input.search {
+  position: relative;
 }
 
 #map {

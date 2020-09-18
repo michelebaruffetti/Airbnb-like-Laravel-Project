@@ -30,3 +30,15 @@
 .navbar-nav>li>.dropdown-menu {
     margin-top: -12px;
 }
+
+
+// Hamburger menu
+
+.navbar-light .navbar-toggler-icon {
+    background-image: none;
+}
+
+.navbar-light .navbar-toggler {
+    color: #3c4858;
+    border-color: transparent;
+}
