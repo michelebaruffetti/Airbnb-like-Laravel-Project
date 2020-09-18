@@ -12,7 +12,9 @@ $(document).ready(function() {
             $('.hamburger-menu').show();
             $('.close').show();
             $('#panino').hide();
-            $('#main-cards').hide();
+            $('main').hide();
+            $('footer').hide();
+
     });
 
     $('#close').click(
@@ -20,7 +22,8 @@ $(document).ready(function() {
             $('.hamburger-menu').hide();
             $('.close').hide();
             $('#panino').show();
-            $('#main-cards').show();
+            $('main').show();
+            $('footer').show();
     });
 
     $('#button-message').click(function(){
