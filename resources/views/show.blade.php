@@ -89,8 +89,8 @@
 
             {{-- invia messaggio --}}
                 <div id="invia-messaggio" class="mt-3 messaggio pt-5">
-                    <h5 class="show-dettagli">Contatta il proprietario</h5>
-                    <form class="pt-2" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
+                    <h5 class="show-dettagli">Contattaci</h5>
+                    <form class="pt-2 d-flex flex-column" action="{{route('storemessage', ['apartment' => $apartment->id])}}" method="post"enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <input type="text" name="name" class="form-control form-control-messaggi" id="nome" placeholder="Nome" value="{{ old('name') }}">
@@ -113,7 +113,7 @@
                             @endauth
 
                             @guest
-                                <input type="email" name="email" class="form-control form-control-messaggi" id="mail" placeholder="E-mail" value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control form-control-messaggi my-email" id="mail" placeholder="E-mail" value="{{ old('email') }}">
                                 @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -121,7 +121,7 @@
 
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control form-control-messaggi"  name="text" id="testo" placeholder="Messaggio..." rows="6" cols="36"></textarea>
+                            <textarea class="form-control form-control-messaggi my-text"  name="text" id="testo" placeholder="Messaggio..." rows="6" cols="36"></textarea>
                             @error('text')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

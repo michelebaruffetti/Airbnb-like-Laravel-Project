@@ -20,27 +20,27 @@
                     @csrf
                     <div class="form-group">
                         <label for="titolo">Titolo</label>
-                        <input type="text" name="title" class="form-control w-50" id="titolo" placeholder="Titolo inserzione" value="{{ old('title') }}">
+                        <input type="text" name="title" class="form-control" id="titolo" placeholder="Titolo inserzione" value="{{ old('title') }}">
                     </div>
                     <div class="form-group">
                         <label for="testo">Descrizione</label>
-                        <textarea type="text" name="description" class="form-control w-50" id="testo" placeholder="Inserisci descrizione dell'appartamento...">{{ old('description') }}</textarea>
+                        <textarea type="text" name="description" class="form-control" id="testo" placeholder="Inserisci descrizione dell'appartamento...">{{ old('description') }}</textarea>
                     </div>
 
                     <!-- form indirizzo -->
                     <div class="form-group">
                         <label for="form-address">Indirizzo</label>
-                        <input type="search" class="form-control w-50" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
+                        <input type="search" class="form-control" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
                     </div>
                     <div class="form-group">
-                        <input type="hidden" name="latitude" class="form-control w-50" id="latitude" value="{{old('latitude')}}">
-                        <input type="hidden" name="longitude" class="form-control w-50" id="longitude" value="{{old('longitude')}}">
+                        <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
+                        <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude')}}">
                     </div>
 
 
                     <div class="form-group">
                         <label for="numero-stanze">Numero di stanze:</label>
-                        <select class="form-control w-50" name="room" id="numero-stanze">
+                        <select class="form-control" name="room" id="numero-stanze">
                             <option value="">Seleziona il numero di stanze</option>
                             @for ($i = 1; $i <= 10; $i++)
                                 <option
@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="numero-bagni">Numero di bagni:</label>
-                        <select class="form-control w-50" name="bath" id="numero-bagni">
+                        <select class="form-control" name="bath" id="numero-bagni">
                             <option value="">Seleziona il numero di bagni</option>
                             @for ($i = 1; $i <= 10; $i++)
                                 <option
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="mq">Dimensioni</label>
-                        <input type="number" name="square_meters" class="form-control w-50" id="mq" placeholder="Inserisci le dimensioni in mq dell'appartamento..." value="{{ old('square_meters') }}">
+                        <input type="number" name="square_meters" class="form-control" id="mq" placeholder="Inserisci le dimensioni in mq dell'appartamento..." value="{{ old('square_meters') }}">
                     </div>
                     <div class="form-group">
                         <label for="immagine">Immagine</label>
@@ -87,6 +87,9 @@
                         @endforeach
                     </div>
                     <button type="submit" class="btn bottone-pieno">Salva</button>
+                    <a value="Visualizza" href="{{ route('admin.apartments.index') }}" id="my-btn" class="btn btn-outline-danger" type="button">
+                        Annulla
+                    </a>
                 </form>
             </div>
         </div>
