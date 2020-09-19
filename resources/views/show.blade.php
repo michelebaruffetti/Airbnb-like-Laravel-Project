@@ -8,23 +8,22 @@
     <div class="row">
         <div class="col-sm-12 col-lg-6 offset-lg-3 text-center">
                 @if(session()->has('message'))
-                {{-- <div class="alert alert-success"> --}}
-                    <div id='alert-message' class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div id='alert-message' class="alert alert-success alert-dismissible show" role="alert">
                             {{ session()->get('message') }}
                         <button id='button-message' type="button" class="close d-block" data-dismiss="alert" aria-label="Close">
                             <span>&times;</span>
                         </button>
                     </div>
-            @endif
+                @endif
         </div>
     </div>
 </div>
 
 <div class="content-wrap">
     {{-- immagine --}}
-    <div class="container immagine px-0 mt-3">
+    <div class="container immagine mt-3">
         <div class="row intestazione">
-            <div class="col-10 offset-lg-1 col-lg-10">
+            <div class="col-12 offset-lg-1 col-lg-10">
                 <h1 class="show-titolo d-block mb-0">{{$apartment->title}}</h1>
                 <p class="h6 mt-2 mb-3 address show-paragraph">{{$apartment->address}}</p>
             </div>
@@ -63,7 +62,7 @@
     </div>
 
     {{-- sezione descrizione --}}
-    <div class="container px-0 mt-3">
+    <div class="container mt-3">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="pt-4 mt-4 " id="descrizione-appartamento">
@@ -134,7 +133,7 @@
     </div>
 
     {{-- sezione mappa --}}
-    <div class="container px-0 mt-3 mb-5">
+    <div class="container mt-3 mb-5">
         <div class="row intestazione">
             <div class="col-12 offset-lg-1 col-lg-10 mt-5 mb-3">
                 <h3 class="show-dettagli">Localizzazione appartamento</h3>

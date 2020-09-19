@@ -16146,12 +16146,18 @@ $(document).ready(function () {
         var template = Handlebars.compile(source); // var sentinella = 0;
 
         for (var i = 0; i < data.response.length; i++) {
-          var servizi_appartamento = []; // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
+          var servizi_appartamento = [];
+          var descr = data.response[i].description;
+
+          if (descr.length > 750) {
+            var descr = descr.substring(0, 550) + '...';
+          } // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
+
 
           var context = {
             url_image: data.response[i].image_url,
             title: data.response[i].title,
-            description: data.response[i].description,
+            description: descr,
             services: data.response[i].services,
             id_apartment: data.response[i].id
           };
@@ -16209,7 +16215,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\progettoairbnb\airbnb-gruppo-3\resources\js\search.js */"./resources/js/search.js");
 
 
 /***/ })
