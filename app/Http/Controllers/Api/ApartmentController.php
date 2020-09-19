@@ -20,6 +20,8 @@ class ApartmentController extends Controller
         $latitude= $request->latitude + 0.001;
         $longitude= $request->longitude + 0.001;
         $distance= $request->range;
+        $min_room = $request->room;
+        $min_bath = $request->bath;
 
         $response = Apartment::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( latitude ) ) * cos(
             radians( longitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( latitude ) ) ) ) AS
@@ -27,7 +29,11 @@ class ApartmentController extends Controller
             ->having('distance', '<', $distance)
             ->orderBy('distance')
             ->with('services')
-            ->where('status', '1')
+            ->where([
+                ['status', '=', '1'],
+                ['room', '>=', $min_room],
+                ['bath', '>=', $min_bath]
+            ])
             ->get();
 
         $results['response'] = $response;

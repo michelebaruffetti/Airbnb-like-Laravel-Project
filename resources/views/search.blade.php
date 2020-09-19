@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-sm-8" >
+        <div class="col-12 col-sm-10" >
             <div class="form-group">
                 {{-- <label for="form-address">Indirizzo</label> --}}
                 <input type="text" class="form-control testo-ricerca" id="form-address" name="address" value="{{old('address', $ricerca['address'])}}" placeholder="Inserisci il tuo indirizzo">
@@ -13,17 +13,37 @@
                 <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude', $ricerca['longitude'])}}">
             </div>
         </div>
-        <div class="form-group col-4 col-sm-2">
-            {{-- <label for="range">Raggio</label> --}}
-            <select class="form-control testo-ricerca" name="range" id="range">
-                <option {{$ricerca['range'] == '20' ? 'selected' : '' }} value="20">20</option>
-                <option {{$ricerca['range'] == '50' ? 'selected' : '' }} value="50">50</option>
-                <option {{$ricerca['range'] == '100' ? 'selected' : '' }} value="100">100</option>
-            </select>
-        </div>
-        <div class="col-4 col-sm-2">
+        <div class="col-4 offset-4 offset-sm-0 col-sm-2">
             <button id="ricerca" type="" class="btn-ricerca w-100">Cerca</button>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-4 col-sm-3 col-lg-2">
+            <label for="range">Raggio</label>
+            <select class="form-control testo-ricerca filtri-select" name="range" id="range">
+                <option {{$ricerca['range'] == '20' ? 'selected' : '' }} value="20">20 KM</option>
+                <option {{$ricerca['range'] == '50' ? 'selected' : '' }} value="50">50 KM</option>
+                <option {{$ricerca['range'] == '100' ? 'selected' : '' }} value="100">100 KM</option>
+            </select>
+        </div>
+        <div class="form-group col-4 col-sm-3 col-lg-2">
+            <label for="range">Min Stanza</label>
+            <select class="form-control testo-ricerca filtri-select" name="room" id="room">
+                @for ($i=1; $i <= 10; $i++)
+                    <option {{$ricerca['room'] == $i ? 'selected' : '' }} value="{{$i}}">{{$i}}</option>
+                @endfor
+            </select>
+        </div>
+        <div class="form-group col-4 col-sm-3 col-lg-2">
+            <label for="range">Min Bagni</label>
+            <select class="form-control testo-ricerca filtri-select" name="bath" id="bath">
+                @for ($i=1; $i <= 10; $i++)
+                    <option {{$ricerca['bath'] == $i ? 'selected' : '' }} value="{{$i}}">{{$i}}</option>
+                @endfor
+            </select>
+        </div>
+
     </div>
 
     <div class="row">

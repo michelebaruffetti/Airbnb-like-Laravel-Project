@@ -16099,7 +16099,7 @@ $(document).ready(function () {
     $('#contenitore-appartamenti').empty();
     ricerca();
   });
-  $('#range').change(function () {
+  $('.filtri-select').change(function () {
     $('#contenitore-appartamenti').empty();
     ricerca();
   });
@@ -16124,17 +16124,21 @@ $(document).ready(function () {
     var lat = $('#latitude').val();
     var lng = $('#longitude').val();
     var rag = $('#range').val();
-    chiamata(lat, lng, rag);
+    var rom = $('#room').val();
+    var bat = $('#bath').val();
+    chiamata(lat, lng, rag, rom, bat);
   }
 
-  function chiamata(latitude, longitude, raggio) {
+  function chiamata(latitude, longitude, raggio, stanze, bagni) {
     $.ajax({
       'url': 'api/allapartments',
       'method': 'GET',
       'data': {
         'latitude': latitude,
         'longitude': longitude,
-        'range': raggio
+        'range': raggio,
+        'room': stanze,
+        'bath': bagni
       },
       success: function success(data) {
         $('#contenitore-appartamenti').empty();
@@ -16204,7 +16208,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolean/progetto-finale/airbnb-gruppo-3/resources/js/search.js */"./resources/js/search.js");
+=======
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\progettoairbnb\airbnb-gruppo-3\resources\js\search.js */"./resources/js/search.js");
+>>>>>>> backed-filtri
 
 
 /***/ })

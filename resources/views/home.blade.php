@@ -20,6 +20,8 @@
                             <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
                             <input type="hidden" name="longitude" class="form-control" id="longitude" value="{{old('longitude')}}">
                             <input type="hidden" name="range" class="form-control" id="range" value="20">
+                            <input type="hidden" name="room" class="form-control" id="room" value="1">
+                            <input type="hidden" name="bath" class="form-control" id="bath" value="1">
                         </div>
                 </form>
             </div>
