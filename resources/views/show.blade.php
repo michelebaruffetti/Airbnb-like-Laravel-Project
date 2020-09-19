@@ -113,7 +113,7 @@
                             @endauth
 
                             @guest
-                                <input type="email" name="email" class="form-control form-control-messaggi my-email" id="mail" placeholder="E-mail" value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control form-control-messaggi" id="mail" placeholder="E-mail" value="{{ old('email') }}">
                                 @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
