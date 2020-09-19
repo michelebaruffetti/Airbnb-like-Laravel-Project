@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
 @section('content')
-    @if (session('succes_message'))
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-1">
+                @if (session('succes_message'))
         <div class="alert alert-succes">
             {{session('succes_message')}}
         </div>
@@ -34,6 +37,10 @@
                <input id="nonce" name="payment_method_nonce" type="hidden" />
                <button class="button" type="submit"><span>Test Transaction</span></button>
     </form>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('script')
     <script src="https://js.braintreegateway.com/web/dropin/1.24.0/js/dropin.min.js"></script>
