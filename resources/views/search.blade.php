@@ -131,7 +131,7 @@
         <script src="{{ asset('js/autocomplete.js') }}" charset="utf-8"></script>
         <script src="{{ asset('js/search.js') }}" charset="utf-8"></script>
         <script id="template-apartment" type="text/x-handlebars-template">
-            <a href="{{ route('show',['apartment'=> $apartment->id])}}">
+            <a href="{{ asset('show')}}/@{{id_apartment}}">
                 <div class="col col-12  d-lg-flex mt-4 apartment-container">
                     <div id="img-wrap" class="col-lg-4 col-12 img-wrap"
                          @{{#if url_image}}

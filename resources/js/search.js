@@ -66,7 +66,8 @@ $(document).ready(function(){
                         url_image: data.response[i].image_url,
                         title: data.response[i].title,
                         description: data.response[i].description,
-                        services: data.response[i].services
+                        services: data.response[i].services,
+                        id_apartment: data.response[i].id
                     };
                     var sentinella = 0;
                     for (var j = 0; j < data.response[i].services.length; j++) {

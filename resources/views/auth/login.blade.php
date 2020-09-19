@@ -17,7 +17,7 @@
                                     <label for="email" class="no-outline col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="email" type="email" class="w3-input w-75 w3-border-0" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="email" type="email" class="w3-input w-75 w3-border-0 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                                     <label for="password" class="no-outline col-form-label text-md-right">{{ __('Password') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                <input id="password" type="password" class="w3-input w-75 w3-border-0 w-75" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="w3-input w-75 w3-border-0 w-75 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

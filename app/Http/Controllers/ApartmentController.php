@@ -44,7 +44,7 @@ class ApartmentController extends Controller
         $apartment = Apartment::find($id);
 //se l'$utente loggato non è il proprietario dell'appartamento non conto la view
         $utente = Auth::id();
-        if (!$apartment->user_id == $utente) {
+        if ($apartment && (!$apartment->user_id == $utente)) {
             DB::table('apartments')->where('id', $id)->increment('views', 1);
         }
 

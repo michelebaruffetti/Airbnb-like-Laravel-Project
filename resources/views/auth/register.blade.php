@@ -18,7 +18,7 @@
                                     <label for="name" class="no-outline col-form-label text-md-right">{{ __('Name') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="name" type="text" class="w3-input w3-border-0" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="w3-input w3-border-0 form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                                     <label for="lastname" class="no-outline col-form-label text-md-right">{{ __('Lastname') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="lastname" type="text" class="w3-input w3-border-0" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                    <input id="lastname" type="text" class="w3-input w3-border-0 form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
 
                                     @error('lastname')
                                         <span class="invalid-feedback" role="alert">
@@ -46,10 +46,10 @@
                         <div class="row mt-5">
                             <div class="form-group col-12">
                                 <div class="contenitore-label">
-                                    <label for="birthday" class="w3-input w3-border-0" class="col-form-label text-md-right">{{ __('Date Of Birth') }}</label>
+                                    <label for="birthday" class="w3-input w3-border-0 col-form-label text-md-right">{{ __('Date Of Birth') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="birthday" class="w3-input w3-border-0 w-75" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
+                                    <input id="birthday" type="date" class="w3-input w3-border-0 w-75 form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
 
                                     @error('birthday')
                                         <span class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
                                     <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="email" type="email" class="w3-input w3-border-0 w-75" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="w3-input w3-border-0 w-75 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                                     <label for="password" class=" col-form-label text-md-right">{{ __('Password') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="password" type="password" class="w3-input w3-border-0 w-75" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    <input id="password" type="password" class="w3-input w3-border-0 w-75 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
                                     <label for="password-confirm" class="col-form-label text-md-right">{{ __('Confirm Password') }}</label>
                                 </div>
                                 <div class="contenitore-input">
-                                    <input id="password-confirm" type="password" class="w3-input w3-border-0 w-75" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    <input id="password-confirm" type="password" class="w3-input w3-border-0 w-75 form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
                         </div>
