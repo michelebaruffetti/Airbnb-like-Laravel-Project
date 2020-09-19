@@ -11,9 +11,6 @@
 
                             <input class="testo-ricerca" type="text"  id="form-address" name="address" value="{{old('address')}}" placeholder="In quale città vuoi andare?">
                         </div>
-                        <div class="col-4 offset-4 offset-md-0 col-md-2 d-flex mb-3">
-                            <button id="btn-cerca" type="submit" class="btn w-100 ">Cerca</button>
-                        </div>
                     </div>
                         {{-- form nascosto --}}
                         <div class="form-group">
@@ -23,6 +20,10 @@
                             <input type="hidden" name="room" class="form-control" id="room" value="1">
                             <input type="hidden" name="bath" class="form-control" id="bath" value="1">
                         </div>
+                        <div class="col-4 offset-4 offset-md-0 col-md-2 d-flex mb-3">
+                            <button id="btn-cerca" type="submit" class="btn w-100 ">Cerca</button>
+                        </div>
+                
                 </form>
             </div>
     </div>

@@ -26,10 +26,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7f25fd8a42.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js">
@@ -42,7 +40,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="logo-wrap d-flex align-items-center h-100">
-                        <img class="img-fluid" src="{{asset('/storage/logo/Boolbnblogo.png')}}" alt="logo">
+                        <img class="img-fluid" src="{{asset('img/logo.png')}}" alt="logo">
                     </div>
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>

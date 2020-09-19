@@ -30,7 +30,7 @@
                     <!-- form indirizzo -->
                     <div class="form-group">
                         <label for="form-address">Indirizzo</label>
-                        <input type="search" class="form-control w-50" id="form-address w-50" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
+                        <input type="search" class="form-control w-50" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
                     </div>
                     <div class="form-group">
                         <input type="hidden" name="latitude" class="form-control w-50" id="latitude" value="{{old('latitude')}}">
