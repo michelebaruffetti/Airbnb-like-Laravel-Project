@@ -48,6 +48,16 @@
                         <img class="img-fluid img-appartamento" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg" alt="immagine mancante">
                     @endif
                 </div>
+                <div class="d-flex pt-3">
+                    <a value="Modifica"  href="{{ route('admin.apartments.edit',['apartment'=> $apartment->id])}}" class="bottone-pieno btn-crud" type="button">
+                        Modifica
+                    </a>
+                    <form autocomplete="off" class="bottone-pieno btn-crud ml-3" type="button" action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id]) }}"method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class="myinput text-white" type="submit" value="Elimina">
+                    </form>
+                </div>
             </div>
             <div class="col-12 col-lg-2">
                 <div class="dettagli-camera d-flex align-items-center flex-lg-column h-100 w-100 p-2 mt-2 mt-lg-0">
@@ -72,7 +82,7 @@
     </div>
 
     {{-- sezione descrizione --}}
-    <div class="container px-0 mt-3">
+    <div class="container px-0 mt-2">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="pt-4 mt-4" id="descrizione-appartamento">
@@ -105,46 +115,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-    {{-- sponsorizzazioni blu --}}
-    <div class="container px-0 mt-5">
-        @if ($apartment->status == 1)
-        <div class="row d-flex justify-content-center">
-            <div class="col-12 col-lg-10">
-                <h3 class="h4 mt-3">Incrementa le visite sponsorizzando il tuo appartamento</h3>
-            </div>
-        </div>
-            @foreach ($sponsors as $sponsor)
-                <div class="row ">
-                    <div class="col-12 col-lg-10 offset-lg-1">
-                        <a href="{{Route('admin.payment', ['apartment' => $apartment->id, 'sponsor' => $sponsor->id])}}">
-                            <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                                <h5>Prezzo: {{$sponsor->price}}</h5>
-                                <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-        @else
-            <div class="row d-flex justify-content-center">
-                <div class="col-12 col-lg-10">
-                    <h3 class="h4 mt-3">Attiva il tuo appartamento per poterlo sponsorizzare</h3>
-                </div>
-            </div>
-            @foreach ($sponsors as $sponsor)
-                <div class="row ">
-                    <div class="col-12 col-lg-10 offset-lg-1">
-                            <div class="promozione rounded border border-color-grey py-2 mt-1 mb-1 text-center bg-info">
-                                <h5>Prezzo: {{$sponsor->price}}</h5>
-                                <span>Metti in evidenza il tuo appartamento per {{$sponsor->description}} ore</span>
-                            </div>
-                    </div>
-                </div>
-            @endforeach
-        @endif
     </div>
 
     {{-- nuove card --}}
