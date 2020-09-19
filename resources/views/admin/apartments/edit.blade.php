@@ -78,13 +78,13 @@
                 checked
                 @endif>
                 <label class="radio-label-form" for="is_active_yes">
-                    <i class="far fa-eye"></i><span>Visibile nelle ricerche</span>
+                    <i class="far fa-eye"></i><span> Visibile nelle ricerche</span>
                 </label>
-                <input class="radio" type="radio" name="status" id="is_active_no" value="0" @if(!$apartment->status==1)
+                <input class="radio ml-3" type="radio" name="status" id="is_active_no" value="0" @if(!$apartment->status==1)
                 checked
                 @endif>
                 <label class="radio-label-form" for="is_active_no">
-                    <i class="far fa-eye-slash"></i><span>Non visibile nelle ricerche</span>
+                    <i class="far fa-eye-slash"></i><span> Non visibile nelle ricerche</span>
                 </label>
                 </div>
 
@@ -112,6 +112,9 @@
                     @endforeach
                 </div>
                 <button type="submit" class="btn bottone-pieno">Salva</button>
+                <a value="Visualizza" href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}" id="my-btn" class="btn btn-outline-danger" type="button">
+                    Annulla
+                </a>
             </form>
         </div>
     </div>

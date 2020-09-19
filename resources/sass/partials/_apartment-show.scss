@@ -63,14 +63,43 @@ nobr.tag-servizi {
     color: white;
     background-color: $colore_primario;
     border: 1px solid $colore_primario;
-    padding: 8px 12px;
+    padding: 7px 12px;
     border-radius: 7px;
     font-weight: 500;
 }
 
 .bottone-pieno:hover {
     background-color: rgba(249, 66, 58, 0.7);
+    color: white;
 
+}
+
+.sponsor-inattivo {
+    opacity: 0.5;
+    cursor: default;
+    a:hover {
+        background-color: $colore_primario;
+        color: white;
+    }
+}
+
+.card:hover.sponsor-inattivo {
+    opacity: 0.5;
+}
+
+.btn-crud {
+    padding: 2px 5px;
+}
+
+#my-btn.btn-outline-danger {
+    color: $colore_primario;
+    border-color: $colore_primario;
+}
+
+#my-btn.btn-outline-danger:hover {
+    color: #fff;
+    background-color: $colore_primario;
+    border-color: $colore_primario;
 }
 
 // Small devices (landscape phones, less than 768px)
