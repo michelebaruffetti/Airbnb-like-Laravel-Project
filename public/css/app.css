@@ -12106,3 +12106,8 @@ input[type=radio].search {
   border-radius: 7px;
 }
 
+.img-preview-apartment {
+  max-width: 40%;
+  height: auto;
+}
+

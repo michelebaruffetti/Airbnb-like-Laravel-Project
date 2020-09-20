@@ -67,6 +67,12 @@
                 <div class="form-group">
                     <label for="immagine">Immagine</label>
                     <input type="file" name="image" id="immagine" class="form-control-file">
+                    @if ($apartment->image_url)
+                    <p>Immagine presente </p>
+                    <img src="{{ asset('storage/' . $apartment->image_url )}}" class="img-preview-apartment">
+                @else
+                    <p>Immagine non presente</p>
+                @endif
                 </div>
 
                 {{-- <div class="">
