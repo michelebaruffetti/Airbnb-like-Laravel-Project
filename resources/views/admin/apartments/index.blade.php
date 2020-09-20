@@ -30,7 +30,7 @@
                         <a href="{{ route('admin.apartments.show',['apartment'=> $apartment->id])}}"
                             class="title h4 text-uppercase">{{$apartment->title}}</a>
                             {{-- per troncare c'è un comando da terminale da lanciare => composer require laravel/helpers poi riavviare l'artisan serve--}}
-                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 100, $end = '...')}}</p>
+                        <p class="paragrafo">{{str_limit($apartment->description, $limit = 450, $end = '...')}}</p>
                         <div class="options d-flex justify-content-between align-items-center">
                             <div class="tags">
                                 @forelse ($apartment->services as $service)
