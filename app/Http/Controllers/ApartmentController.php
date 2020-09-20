@@ -18,6 +18,7 @@ class ApartmentController extends Controller
      //salva il messaggio
     public function sendmessage(Request $request, $id)
     {
+        // Validazione del form messaggi
         $request->validate([
             'name' => 'required|max:255',
             'lastname' => 'required|max:2000',
@@ -49,6 +50,7 @@ class ApartmentController extends Controller
         }
 
         if($apartment){
+            // se c'è qualcuno di autenticato recupero i suoi dati che passo alla view ( email)
             if (Auth::check()) {
                 $user = Auth::user();
                 $data = [
@@ -56,6 +58,7 @@ class ApartmentController extends Controller
                     'sponsors' => $sponsors,
                     'user' => $user
                 ];
+            // altrimenti passo solo i dati dell'appartamento
             }else{
                 $data = [
                     'apartment' => $apartment,

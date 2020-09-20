@@ -25,18 +25,18 @@ class ApartmentController extends Controller
      *
      */
 
-    // public function __construct() {
-    //     $this->middleware('auth'); //->except('index') oppure ->only('index')
-    // }
-
 
      public function index()
     {
+        // Recupero id utente autenticato
         $id = Auth::id();
+        // recupero appartamenti dell'utente loggato
         $apartments = Apartment::all()->where('user_id', $id);
+        // Salviamo i dati recuperati in data
         $data = [
             'apartments' => $apartments,
         ];
+        // restituisco la view index passando i dati
         return view('admin.apartments.index', $data);
     }
 
@@ -47,7 +47,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
+        // Recupero tutti i servizi
         $services = Service::all();
+        // restituisco la view con i dati relativi ai servizi
         return view('admin.apartments.create', compact('services'));
     }
 
@@ -59,6 +61,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        // validazione dei dati inseriti nel form creazione appartamento
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:2000',
@@ -67,20 +70,23 @@ class ApartmentController extends Controller
             'square_meters' => 'required|numeric|max:1000',
             'image' => 'image|dimensions:min_width=800,min_height=600'
         ]);
-
+        // recupero l'id dell'utente loggato
         $id = Auth::id();
+        // salvo i dati del form
         $dati = $request->all();
+        // Inserisco l'id dell'utente loggato nello user id dell'appartamento in questione
         $dati['user_id'] = $id;
-
+        // Verifico se l'immagine dell'appartamento è stata caricata
         if(isset($dati['image'])) {
             //carico immagine
             $img_path = Storage::put('uploads', $dati['image']);
             $dati['image_url'] = $img_path;
         }
-
+        // creo un nuovo appartamento
         $apartment = new Apartment();
         $apartment->fill($dati);
         $apartment->save();
+        // se i servizi non sono vuoti li sincronizzo
         if(!empty($dati['services'])) {
          $apartment->services()->sync($dati['services']);
         }
@@ -95,15 +101,21 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+        // Recupero l'id dell'utente loggato
         $id_user = Auth::id();
+        // Recupero tutti i dati relativi alle sponsorizzazioni
         $sponsors = Sponsor::all();
+        // recupero l'appartamento dell'utente loggato
         $apartment = Apartment::find($id);
+        // se l'utente è il proprietario e l'appartamento esiste
         if($apartment && ($apartment->user_id == $id_user)){
+            // recupero i dati
             $data = [
                 'apartment' => $apartment,
                 'sponsors' => $sponsors
             ];
             return view('admin.apartments.show', $data);
+            // altrimenti restituisco pagina 404
         }else{
              return abort('404');
         }
@@ -186,6 +198,7 @@ class ApartmentController extends Controller
 
 
     public function statistics($id){
+        // recupero dati per creare dati statistici
         $apartment = Apartment::find($id);
         $messaggi_appartamento_corrente = DB::table('messages')->where('apartment_id', $id)->count();
 
@@ -209,27 +222,36 @@ class ApartmentController extends Controller
 
 
     public function formPagamento(Request $request){
+        // recupero la data odierna con l'orario
         $oggi = Carbon::now();
+        // verifico se l'appartamento è sponsorizzato
         $apartment = DB::table('apartments')
             ->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
             ->where([
                 ['end_date', '>', $oggi],
                 ['apartment_id', '=', $request->apartment]
             ])->get();
-
+        // se l'appartamento è gia sponsorizzato
         if(!$apartment->isEmpty()){
             return back()->with('message_sponsor_esistente', 'appartamento già sponsorizzato');
+        // altrimenti procedo alla sponsorizzazione
         }else{
+            // recuperiamo i dati dell'appartamento
             $apartment = Apartment::find($request->apartment);
+            // recupero il proprietario
             $user = User::find($apartment->user_id);
+            // recupero la sponsorizzazione scelta
             $sponsor = Sponsor::find($request->sponsor);
+            // apro il gateway per braintree
             $gateway = new \Braintree\Gateway([
                 'environment' => config('services.braintree.environment'),
                 'merchantId' => config('services.braintree.merchantId'),
                 'publicKey' => config('services.braintree.publicKey'),
                 'privateKey' => config('services.braintree.privateKey')
             ]);
+            // genero  il token
             $token = $gateway->ClientToken()->generate();
+            // Gli passiamo i dati
             $data = [
                 'token' => $token,
                 'apartment' => $apartment,
@@ -244,19 +266,23 @@ class ApartmentController extends Controller
     }
 
 
-
+    // funzione processo di pagamento
     public function transazione(Request $request){
+        // Recuperiamo l'appartamento
         $apartment = Apartment::find($request->apartment);
+        // Recupero la sponsorizzazione scelta
         $sponsor = Sponsor::find($request->sponsor);
-
+        // apro il gateway braintree
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
+        // Recupero la cifra da pagare
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
+        // Trasmetto i dati di pagamento a braintree
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
@@ -269,18 +295,19 @@ class ApartmentController extends Controller
             'submitForSettlement' => true
             ],
         ]);
-
+            // Se la transazione è andata a buon fine
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
+            // Calcolo la end date della sponsorizzazione
             $endDate = Carbon::now()->addDays($sponsor->duration);
             $now = Carbon::now();
             Apartment::find($apartment->id)->sponsors()->attach($sponsor->id, [
                 'created_at' => $now,
                 'end_date' => $endDate
             ]);
-            
+            // restituisco l'id della transazione
             return redirect()->route('admin.apartments.show', ['apartment' => $apartment->id])->with('succes_message', 'pagamento andato a buon fine, ID transazione:' . $transaction->id );
+            // altrimenti restituisco l'errore
         } else {
             $errorString = "";
 
@@ -293,33 +320,4 @@ class ApartmentController extends Controller
 
     }
 
-    // public function uploadImage(Request $request) {
-    //     if ($request->hasFile('image')) {
-    //         //upload avatar
-    //         $filename = $request->image->getClientOriginalName();
-    //         //richiamo la funzione che cancella gli avatar precedenti
-    //         //se l'avatar è già presente, cancellalo
-    //         $this->deleteOldImage();
-    //         //carica l'avatar (se è presente lo cancella e carica la nuova foto, se non è presente carica la foto e basta)
-    //         $request->image->storeAs('image/appartamenti', $filename, 'public');
-    //         auth()->user()->update(['image_url' => $filename]);
-    //         //fine upload avatar
-
-    //         //mostro messaggio di ok se l'immagine è caricata con successo
-    //         //metodo 2 stackoverflow
-    //         // return redirect()->back()->with('success', 'Hai caricato la tua immagine'); //messaggio ok
-    //     }
-
-    //     // return redirect()->back()->with('error', 'Qualcosa è andato storto'); // messaggio errore
-
-
-    // }
-
-    // // funzione per sovrascrivere i vecchi avatar
-    // // se avatar già presente, cancellalo
-    // protected function deleteOldImage() {
-    //     if (auth()->user()->avatar){
-    //         Storage::delete('/public/image/' . auth()->user()->avatar);
-    //     }
-    // }
 }

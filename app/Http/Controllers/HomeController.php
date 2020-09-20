@@ -54,6 +54,7 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
+        // recupero i dati del form
         $request->validate([
             'address' => 'required'
         ]);

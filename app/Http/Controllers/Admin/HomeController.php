@@ -15,7 +15,9 @@ class HomeController extends Controller
     }
 
     public function readmessage(){
+        // recupero l'id dell'utente loggato
         $id = Auth::id();
+        // recupero i messaggi legati a questo utente
         $messages = DB::table('apartments')
             ->join('messages', 'apartments.id', '=', 'messages.apartment_id')
             ->where('user_id', $id)

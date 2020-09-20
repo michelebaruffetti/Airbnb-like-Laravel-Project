@@ -11957,13 +11957,12 @@ p.address.show-paragraph {
   font-weight: 600;
 }
 
-<<<<<<< HEAD
-#map {
-  height: 300px;
-=======
 #app > main > div.content-wrap > div:nth-child(2) {
   min-height: 540px;
->>>>>>> dettagli
+}
+
+#map {
+  height: 300px;
 }
 
 #selettore-footer {
