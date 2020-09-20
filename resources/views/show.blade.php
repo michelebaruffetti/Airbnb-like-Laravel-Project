@@ -85,7 +85,34 @@
                         </ul>
                     </div>
                 </div>
-
+            </div>
+            <div class="container mt-3 mb-5">
+                <div class="row intestazione">
+                    <div class="col-12 offset-lg-1 col-lg-10 mt-5 mb-3">
+                        <h3 class="show-dettagli">Localizzazione appartamento</h3>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="promozione rounded border border-color-grey mt-1 mb-1 text-center">
+                            <div id="map"></div>
+                            <script>
+                                var map = L.map('map').setView(['{{$apartment->latitude}}', '{{$apartment->longitude}}'], 13);
+        
+                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                }).addTo(map);
+        
+                                L.marker(['{{$apartment->latitude}}', '{{$apartment->longitude}}']).addTo(map)
+                                    .bindPopup('{{$apartment->address}}')
+                                    .openPopup();
+                            </script>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="col-12 col-lg-10 mt-4 h-100">
             {{-- invia messaggio --}}
                 <div id="invia-messaggio" class="mt-3 messaggio pt-5">
                     <h5 class="show-dettagli">Contattaci</h5>
@@ -133,7 +160,7 @@
     </div>
 
     {{-- sezione mappa --}}
-    <div class="container mt-3 mb-5">
+    {{-- <div class="container mt-3 mb-5">
         <div class="row intestazione">
             <div class="col-12 offset-lg-1 col-lg-10 mt-5 mb-3">
                 <h3 class="show-dettagli">Localizzazione appartamento</h3>
@@ -158,7 +185,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 
 </div>
 

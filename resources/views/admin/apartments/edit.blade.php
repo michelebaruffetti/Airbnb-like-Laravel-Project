@@ -80,18 +80,23 @@
                 </div> --}}
 
                 <div class="form-group">
-                    <input class="radio" type="radio" name="status" id="is_active_yes" value="1" @if($apartment->status==1)
+                    <div class="col-12 col-lg-6 px-0 d-sm-inline">
+                        <input class="radio" type="radio" name="status" id="is_active_yes" value="1" @if($apartment->status==1)
                 checked
                 @endif>
                 <label class="radio-label-form" for="is_active_yes">
                     <i class="far fa-eye"></i><span> Visibile nelle ricerche</span>
                 </label>
-                <input class="radio ml-3" type="radio" name="status" id="is_active_no" value="0" @if(!$apartment->status==1)
+                    </div>
+                <div class="col-12 col-lg-6 px-0 d-sm-inline ml-sm-3">
+                    <input class="radio" type="radio" name="status" id="is_active_no" value="0" @if(!$apartment->status==1)
                 checked
                 @endif>
                 <label class="radio-label-form" for="is_active_no">
                     <i class="far fa-eye-slash"></i><span> Non visibile nelle ricerche</span>
                 </label>
+                </div>
+                
                 </div>
 
 
