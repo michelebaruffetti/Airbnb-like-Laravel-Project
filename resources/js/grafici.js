@@ -4,14 +4,13 @@ $(document).ready(function() {
 //grafico
     var messaggi = $('#messaggi_ricevuti').text();
     var visualizzazioni = $('#visualizzazioni').text();
-
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Messaggi', 'Visualizzazioni'],
         datasets: [{
-            label: 'STATISTICHE',
+            label: ['Messaggi', 'Visualizzazioni'],
             data: [messaggi, visualizzazioni],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -42,5 +41,4 @@ $(document).ready(function() {
         }
     }
 });
-
 });
