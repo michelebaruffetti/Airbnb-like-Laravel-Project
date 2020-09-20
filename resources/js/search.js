@@ -61,11 +61,15 @@ $(document).ready(function(){
                 // var sentinella = 0;
                 for (var i = 0; i < data.response.length; i++) {
                     var servizi_appartamento = [];
+                    var descr = data.response[i].description;
+                    if (descr.length > 450) {
+                        var descr = descr.substring(0,450)+'...';
+                    }
                     // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
                     var context = {
                         url_image: data.response[i].image_url,
                         title: data.response[i].title,
-                        description: data.response[i].description,
+                        description: descr,
                         services: data.response[i].services,
                         id_apartment: data.response[i].id
                     };

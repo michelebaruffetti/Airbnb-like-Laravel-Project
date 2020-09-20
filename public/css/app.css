@@ -11751,7 +11751,6 @@ nobr.tag-servizi {
 #invia-messaggio {
   display: block;
   width: 100%;
-  height: 36px;
   padding: 6px 9px;
   font-size: 15px;
   font-weight: 400;
@@ -11806,7 +11805,6 @@ nobr.tag-servizi {
 #invia-messaggio .form-control-messaggi {
   display: block;
   width: 100%;
-  height: 36px;
   padding: 6px 9px;
   font-size: 15px;
   font-weight: 400;
@@ -11954,6 +11952,10 @@ p.address.show-paragraph {
   font-weight: 600;
 }
 
+#map {
+  height: 300px;
+}
+
 #selettore-footer {
   border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
@@ -12093,9 +12095,5 @@ input[type=radio].search {
   background-color: #f9423a;
   border: 1px solid #f9423a;
   border-radius: 7px;
-}
-
-#map {
-  height: 300px;
 }
 

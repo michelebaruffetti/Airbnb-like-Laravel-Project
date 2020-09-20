@@ -6,7 +6,6 @@
     <div class="row">
         <div class="col-sm-12 col-lg-6 offset-lg-3 text-center">
                 @if(session()->has('message_sponsor_esistente'))
-                {{-- <div class="alert alert-success"> --}}
                     <div id='alert-message' class="alert alert-danger alert-dismissible fade show" role="alert">
                             {{ session()->get('message_sponsor_esistente') }}
                         <button id='button-message' type="button" class="close d-block" data-dismiss="alert" aria-label="Close">
@@ -15,7 +14,6 @@
                     </div>
                 @endif
                 @if(session()->has('succes_message'))
-                {{-- <div class="alert alert-success"> --}}
                     <div id='alert-message' class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ session()->get('succes_message') }}
                         <button id='button-message' type="button" class="close d-block" data-dismiss="alert" aria-label="Close">

@@ -20,7 +20,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="titolo">Titolo</label>
-                        <input type="text" name="title" class="form-control" id="titolo" placeholder="Titolo inserzione" value="{{ old('title') }}">
+                        <input type="text" required name="title" class="form-control" id="titolo" placeholder="Titolo inserzione" value="{{ old('title') }}">
                     </div>
                     <div class="form-group">
                         <label for="testo">Descrizione</label>
@@ -30,7 +30,7 @@
                     <!-- form indirizzo -->
                     <div class="form-group">
                         <label for="form-address">Indirizzo</label>
-                        <input type="search" class="form-control" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
+                        <input type="search" required class="form-control" id="form-address" name="address" value="{{old('address')}}" placeholder="Inserisci il tuo indirizzo">
                     </div>
                     <div class="form-group">
                         <input type="hidden" name="latitude" class="form-control" id="latitude" value="{{old('latitude')}}">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="mq">Dimensioni</label>
-                        <input type="number" name="square_meters" class="form-control" id="mq" placeholder="Inserisci le dimensioni in mq dell'appartamento..." value="{{ old('square_meters') }}">
+                        <input type="number" required min="0" name="square_meters" class="form-control" id="mq" placeholder="Inserisci le dimensioni in mq dell'appartamento..." value="{{ old('square_meters') }}">
                     </div>
                     <div class="form-group">
                         <label for="immagine">Immagine</label>
