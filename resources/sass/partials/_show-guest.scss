@@ -16,4 +16,8 @@ p.address.show-paragraph {
     font-weight: 600;
 }
 
+#app > main > div.content-wrap > div:nth-child(2) {
+    min-height: 540px;
+}
+
 

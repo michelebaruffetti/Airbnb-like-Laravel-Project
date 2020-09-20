@@ -11773,6 +11773,10 @@ nobr.tag-servizi {
   font-size: 12px;
 }
 
+#content > main > div.content-wrap > div.container.px-0.mt-2 {
+  min-height: 540px;
+}
+
 @media (max-width: 767.98px) {
   .dettagli-camera i {
     font-size: 23px;
@@ -11952,6 +11956,10 @@ p.address.show-paragraph {
   color: #3c4858;
   font-size: 18px;
   font-weight: 600;
+}
+
+#app > main > div.content-wrap > div:nth-child(2) {
+  min-height: 540px;
 }
 
 #selettore-footer {
