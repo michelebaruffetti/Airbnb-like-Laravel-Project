@@ -37,7 +37,7 @@
                             @if ($apartment->image_url)
                                 <img class="card-img-top" src="{{asset('storage/' . $apartment->image_url)}}" alt="foto-appartamento">
                             @else
-                                <img class="card-img-top" src="https://image.freepik.com/vettori-gratuito/banner-di-twitch-offline-carino-con-gatto_23-2148588262.jpg" alt="No picture">
+                                <img class="card-img-top" src="https://www.vogelwarte.ch/elements/snippets/vds/static/assets/images/error.jpg" alt="No picture">
                             @endif
 
                           <div class="card-body">
