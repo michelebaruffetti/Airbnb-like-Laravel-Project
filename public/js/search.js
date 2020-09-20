@@ -16149,8 +16149,8 @@ $(document).ready(function () {
           var servizi_appartamento = [];
           var descr = data.response[i].description;
 
-          if (descr.length > 750) {
-            var descr = descr.substring(0, 550) + '...';
+          if (descr.length > 450) {
+            var descr = descr.substring(0, 450) + '...';
           } // per ognuno di essi disegnare in pagina una card utilizzando handlebars.
 
 
