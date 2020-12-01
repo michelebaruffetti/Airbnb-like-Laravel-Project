@@ -13,8 +13,8 @@
 <p align="center"><img  width="70%" src="https://github.com/michelebaruffetti/Airbnb-like-Laravel-Project/blob/main/project_screenshots/Boolbnb-screenshots-2.jpg"></p>
 
 <hr>
-<p align="center"><sub>Pagina iniziale con possibilità di Login o Registrazione</sub>
-<p align="center"><sub>Visualizzazione degli appartamenti sponsorizzati con avviso in altro a destra</sub> <br>
+<p align="center"><sub>Pagina iniziale con possibilità di Login o Registrazione</sub><br>
+<sub>Visualizzazione degli appartamenti sponsorizzati con avviso in altro a destra</sub> </p>
 <p align="center"><img  width="70%" src="https://github.com/michelebaruffetti/Airbnb-like-Laravel-Project/blob/main/project_screenshots/Boolbnb-screenshots-4.jpg"></p>
 
 <hr>
